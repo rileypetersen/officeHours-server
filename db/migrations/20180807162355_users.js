@@ -13,6 +13,7 @@ exports.up = function(knex, Promise) {
     table.text('long_description').notNullable();
     table.text('linkedin_url').notNullable().defaultTo('N/A');
     table.text('website_url').notNullable().defaultTo('N/A');
+    table.boolean('can_create_session').notNullable();
   });
 };
 

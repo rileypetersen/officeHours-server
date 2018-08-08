@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
     table.text('long_description').notNullable();
     table.text('logo_img_url').notNullable();
     table.text('website_url').notNullable().defaultTo('N/A');
+    table.boolean('hosts_can_create_sessions').notNullable();
   });
 };
 
