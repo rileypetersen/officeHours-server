@@ -11,10 +11,12 @@ exports.up = function(knex, Promise) {
     table.foreign('organization_id').references('organizations.id').onDelete('CASCADE');
     table.integer('session_id').notNullable();
     table.foreign('session_id').references('sessions.id').onDelete('CASCADE');
-    table.date('date').notNullable();
     table.text('location').notNullable();
     table.time('duration').notNullable();
     table.time('delay').notNullable();
+    table.text('topic_1').notNullable();
+    table.text('topic_2').notNullable();
+    table.text('topic_3').notNullable();
   });
 };
 
