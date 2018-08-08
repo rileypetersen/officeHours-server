@@ -7,9 +7,9 @@ exports.up = function(knex, Promise) {
     table.foreign('user_id').references('users.id').onDelete('CASCADE');
     table.string('name').notNullable();
     table.string('short_description').notNullable();
-    table.string('long_description').notNullable();
-    table.string('logo_img').notNullable();
-    table.string('website_url').notNullable().defaultTo('N/A');
+    table.text('long_description').notNullable();
+    table.text('logo_img_url').notNullable();
+    table.text('website_url').notNullable().defaultTo('N/A');
   });
 };
 

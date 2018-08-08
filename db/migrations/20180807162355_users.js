@@ -6,12 +6,12 @@ exports.up = function(knex, Promise) {
     table.string('first_name').notNullable();
     table.string('last_name').notNullable();
     table.string('user_name').notNullable();
-    table.string('profile_img').notNullable().defaultTo('');
+    table.text('profile_img_url').notNullable().defaultTo('');
     table.string('title').notNullable();
     table.string('short_description').notNullable();
-    table.string('long_description').notNullable();
-    table.string('linkedin_url').notNullable().defaultTo('N/A');
-    table.string('website_url').notNullable().defaultTo('N/A');
+    table.text('long_description').notNullable();
+    table.text('linkedin_url').notNullable().defaultTo('N/A');
+    table.text('website_url').notNullable().defaultTo('N/A');
   });
 };
 
