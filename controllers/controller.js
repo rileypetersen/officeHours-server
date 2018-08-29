@@ -3,13 +3,13 @@ module.exports = name => {
     
     class Controller {
         
-        static all(req, res, next) {
-            Model.all()
+        static index(req, res, next) {
+            Model.index()
                 .then(response => res.status(201).json({ [name]: response }))
         }
 
-        static one(req, res, next) {
-            Model.one(req.params.id)
+        static show(req, res, next) {
+            Model.show(req.params.id)
                 .then(response => res.status(201).json({ [name]: response }))
         }
 
