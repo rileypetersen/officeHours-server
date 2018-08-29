@@ -15,8 +15,8 @@ app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use('/api/users', usersRoutes);
 app.use('/api/organizations', organizationsRoutes);
-app.use('/api/organizations/:oid/meetings', meetingsRoutes);
-app.use('/api/organizations/:oid/meetings/:mid/sessions', sessionsRoutes);
+app.use('/api/organizations/:oid/sessions', sessionsRoutes);
+app.use('/api/organizations/:oid/sessions/:sid/meetings', meetingsRoutes);
 app.use('/api/organizations/:oid/tags', tagsRoutes);
 
 app.use((req, res) => {
