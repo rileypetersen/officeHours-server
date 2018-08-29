@@ -1,9 +1,9 @@
-const Controller = require('./controller.js')(`users`);
+const Controller = require('./Controller.js')(`Users`);
 const { usersModels } = require('../models');
 
 
 class Users extends Controller {
-  
+
   constructor(){
     super()
   } 
@@ -28,4 +28,4 @@ class Users extends Controller {
 };
 
 
-module.exports = users;
+module.exports = Users;
