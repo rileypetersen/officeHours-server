@@ -1,6 +1,6 @@
 module.exports = name => {
-    const Model = require(`../model/${ name }.controllers.js`)
-
+    const Model = require(`../models/${ name }.models.js`)
+    
     class Controller {
         
         static all(req, res, next) {
