@@ -26,12 +26,12 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  err = processErrorMessage(err)
+  err = processErrorMessage(err);
   const status = err.status || 500;
   const message = err.message || 'Internal Error.';
-  res.status(status).json({ message })
+  res.status(status).json({ message });
 });
 
 app.listen(port, () => console.log(`On port: ${port}`));
 
-module.exports = app
+module.exports = app;
