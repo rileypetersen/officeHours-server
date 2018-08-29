@@ -13,7 +13,7 @@ const { usersController } = require('../controllers')
 
 // router.patch('/:id', usersController.update)
 
-// router.delete('/:id', usersController.destroy)
+// router.delete('/:id', usersController.destroy) 
 
 
 module.exports = router
