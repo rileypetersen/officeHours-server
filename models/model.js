@@ -5,11 +5,11 @@ module.exports = (tableName) => {
 
     class Model {
 
-        static all() {
+        static index() {
             return db(tableName)
         }
 
-        static one(id) {
+        static show(id) {
             return db(tableName)
                 .where({ id })
                 .first()
