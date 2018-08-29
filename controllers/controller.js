@@ -14,7 +14,7 @@ module.exports = name => {
         }
 
         static create(req, res, next) {
-            Model.create(req.body.create)
+            Model.create(req.body)
                 .then(response => res.status(201).json({ [name]: response }))
         }
 
