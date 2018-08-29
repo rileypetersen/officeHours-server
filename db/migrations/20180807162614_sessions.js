@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
     table.integer('organization_id').notNullable();
     table.foreign('organization_id').references('organizations.organization_id').onDelete('CASCADE');
     table.date('date').notNullable();
+    table.time('start_time').notNullable();
     table.text('location').notNullable();
     table.time('duration').notNullable();
     table.time('delay').notNullable();
