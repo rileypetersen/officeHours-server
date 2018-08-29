@@ -22,15 +22,20 @@ The goal of DayWorker is to create a bridge between day laborers and those looki
 
 **POST /api/users/register**
 - Create a new user
-    - required fields in req.body.create:
+    - required fields in req.body:
 ```
 {
-    name,           // STRING
-    username,       // STRING
-    email,          // STRING
-    password,       // STRING
-    zipcode,        // INTEGER
-    phone           // STRING
+    user_type,              // string
+    first_name,             // string
+    last_name,              // string
+    user_name,              // string
+    profile_img_url,        // text
+    title,                  // string
+    short_description,      // string
+    long_description,       // text
+    linkedin_url,           // text
+    website_url,            // text
+    can_create_session      // boolean
 }
 ```
 
@@ -39,8 +44,8 @@ The goal of DayWorker is to create a bridge between day laborers and those looki
     - required fields in req.body:
 ```
 {
-    email,          // STRING
-    password,       // STRING
+    user_name,              // STRING
+    password,               // STRING
 }
 ```
 
@@ -49,12 +54,17 @@ The goal of DayWorker is to create a bridge between day laborers and those looki
     - at least one(1) of the following fields in body is required:
 ```
 {
-    name,           // STRING
-    username,       // STRING
-    email,          // STRING
-    password,       // STRING
-    zipcode,        // INTEGER
-    phone           // STRING
+    user_type,              // string
+    first_name,             // string
+    last_name,              // string
+    user_name,              // string
+    profile_img_url,        // text
+    title,                  // string
+    short_description,      // string
+    long_description,       // text
+    linkedin_url,           // text
+    website_url,            // text
+    can_create_session      // boolean
 }
 ```
 
