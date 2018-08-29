@@ -1,8 +1,9 @@
-const controller = require('./controller.js')(`users`);
+const Controller = require('./controller.js')(`users`);
 const { usersModels } = require('../models');
 
 
-class users extends controller {
+class Users extends Controller {
+  
   constructor(){
     super()
   } 
