@@ -7,7 +7,7 @@ const { usersController } = require('../controllers')
 
 // router.get('/:id', usersController.show)
 
-// router.post('/register', usersController.register)
+// router.post('/register', usersController.isValidUserCreate, usersController.create)
 
 // router.post('/login', usersController.login)
 
