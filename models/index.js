@@ -1,8 +1,8 @@
 module.exports = {
-    usersModel: require('./users.model'),
-    organizationsModel: require('./organizations.model'),
-    meetingsModel: require('./meetings.model'),
-    sessionsModel: require('./sessions.model'),
-    tagsModel: require('./tags.model')
+    UsersModel: require('./users.model'),
+    OrganizationsModel: require('./organizations.model'),
+    MeetingsModel: require('./meetings.model'),
+    SessionsModel: require('./sessions.model'),
+    TagsModel: require('./tags.model')
 }
     

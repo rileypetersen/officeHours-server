@@ -2,7 +2,7 @@ const Model = require('./model.js')(`users`);
 const knex = require('../db/knex');
 
 
-class usersModel extends Model {
+class UsersModel extends Model {
   constructor(){
     super()
   }
@@ -22,4 +22,4 @@ class usersModel extends Model {
 }
 
 
-module.exports= usersModel
+module.exports= UsersModel

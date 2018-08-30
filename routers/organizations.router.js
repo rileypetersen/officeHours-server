@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
-const { organizationsController } = require('../controllers')
+const { OrganizationsController } = require('../controllers')
 
 
-// router.get('/', organizationsController.index)
+// router.get('/', OrganizationsController.index)
 
-// router.get('/:oid', organizationsController.show)
+// router.get('/:oid', OrganizationsController.show)
 
-// router.post('/', organizationsController.create)
+// router.post('/', OrganizationsController.create)
 
-// router.patch('/:oid', organizationsController.update)
+// router.patch('/:oid', OrganizationsController.update)
 
-// router.delete('/:oid', organizationsController.destroy)
+// router.delete('/:oid', OrganizationsController.destroy)
 
 
 module.exports = router

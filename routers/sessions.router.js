@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
-const { sessionsController } = require('../controllers')
+const { SessionsController } = require('../controllers')
 
 
-// router.get('/', sessionsController.index)
+// router.get('/', SessionsController.index)
 
-// router.get('/:sid', sessionsController.show)
+// router.get('/:sid', SessionsController.show)
 
-// router.post('/', sessionsController.create)
+// router.post('/', SessionsController.create)
 
-// router.patch('/:sid', sessionsController.update)
+// router.patch('/:sid', SessionsController.update)
 
-// router.delete('/:sid', sessionsController.destroy)
+// router.delete('/:sid', SessionsController.destroy)
 
 
 module.exports = router

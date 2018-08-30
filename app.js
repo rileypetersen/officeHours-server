@@ -4,7 +4,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
-const { usersRouter, organizationsRouter, meetingsRouter, sessionsRouter, tagsRouter } = require('./routers');
+const { UsersRouter, OrganizationsRouter, MeetingsRouter, SessionsRouter, TagsRouter } = require('./routers');
 const processErrorMessage = require('./middleware/errors');
 require('dotenv').config();
 
@@ -13,11 +13,11 @@ app.disable('x-powered-by');
 app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: '50mb' }));
 
-app.use('/api/users', usersRouter);
-app.use('/api/organizations', organizationsRouter);
-app.use('/api/organizations/:oid/sessions', sessionsRouter);
-app.use('/api/organizations/:oid/sessions/:sid/meetings', meetingsRouter);
-app.use('/api/organizations/:oid/tags', tagsRouter);
+app.use('/api/users', UsersRouter);
+app.use('/api/organizations', OrganizationsRouter);
+app.use('/api/organizations/:oid/sessions', SessionsRouter);
+app.use('/api/organizations/:oid/sessions/:sid/meetings', MeetingsRouter);
+app.use('/api/organizations/:oid/tags', TagsRouter);
 
 app.use((req, res) => {
   const status = 404;

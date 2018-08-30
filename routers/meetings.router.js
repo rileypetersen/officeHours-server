@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
-const { meetingsController } = require('../controllers')
+const { MeetingsController } = require('../controllers')
 
 
-// router.get('/', meetingsController.index)
+// router.get('/', MeetingsController.index)
 
-// router.get('/:mid', meetingsController.show)
+// router.get('/:mid', MeetingsController.show)
 
-// router.post('/', meetingsController.create)
+// router.post('/', MeetingsController.create)
 
-// router.patch('/:mid', meetingsController.update)
+// router.patch('/:mid', MeetingsController.update)
 
-// router.delete('/:mid', meetingsController.destroy)
+// router.delete('/:mid', MeetingsController.destroy)
 
 
 module.exports = router

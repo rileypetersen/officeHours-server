@@ -1,19 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const { usersController } = require('../controllers')
+const { UsersController } = require('../controllers')
 
 
-router.get('/', usersController.index) 
+router.get('/', UsersController.index) 
 
-// router.get('/:id', usersController.show)
+// router.get('/:id', UsersController.show)
 
-// router.post('/register', usersController.isValidUserCreate, usersController.create)
+// router.post('/register', UsersController.isValidUserCreate, UsersController.create)
 
-// router.post('/login', usersController.login)
+// router.post('/login', UsersController.login)
 
-// router.patch('/:id', usersController.update)
+// router.patch('/:id', UsersController.update)
 
-// router.delete('/:id', usersController.destroy) 
+// router.delete('/:id', UsersController.destroy) 
 
 
 module.exports = router

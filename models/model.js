@@ -6,24 +6,24 @@ module.exports = (tableName) => {
     class Model {
 
         static index() {
-            return db(tableName)
+            return knex(tableName)
         }
 
         static show(id) {
-            return db(tableName)
+            return knex(tableName)
                 .where({ id })
                 .first()
         }
 
         static create(body) {
-            return db(tableName)
+            return knex(tableName)
                 .insert(body)
                 .returning('*')
                 .then(([res]) => res)
         }
 
         static update(id, body) {
-            return db(tableName)
+            return knex(tableName)
                 .update(body)
                 .where({ id })
                 .returning('*')
@@ -31,7 +31,7 @@ module.exports = (tableName) => {
         }
 
         static destroy(id) {
-            return db(tableName)
+            return knex(tableName)
                 .del()
                 .where({ id })
                 .returning('*')

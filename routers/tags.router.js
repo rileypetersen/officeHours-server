@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
-const { tagsController } = require('../controllers')
+const { TagsController } = require('../controllers')
 
 
-// router.get('/', tagsController.index)
+// router.get('/', TagsController.index)
 
-// router.get('/:tid', tagsController.show)
+// router.get('/:tid', TagsController.show)
 
-// router.post('/', tagsController.create)
+// router.post('/', TagsController.create)
 
-// router.patch('/:tid', tagsController.update)
+// router.patch('/:tid', TagsController.update)
 
-// router.delete('/:tid', tagsController.destroy)
+// router.delete('/:tid', TagsController.destroy)
 
 
 module.exports = router

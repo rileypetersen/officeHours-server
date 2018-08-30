@@ -1,11 +1,11 @@
 const Controller = require('./Controller.js')(`Users`);
-const { usersModels } = require('../models');
+const { UsersModels } = require('../models');
 
 
-class Users extends Controller {
-
+class UsersController extends Controller {
   constructor(){
     super()
+    console.log('baby ctrl?')
   } 
 
   static isValidUserCreate(req, res, next) {
@@ -33,4 +33,4 @@ class Users extends Controller {
 };
 
 
-module.exports = Users;
+module.exports = UsersController;
