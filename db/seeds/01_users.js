@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('users').insert([
         {
-          user_id: 1,
+          id: 1,
           user_type: 'organizer',
           first_name: 'Nick',
           last_name: 'Ellingson',
@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: true
         },
         {
-          user_id: 2,
+          id: 2,
           user_type: 'organizer',
           first_name: 'Katie',
           last_name: 'Rice',
@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: true
         },
         {
-          user_id: 3,
+          id: 3,
           user_type: 'host',
           first_name: 'Audie',
           last_name: ' Koss',
@@ -47,7 +47,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: false
         },
         {
-          user_id: 4,
+          id: 4,
           user_type: 'host',
           first_name: 'Faustino',
           last_name: 'King',
@@ -61,7 +61,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: false
         },
         {
-          user_id: 5,
+          id: 5,
           user_type: 'host',
           first_name: 'Katelin',
           last_name: ' Mertz',
@@ -75,7 +75,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: false
         },
         {
-          user_id: 6,
+          id: 6,
           user_type: 'member',
           first_name: 'Telly ',
           last_name: 'Rohan',
@@ -89,7 +89,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: false
         },
         {
-          user_id: 7,
+          id: 7,
           user_type: 'member',
           first_name: 'Rocky',
           last_name: 'Schuster',
@@ -103,7 +103,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: false
         },
         {
-          user_id: 8,
+          id: 8,
           user_type: 'member',
           first_name: 'Alford',
           last_name: 'Kirlin',
@@ -117,7 +117,7 @@ exports.seed = function(knex, Promise) {
           can_create_session: false
         },
         {
-          user_id: 9,
+          id: 9,
           user_type: 'member',
           first_name: 'Titus',
           last_name: ' Pfannerstill',

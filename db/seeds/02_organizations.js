@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('organizations').insert([
         {
-          organization_id: 1,
+          id: 1,
           user_id: 1,
           name: 'WTIA',
           short_description: 'Washington Technology Industry Association is a trade association unifying the voice of the technology community in Washington state.',
@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
           hosts_can_create_sessions: true,
         },
         {
-          organization_id: 2,
+          id: 2,
           user_id: 2,
           name: 'Alliance of Angels',
           short_description: 'Largest and most active group of angel investors in the Pacific Northwest.',

@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('meetings').insert([
         {
-          meeting_id: 1,
+          id: 1,
           member_id: 6,
           host_id: 4,
           organization_id: 1,
@@ -18,7 +18,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 2,
+          id: 2,
           member_id: 7,
           host_id: 3,
           organization_id: 2,
@@ -31,7 +31,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 3,
+          id: 3,
           member_id: 8,
           host_id: 3,
           organization_id: 2,
@@ -44,7 +44,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 4,
+          id: 4,
           member_id: 9,
           host_id: 3,
           organization_id: 2,
@@ -57,7 +57,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 5,
+          id: 5,
           member_id: 6,
           host_id: 5,
           organization_id: 1,
@@ -70,7 +70,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 6,
+          id: 6,
           member_id: 7,
           host_id: 5,
           organization_id: 1,
@@ -83,7 +83,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 7,
+          id: 7,
           member_id: 8,
           host_id: 4,
           organization_id: 1,
@@ -96,7 +96,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 8,
+          id: 8,
           member_id: 9,
           host_id: 4,
           organization_id: 1,
@@ -109,7 +109,7 @@ exports.seed = function(knex, Promise) {
           topic_3: 'Sed do eiusmod tempor incididunt.'
         },
         {
-          meeting_id: 9,
+          id: 9,
           member_id: 6,
           host_id: 5,
           organization_id: 1,
