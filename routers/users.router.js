@@ -5,9 +5,9 @@ const { UsersController } = require('../controllers')
 
 router.get('/', UsersController.index) 
 
-// router.get('/:id', UsersController.show)
+router.get('/:id', UsersController.show)
 
-// router.post('/register', UsersController.isValidUserCreate, UsersController.create)
+router.post('/register', UsersController.isValidUserCreate, UsersController.create)
 
 // router.post('/login', UsersController.login)
 
