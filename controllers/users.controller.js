@@ -1,11 +1,10 @@
 const Controller = require('./Controller.js')(`Users`);
-const { UsersModels } = require('../models');
+const { UsersModel } = require('../models');
 
 
 class UsersController extends Controller {
   constructor(){
     super()
-    console.log('baby ctrl?')
   } 
 
   static isValidUserCreate(req, res, next) {
@@ -21,7 +20,16 @@ class UsersController extends Controller {
     if (!linkedin_url || typeof linkedin_url !== 'string') throw new Error('badLinkedinURL')
     if (!website_url || typeof website_url !== 'string') throw new Error('badWebsiteURL')
     if (typeof can_create_session !== 'boolean') throw new Error('badCanCreateSession')
-    next();
+
+    // abstract error handling to new file
+
+    // make use of UsersModels.getUserByUsername(user_name) to see if it's taken.  if it is, throw error else! next()
+    UsersModel.getUserByUsername(user_name)
+      .then(user => {
+        if (user !== undefined) throw new Error('userNameTaken')
+        next();
+      })
+      .catch(err => next(err));
   }
 
   static isValidUserPatch(req, res, next) {
