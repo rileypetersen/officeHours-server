@@ -7,12 +7,6 @@ class UsersModel extends Model {
     super()
   }
 
-  static getUserByEmail(email){
-    return knex('users')
-      .where({ email })
-      .first()
-  }; 
-
   static getUserByUsername(username) {
     return knex('users')
       .where({ username })
