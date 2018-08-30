@@ -1,5 +1,4 @@
 # OfficeHours-server
-The goal of DayWorker is to create a bridge between day laborers and those looking to hire a helping hand. DayWorker is designed to connect job seekers to a variety of different work, whether that be simple yard work, retiling a shower, or even building a deck; DayWorker will bring it's users together so that eager to work helping hands can find those that need them.
 
 ## Database Structure
 
@@ -25,17 +24,17 @@ The goal of DayWorker is to create a bridge between day laborers and those looki
     - required fields in req.body:
 ```
 {
-    user_type,              // string
-    first_name,             // string
-    last_name,              // string
-    user_name,              // string
-    profile_img_url,        // text
-    title,                  // string
-    short_description,      // string
-    long_description,       // text
-    linkedin_url,           // text
-    website_url,            // text
-    can_create_session      // boolean
+    user_type,              // STRING
+    first_name,             // STRING
+    last_name,              // STRING
+    user_name,              // STRING
+    profile_img_url,        // STRING
+    title,                  // STRING
+    short_description,      // STRING
+    long_description,       // STRING
+    linkedin_url,           // STRING
+    website_url,            // STRING
+    can_create_session      // BOOLEAN
 }
 ```
 
@@ -54,17 +53,17 @@ The goal of DayWorker is to create a bridge between day laborers and those looki
     - at least one(1) of the following fields in body is required:
 ```
 {
-    user_type,              // string
-    first_name,             // string
-    last_name,              // string
-    user_name,              // string
-    profile_img_url,        // text
-    title,                  // string
-    short_description,      // string
-    long_description,       // text
-    linkedin_url,           // text
-    website_url,            // text
-    can_create_session      // boolean
+    user_type,              // STRING
+    first_name,             // STRING
+    last_name,              // STRING
+    user_name,              // STRING
+    profile_img_url,        // STRING
+    title,                  // STRING
+    short_description,      // STRING
+    long_description,       // STRING
+    linkedin_url,           // STRING
+    website_url,            // STRING
+    can_create_session      // BOOLEAN
 }
 ```
 
