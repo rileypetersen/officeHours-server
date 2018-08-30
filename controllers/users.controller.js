@@ -1,5 +1,7 @@
 const Controller = require('./Controller.js')(`Users`);
 const { UsersModel } = require('../models');
+const validate = require('../middleware/validations');
+const Token = require('../middleware/token');
 
 
 class UsersController extends Controller {
@@ -8,23 +10,8 @@ class UsersController extends Controller {
   } 
 
   static isValidUserCreate(req, res, next) {
-    const { user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = req.body
-    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType')
-    if (!first_name || typeof first_name !== 'string') throw new Error('badFirstName')
-    if (!last_name || typeof last_name !== 'string') throw new Error('badLastName')
-    if (!user_name || typeof user_name !== 'string') throw new Error('badUserName')
-    if (!profile_img_url || typeof profile_img_url !== 'string') throw new Error('badProfileImg')
-    if (!title || typeof title !== 'string') throw new Error('badTitle')
-    if (!short_description || typeof short_description !== 'string') throw new Error('badShortDescription')
-    if (!long_description || typeof long_description !== 'string') throw new Error('badLongDescription')
-    if (!linkedin_url || typeof linkedin_url !== 'string') throw new Error('badLinkedinURL')
-    if (!website_url || typeof website_url !== 'string') throw new Error('badWebsiteURL')
-    if (typeof can_create_session !== 'boolean') throw new Error('badCanCreateSession')
-
-    // abstract error handling to new file
-
-    // make use of UsersModels.getUserByUsername(user_name) to see if it's taken.  if it is, throw error else! next()
-    UsersModel.getUserByUsername(user_name)
+    validate.userCreate(req.body)
+      .then(() =>  UsersModel.getUserByUsername(req.body.user_name))
       .then(user => {
         if (user !== undefined) throw new Error('userNameTaken')
         next();
@@ -33,9 +20,26 @@ class UsersController extends Controller {
   }
 
   static isValidUserPatch(req, res, next) {
-    const { user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = req.body
-    if (!user_type && !first_name && !last_name && !user_name && !profile_img_url && !title && !short_description && !long_description && !linkedin_url && !website_url) throw new Error('aFieldRequired')
-    next();
+    validate.userUpdate(req.body)
+      .then(() => UsersModel.show(req.params.id))
+      .then(user => {
+        if (!user) throw new Error('userNotFound')
+        next();
+      })
+      .catch(err => next(err));      
+  }
+
+  static login(req, res, next) {
+    validate.userLogin(req.body)
+      .then(() => UsersModel.getUserByUsername(req.body.user_name))
+      .then(user => {
+        if (!user) throw new Error('userNotFound')
+        if (!bcrypt.compareSync(req.body.password, user.password)) throw new Error('invalidPassword')
+        return user.id
+      })
+      .then(id => Token.sign(id))
+      .then(token => res.status(201).set('Auth', `Bearer: ${token}`).json({ response: id, cart }))
+      .catch(err => next(err))
   }
 
 };
