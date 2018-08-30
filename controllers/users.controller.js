@@ -38,7 +38,7 @@ class UsersController extends Controller {
         return user.id
       })
       .then(id => Token.sign(id))
-      .then(token => res.status(201).set('Auth', `Bearer: ${token}`).json({ response: id, cart }))
+      .then(token => res.status(201).set('Auth', `Bearer: ${token}`).json({ response: id }))
       .catch(err => next(err))
   }
 
