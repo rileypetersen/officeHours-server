@@ -1,8 +1,8 @@
 module.exports = {
-    usersControllers: require('./users.controllers'),
-    organizationsControllers: require('./organizations.controllers'),
-    meetingsControllers: require('./meetings.controllers'),
-    sessionsControllers: require('./sessions.controllers'),
-    tagsControllers: require('./tags.controllers')
+    usersController: require('./users.controller'),
+    organizationsController: require('./organizations.controller'),
+    meetingsController: require('./meetings.controller'),
+    sessionsController: require('./sessions.controller'),
+    tagsController: require('./tags.controller')
 }
     

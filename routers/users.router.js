@@ -3,7 +3,7 @@ const router = express.Router()
 const { usersController } = require('../controllers')
 
 
-// router.get('/', usersController.index) 
+router.get('/', usersController.index) 
 
 // router.get('/:id', usersController.show)
 

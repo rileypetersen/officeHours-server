@@ -1,5 +1,5 @@
 module.exports = name => {
-    const Model = require(`../models/${ name }.models.js`)
+    const Model = require(`../models/${ name }.model.js`)
     
     class Controller {
         
