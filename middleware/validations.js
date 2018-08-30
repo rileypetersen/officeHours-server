@@ -19,4 +19,10 @@ async function userUpdate(body) {
     return true
 }
 
-module.exports = { userCreate, userUpdate }
+async function userLogin({ user_name, password }) {
+    if (!user_name) throw new Error('invalidUserName')
+    if (!password) throw new Error('invalidPassword')
+    return true
+}
+
+module.exports = { userCreate, userUpdate, userLogin }
