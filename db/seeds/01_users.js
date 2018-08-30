@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('users').del()
@@ -10,6 +12,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Nick',
           last_name: 'Ellingson',
           user_name: 'nick.ellingson',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://media.licdn.com/dms/image/C4D03AQEIVGkLqZ627A/profile-displayphoto-shrink_800_800/0?e=1539216000&v=beta&t=cVYJrsy9OeOWLFyEf0qT3e3MEyj8g3MoQmG9xs8Aj40',
           title: 'Startup Ambassador',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -24,6 +27,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Katie',
           last_name: 'Rice',
           user_name: 'katie.rice',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://www.allianceofangels.com/wp-content/uploads/2016/04/Katie-500x500.jpg',
           title: 'Membership Manager',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -38,6 +42,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Audie',
           last_name: ' Koss',
           user_name: 'audie.koss',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=PastelPink&facialHairType=Blank&facialHairColor=BlondeGolden&clotheType=GraphicShirt&clotheColor=Black&graphicType=Resist&eyeType=WinkWacky&eyebrowType=SadConcernedNatural&mouthType=Default&skinColor=DarkBrown',
           title: 'Investor',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -52,6 +57,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Faustino',
           last_name: 'King',
           user_name: 'faus.king',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Sunglasses&facialHairType=BeardMedium&facialHairColor=Red&clotheType=BlazerSweater&eyeType=Dizzy&eyebrowType=Default&mouthType=Default&skinColor=Brown',
           title: 'CFO',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -66,6 +72,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Katelin',
           last_name: ' Mertz',
           user_name: 'ketelin.mertz',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Round&hairColor=Red&facialHairType=Blank&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Blue01&eyeType=Squint&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale',
           title: 'Executive',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -80,6 +87,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Telly ',
           last_name: 'Rohan',
           user_name: 'telly.rohan',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=ShortHairDreads01&accessoriesType=Prescription02&hairColor=Auburn&facialHairType=BeardLight&facialHairColor=Black&clotheType=BlazerSweater&eyeType=Side&eyebrowType=SadConcernedNatural&mouthType=Sad&skinColor=Black',
           title: 'Founder',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -94,6 +102,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Rocky',
           last_name: 'Schuster',
           user_name: 'rocky.shuster',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairShavedSides&accessoriesType=Prescription01&hairColor=Brown&facialHairType=BeardLight&facialHairColor=Blonde&clotheType=Hoodie&clotheColor=Black&graphicType=Resist&eyeType=WinkWacky&eyebrowType=UpDownNatural&mouthType=Smile&skinColor=Pale',
           title: 'New Grad',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -108,6 +117,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Alford',
           last_name: 'Kirlin',
           user_name: 'alford.kirlin',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=WinterHat3&accessoriesType=Kurt&hatColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=PastelBlue&graphicType=Skull&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale',
           title: 'Marketing Coordinator',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
@@ -122,6 +132,7 @@ exports.seed = function(knex, Promise) {
           first_name: 'Titus',
           last_name: ' Pfannerstill',
           user_name: ' titus.pfannerstill',
+          password: `${bcrypt.hashSync('test')}`,
           profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=WinterHat4&accessoriesType=Prescription01&hatColor=Blue03&facialHairType=Blank&facialHairColor=BlondeGolden&clotheType=Overall&clotheColor=PastelBlue&eyeType=Dizzy&eyebrowType=UpDownNatural&mouthType=Disbelief&skinColor=Yellow',
           title: 'Salesperson',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
