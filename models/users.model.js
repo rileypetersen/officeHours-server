@@ -7,9 +7,9 @@ class UsersModel extends Model {
     super()
   }
 
-  static getUserByUsername(username) {
+  static getUserByUsername(user_name) {
     return knex('users')
-      .where({ username })
+      .where({ user_name })
       .first()
   };
 
