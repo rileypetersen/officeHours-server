@@ -14,6 +14,7 @@ function processErrorMessage(err) {
         case 'badWebsiteURL' : return { status: 400, message: 'User "website_url" must be a String and is required' }
         case 'badCanCreateSession' : return { status: 400, message: 'User "can_create_session" must be a String and is required' }
         case 'aFieldRequired' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_type", "first_name", "last_name", "user_name", "profile_img_url", "title", "short_description", "long_description", "linkedin_url", "website_url", "can_create_session" ' }
+        case 'userNameTaken' : return { status: 400, message: 'Entered "user_name" is already in use' }
         
         default:
           return { status: 500, message: 'An internal server error has occurred.' }
