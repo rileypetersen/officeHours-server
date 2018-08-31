@@ -9,10 +9,14 @@ module.exports = (tableName) => {
             return knex(tableName)
         };
 
-        static show(id) {
+        static show(id) {          
             return knex(tableName)
                 .where({ id })
                 .first()
+                .then(found => {
+                    if (!found) throw new Error(`${tableName}NotFound`)
+                    return found
+                })
         };
 
         static create(body) {

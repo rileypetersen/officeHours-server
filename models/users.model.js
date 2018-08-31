@@ -21,6 +21,10 @@ class UsersModel extends Model {
     return knex('users')
       .where({ user_name })
       .first()
+      .then(user => {
+        if(!user) throw new Error('usersNotFound')
+        return user
+      })
   };
 
 };
