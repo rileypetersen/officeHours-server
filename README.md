@@ -17,7 +17,7 @@
 - Get all users
 
 **GET /api/users/:id**
-- Get a user by ID
+- Get a user via ID
 
 **POST /api/users/register**
 - Create a new user
@@ -49,7 +49,7 @@
 ```
 
 **PATCH /api/users/:id**
-- Update current user info
+- Update user info via ID
     - at least one(1) of the following fields in body is required:
 ```
 {
@@ -94,7 +94,7 @@
 ```
 
 **PATCH /api/organizations/:oid**
-- Update an organization's info
+- Update an organization's info via ID
     - at least one(1) of the following fields in body is required:
 ```
 {
