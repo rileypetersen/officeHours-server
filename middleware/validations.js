@@ -29,7 +29,7 @@ async function organizationCreate({user_id, name, short_description, long_descri
     if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUserId')
     if (!name || typeof name !== 'string') throw new Error('badOrgName')
     if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShortDescription')
-    if (!longDscription || typeof longDscription !== 'string') throw new Error('badOrgLongDescription')
+    if (!long_description || typeof long_description !== 'string') throw new Error('badOrgLongDescription')
     if (!logo_img_url || typeof logo_img_url !== 'string') throw new Error('badOrgLogoImgUrl')
     if (!website_url || typeof website_url !== 'string') throw new Error('badOrgWebsiteUrl')
     if (typeof hosts_can_create_sessions !== 'boolean') throw new Error('badOrgHostsCanCreateSessions')
