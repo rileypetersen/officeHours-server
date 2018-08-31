@@ -1,8 +1,8 @@
-const { promisify } = require('util')
-const { sign, verify } = require('jsonwebtoken')
-const signPromise = promisify(sign)
-const verifyPromise = promisify(verify)
-const secret = process.env.SECRET_KEY
+const { promisify } = require('util');
+const { sign, verify } = require('jsonwebtoken');
+const signPromise = promisify(sign);
+const verifyPromise = promisify(verify);
+const secret = process.env.SECRET_KEY;
 
 
 class Token {
