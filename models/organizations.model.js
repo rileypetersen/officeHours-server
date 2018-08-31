@@ -12,7 +12,7 @@ class OrganizationsModel extends Model {
     return knex('organizations')
       .where({ name })
       .first()
-  }
+  };
 
 };
 
