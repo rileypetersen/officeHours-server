@@ -24,7 +24,7 @@ class UsersController extends Controller {
     validate.userUpdate(req.body)
       .then(() => UsersModel.show(req.params.id))
       .then(user => {
-        if (!user) throw new Error('userNotFound')
+        if (!user) throw new Error('usersNotFound')
         next();
       })
       .catch(err => next(err));      
@@ -34,7 +34,7 @@ class UsersController extends Controller {
     validate.userLogin(req.body)
       .then(() => UsersModel.getUserByUsername(req.body.user_name))
       .then(user => {
-        if (!user) throw new Error('userNotFound')
+        if (!user) throw new Error('usersNotFound')
         if (!bcrypt.compareSync(req.body.password, user.hashed_password)) throw new Error('invalidPassword')
         return user.id
       })
