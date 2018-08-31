@@ -26,14 +26,14 @@ async function userLogin({ user_name, password }) {
 };
 
 async function organizationCreate({user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions}) {
-    if (!user_id) throw new Error('badOrgUser_id')
-    if (!name) throw new Error('badOrgName')
-    if (!short_description) throw new Error('badOrgShort_description')
-    if (!long_description) throw new Error('badOrgLong_description')
-    if (!logo_img_url) throw new Error('badOrgLogo_img_url')
-    if (!website_url) throw new Error('badOrgWebsite_url')
-    if (!hosts_can_create_sessions) throw new Error('badOrgHosts_can_create_sessions')
+    if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUser_id')
+    if (!name || typeof name !== 'string') throw new Error('badOrgName')
+    if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShort_description')
+    if (!long_description || typeof long_description !== 'string') throw new Error('badOrgLong_description')
+    if (!logo_img_url || typeof logo_img_url !== 'string') throw new Error('badOrgLogo_img_url')
+    if (!website_url || typeof website_url !== 'string') throw new Error('badOrgWebsite_url')
+    if (typeof hosts_can_create_sessions !== 'boolean') throw new Error('badOrgHosts_can_create_sessions')
     return true
 };
 
-module.exports = { userCreate, userUpdate, userLogin };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate };
