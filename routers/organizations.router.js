@@ -3,11 +3,11 @@ const router = express.Router({ mergeParams: true })
 const { OrganizationsController } = require('../controllers')
 
 
-// router.get('/', OrganizationsController.index)
+router.get('/', OrganizationsController.index)
 
-// router.get('/:oid', OrganizationsController.show)
+router.get('/:oid', OrganizationsController.show)
 
-// router.post('/', OrganizationsController.create)
+// router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)
 
 // router.patch('/:oid', OrganizationsController.update)
 
