@@ -1,5 +1,4 @@
 function processErrorMessage(err) {
-  
     if (err.message) {
       switch (err.message) {
         case 'badUserType' : return { status: 400, message: 'User "user_type" must be a String and is required' }
