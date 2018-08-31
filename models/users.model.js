@@ -1,6 +1,6 @@
 const Model = require('./model.js')(`users`);
 const knex = require('../db/knex');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 
 class UsersModel extends Model {
@@ -14,6 +14,7 @@ class UsersModel extends Model {
     return knex('users')
       .insert(body)
       .returning('*')
+      .then(([res]) => res)
   };
 
   static getUserByUsername(user_name) {
