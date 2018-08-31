@@ -25,4 +25,15 @@ async function userLogin({ user_name, password }) {
     return true
 };
 
+async function organizationCreate({user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions}) {
+    if (!user_id) throw new Error('badOrgUser_id')
+    if (!name) throw new Error('badOrgName')
+    if (!short_description) throw new Error('badOrgShort_description')
+    if (!long_description) throw new Error('badOrgLong_description')
+    if (!logo_img_url) throw new Error('badOrgLogo_img_url')
+    if (!website_url) throw new Error('badOrgWebsite_url')
+    if (!hosts_can_create_sessions) throw new Error('badOrgHosts_can_create_sessions')
+    return true
+};
+
 module.exports = { userCreate, userUpdate, userLogin };
