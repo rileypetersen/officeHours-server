@@ -31,12 +31,14 @@ class UsersController extends Controller {
   };
 
   static login(req, res, next) {
+    let id
     validate.userLogin(req.body)
       .then(() => UsersModel.getUserByUsername(req.body.user_name))
       .then(user => {
         if (!user) throw new Error('usersNotFound')
         if (!bcrypt.compareSync(req.body.password, user.hashed_password)) throw new Error('invalidPassword')
-        return user.id
+        id = user.id
+        return id
       })
       .then(id => Token.sign(id))
       .then(token => res.status(201).set('Auth', `Bearer: ${token}`).json({ response: id }))
