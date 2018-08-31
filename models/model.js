@@ -20,7 +20,6 @@ module.exports = (tableName) => {
         };
 
         static create(body) {
-            consol
             return knex(tableName)
                 .insert(body)
                 .returning('*')

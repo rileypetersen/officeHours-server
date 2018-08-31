@@ -8,6 +8,12 @@ class OrganizationsModel extends Model {
     super()
   };
 
+  static getOrgByName(name) {
+    return knex('organizations')
+      .where({ name })
+      .first()
+  }
+
 };
 
 
