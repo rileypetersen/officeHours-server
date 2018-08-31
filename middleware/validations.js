@@ -25,7 +25,7 @@ async function userLogin({ user_name, password }) {
     return true
 };
 
-async function organizationCreate({user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions}) {
+async function organizationCreate({ user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions }) {
     if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUserId')
     if (!name || typeof name !== 'string') throw new Error('badOrgName')
     if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShortDescription')
@@ -34,6 +34,12 @@ async function organizationCreate({user_id, name, short_description, long_descri
     if (!website_url || typeof website_url !== 'string') throw new Error('badOrgWebsiteUrl')
     if (typeof hosts_can_create_sessions !== 'boolean') throw new Error('badOrgHostsCanCreateSessions')
     return true
+};
+
+async function orgUpdate(body) {
+  const { user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
+  if (!user_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg')
+  return true
 };
 
 module.exports = { userCreate, userUpdate, userLogin, organizationCreate };

@@ -27,6 +27,10 @@ class OrganizationsController extends Controller {
       .catch(err => next(err));
   };
 
+  static isValidOrgPatch(req, res, next) {
+    
+  }
+
 };
 
 
