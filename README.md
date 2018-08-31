@@ -56,6 +56,7 @@
     first_name,             // STRING
     last_name,              // STRING
     user_name,              // STRING
+    password,               // STRING
     profile_img_url,        // STRING
     title,                  // STRING
     short_description,      // STRING
