@@ -12,9 +12,9 @@ class UsersModel extends Model {
     body.hashed_password = bcrypt.hashSync(body.password)
     delete body.password
     return knex('users')
-        .insert(body)
-        .returning('*')
-        .then((res) => res)
+      .insert(body)
+      .returning('*')
+      .then((res) => res)
   };
 
   static getUserByUsername(user_name) {
