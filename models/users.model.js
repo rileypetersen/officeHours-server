@@ -14,17 +14,12 @@ class UsersModel extends Model {
     return knex('users')
       .insert(body)
       .returning('*')
-      .then((res) => res)
   };
 
   static getUserByUsername(user_name) {
     return knex('users')
       .where({ user_name })
       .first()
-      .then(user => {
-        if(!user) throw new Error('usersNotFound')
-        return user
-      })
   };
 
 };

@@ -10,6 +10,7 @@ module.exports = (tableName) => {
         };
 
         static show(id) {          
+            console.log(tableName)
             return knex(tableName)
                 .where({ id })
                 .first()
@@ -20,6 +21,7 @@ module.exports = (tableName) => {
         };
 
         static create(body) {
+            consol
             return knex(tableName)
                 .insert(body)
                 .returning('*')
