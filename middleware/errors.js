@@ -27,7 +27,8 @@ function processErrorMessage(err) {
         case 'badOrgLogoImgUrl' : return { status: 400, message: 'Organization "logo_img_url" must be a String and is required' }
         case 'badOrgWebsiteUrl' : return { status: 400, message: 'Organization "website_url" must be a String and is required' }
         case 'badOrgHostsCanCreateSessions' : return { status: 400, message: 'Organization "hosts_can_create_sessions" must be a Boolean and is required' }
-
+        case 'organizationsNotFound' : return { status: 404, message: 'Organization not found' }
+        
         // SESSION ERRORS
 
         // MEETING ERRORS
