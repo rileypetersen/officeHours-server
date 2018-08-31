@@ -16,7 +16,6 @@ module.exports = name => {
         };
 
         static create(req, res, next) {
-            console.log("ctrl ",req.body)
             Model.create(req.body)
                 .then(data => res.status(201).json({ data }))
                 .catch(err => next(err))
