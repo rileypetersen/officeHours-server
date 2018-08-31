@@ -53,7 +53,6 @@
     - at least one(1) of the following fields in body is required:
 ```
 {
-    user_type,              // STRING
     first_name,             // STRING
     last_name,              // STRING
     user_name,              // STRING
@@ -81,9 +80,33 @@
 
 **POST /api/organizations**
 - Create an organization
+    - required fields in req.body:
+```
+{
+    user_id,                    // INTEGER
+    name,                       // STRING
+    short_description,          // STRING
+    long_description,           // STRING
+    logo_img_url,               // STRING
+    website_url,                // STRING
+    hosts_can_create_sessions   // BOOLEAN
+}
+```
 
 **PATCH /api/organizations/:oid**
 - Update an organization's info
+    - at least one(1) of the following fields in body is required:
+```
+{
+    user_id,                    // INTEGER
+    name,                       // STRING
+    short_description,          // STRING
+    long_description,           // STRING
+    logo_img_url,               // STRING
+    website_url,                // STRING
+    hosts_can_create_sessions   // BOOLEAN
+}
+```
 
 **DELETE /api/organizations/:oid**
 - Delete an organization via ID
