@@ -7,7 +7,7 @@ router.get('/', OrganizationsController.index)
 
 router.get('/:oid', OrganizationsController.show)
 
-// router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)
+router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)
 
 // router.patch('/:oid', OrganizationsController.update)
 

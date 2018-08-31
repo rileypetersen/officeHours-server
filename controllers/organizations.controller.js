@@ -17,12 +17,13 @@ class OrganizationsController extends Controller {
 };
 
   static isValidOrgCreate(req, res, next) {
+    console.log(req.body)
     validate.organizationCreate(req.body)
       .then(() =>  UsersModel.show(req.body.user_id))
-      .then(user => {
-        if (!user) throw new Error('usersNotFound')
-        next();
-      })
+      // .then(user => {
+      //   if (!user) throw new Error('usersNotFound')
+      //   next();
+      // })
       .catch(err => next(err));
   };
 
