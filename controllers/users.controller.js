@@ -31,7 +31,6 @@ class UsersController extends Controller {
   };
 
   static login(req, res, next) {
-    
     validate.userLogin(req.body)
       .then(() => UsersModel.getUserByUsername(req.body.user_name))
       .then(user => {

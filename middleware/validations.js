@@ -25,4 +25,4 @@ async function userLogin({ user_name, password }) {
     return true
 }
 
-module.exports = { userCreate, userUpdate, userLogin }
+module.exports = { userCreate, userUpdate, userLogin };
