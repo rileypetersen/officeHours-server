@@ -11,18 +11,18 @@ async function userCreate({ user_type, first_name, last_name, user_name, profile
     if (!website_url || typeof website_url !== 'string') throw new Error('badWebsiteURL')
     if (typeof can_create_session !== 'boolean') throw new Error('badCanCreateSession')
     return true
-}
+};
 
 async function userUpdate(body) {
     const { user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = body
     if (!user_type && !first_name && !last_name && !user_name && !profile_img_url && !title && !short_description && !long_description && !linkedin_url && !website_url) throw new Error('aFieldRequired')
     return true
-}
+};
 
 async function userLogin({ user_name, password }) {
     if (!user_name) throw new Error('invalidUserName')
     if (!password) throw new Error('invalidPassword')
     return true
-}
+};
 
 module.exports = { userCreate, userUpdate, userLogin };
