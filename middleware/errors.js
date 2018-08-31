@@ -20,20 +20,20 @@ function processErrorMessage(err) {
         case 'invalidPassword' : return { status: 400, message: 'A valid "password" is required to login' }
 
         // ORGANIZATION ERRORS
-        case 'badOrgUser_id' : return { status: 400, message: 'Organization "user_id" must be an Integer and is required' }
+        case 'badOrgUserId' : return { status: 400, message: 'Organization "user_id" must be an Integer and is required' }
         case 'badOrgName' : return { status: 400, message: 'Organization "name" must be a String and is required' }
-        case 'badOrgShort_description' : return { status: 400, message: 'Organization "short_description" must be a String and is required' }
-        case 'badOrgLong_description' : return { status: 400, message: 'Organization "long_description" must be a String and is required' }
-        case 'badOrgLogo_img_url' : return { status: 400, message: 'Organization "logo_img_url" must be a String and is required' }
-        case 'badOrgWebsite_url' : return { status: 400, message: 'Organization "website_url" must be a String and is required' }
-        case 'badOrgHosts_can_create_sessions' : return { status: 400, message: 'Organization "hosts_can_create_sessions" must be a Boolean and is required' }
+        case 'badOrgShortDescription' : return { status: 400, message: 'Organization "short_description" must be a String and is required' }
+        case 'badOrgLongDescription' : return { status: 400, message: 'Organization "long_description" must be a String and is required' }
+        case 'badOrgLogoImgUrl' : return { status: 400, message: 'Organization "logo_img_url" must be a String and is required' }
+        case 'badOrgWebsiteUrl' : return { status: 400, message: 'Organization "website_url" must be a String and is required' }
+        case 'badOrgHostsCanCreateSessions' : return { status: 400, message: 'Organization "hosts_can_create_sessions" must be a Boolean and is required' }
 
         // SESSION ERRORS
 
         // MEETING ERRORS
 
         // TAG ERRORS
-        
+
         default:
           return { status: 500, message: 'An internal server error has occurred.' }
       }

@@ -26,13 +26,13 @@ async function userLogin({ user_name, password }) {
 };
 
 async function organizationCreate({user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions}) {
-    if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUser_id')
+    if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUserId')
     if (!name || typeof name !== 'string') throw new Error('badOrgName')
-    if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShort_description')
-    if (!long_description || typeof long_description !== 'string') throw new Error('badOrgLong_description')
-    if (!logo_img_url || typeof logo_img_url !== 'string') throw new Error('badOrgLogo_img_url')
-    if (!website_url || typeof website_url !== 'string') throw new Error('badOrgWebsite_url')
-    if (typeof hosts_can_create_sessions !== 'boolean') throw new Error('badOrgHosts_can_create_sessions')
+    if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShortDescription')
+    if (!longDscription || typeof longDscription !== 'string') throw new Error('badOrgLongDescription')
+    if (!logo_img_url || typeof logo_img_url !== 'string') throw new Error('badOrgLogoImgUrl')
+    if (!website_url || typeof website_url !== 'string') throw new Error('badOrgWebsiteUrl')
+    if (typeof hosts_can_create_sessions !== 'boolean') throw new Error('badOrgHostsCanCreateSessions')
     return true
 };
 
