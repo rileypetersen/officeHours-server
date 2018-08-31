@@ -7,20 +7,20 @@ module.exports = (tableName) => {
 
         static index() {
             return knex(tableName)
-        }
+        };
 
         static show(id) {
             return knex(tableName)
                 .where({ id })
                 .first()
-        }
+        };
 
         static create(body) {
             return knex(tableName)
                 .insert(body)
                 .returning('*')
                 .then(([res]) => res)
-        }
+        };
 
         static update(id, body) {
             return knex(tableName)
@@ -28,7 +28,7 @@ module.exports = (tableName) => {
                 .where({ id })
                 .returning('*')
                 .then(([res]) => res)
-        }
+        };
 
         static destroy(id) {
             return knex(tableName)
@@ -36,7 +36,7 @@ module.exports = (tableName) => {
                 .where({ id })
                 .returning('*')
                 .then(([res]) => res)
-        }
+        };
 
     }
 

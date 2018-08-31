@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 class UsersModel extends Model {
   constructor(){
     super()
-  }
+  };
 
   static create(body) {
     body.hashed_password = bcrypt.hashSync(body.password)
@@ -23,7 +23,7 @@ class UsersModel extends Model {
       .first()
   };
 
-}
+};
 
 
 module.exports= UsersModel

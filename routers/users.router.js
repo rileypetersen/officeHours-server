@@ -16,4 +16,4 @@ router.patch('/:id', UsersController.isValidUserPatch, UsersController.update)
 // router.delete('/:id', UsersController.destroy) 
 
 
-module.exports = router
+module.exports = router;
