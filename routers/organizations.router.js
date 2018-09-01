@@ -9,7 +9,7 @@ router.get('/:oid', OrganizationsController.show)
 
 router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)
 
-router.patch('/:oid', OrganizationsController.isValidOrgPatch, OrganizationsController.update)
+router.patch('/:oid', OrganizationsController.isValidOrgPatch)
 
 // router.delete('/:oid', OrganizationsController.destroy)
 

@@ -42,4 +42,4 @@ async function orgUpdate(body) {
   return true
 };
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate };

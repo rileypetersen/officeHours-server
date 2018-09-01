@@ -28,7 +28,11 @@ class OrganizationsController extends Controller {
   };
 
   static isValidOrgPatch(req, res, next) {
-    
+    validate.orgUpdate(req.body)
+      .then(() => OrganizationsModel.show(req.params.oid))
+      .then(() => OrganizationsModel.update(req.params.oid, req.body))
+      .then(data => res.status(201).json({ data }))
+      .catch(err => next(err));
   }
 
 };
