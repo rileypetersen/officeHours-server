@@ -29,7 +29,8 @@ function processErrorMessage(err) {
         case 'badOrgHostsCanCreateSessions' : return { status: 400, message: 'Organization "hosts_can_create_sessions" must be a Boolean and is required' }
         case 'organizationsNotFound' : return { status: 404, message: 'Organization not found' }
         case 'alreadyOrg' : return { status: 400, message: 'Entered Organization name is already in use' }
-        
+        case 'aFieldRequiredOrg' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "name", "short_description", "long_description", "logo_img_url", "website_url", "hosts_can_create_sessions" ' }
+
         // SESSION ERRORS
 
         // MEETING ERRORS
@@ -41,6 +42,5 @@ function processErrorMessage(err) {
       }
     }
   }
-  
+
   module.exports = processErrorMessage
-  
