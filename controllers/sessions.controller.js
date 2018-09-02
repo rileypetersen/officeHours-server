@@ -1,15 +1,22 @@
 const Controller = require('./Controller.js')(`Sessions`);
-const { UsersModel, OrganizationsModel } = require('../models');
+const { SessionsModel, OrganizationsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
 
 
 class SessionsController extends Controller {
-  constructor(){
-    super()
-  };
+    constructor(){
+        super()
+    };
 
-  static isValidSessionCreate(req, res, next) {
+    static show(req, res, next) {
+        OrganizationsModel.show(req.params.id)
+            .then(() => SessionsModel.show(req.params.sid))
+            .then(data => res.status(201).json({ data }))
+            .catch(err => next(err))
+    };
+
+    static isValidSessionCreate(req, res, next) {
     // validate.sessionCreate(req.body)
     //   .then(() =>  UsersModel.show(req.body.user_id))
     //   .then(() => OrganizationsModel.getOrgByName(req.params.id))
@@ -18,15 +25,15 @@ class SessionsController extends Controller {
     //     next()
     //   })
     //   .catch(err => next(err));
-  };
+    };
 
-  static isValidSessionPatch(req, res, next) {
+    static isValidSessionPatch(req, res, next) {
     // validate.orgUpdate(req.body)
     //   .then(() => OrganizationsModel.show(req.params.id))
     //   .then(() => OrganizationsModel.update(req.params.id, req.body))
     //   .then(data => res.status(201).json({ data }))
     //   .catch(err => next(err));
-  };
+    };
 
 };
 
