@@ -34,6 +34,13 @@ function processErrorMessage(err) {
 
         // SESSION ERRORS
         case 'sessionsNotFound' : return { status: 404, message: 'Session not found' }
+        case 'badSessionUserId' : return { status: 400, message: 'Session "user_id" must be an Integer and is required' }
+        case 'badSessionOrganizationId' : return { status: 400, message: 'Session "organization_id" must be an Integer and is required' }
+        case 'badSessionDate' : return { status: 400, message: 'Session "date" must be a String and is required' }
+        case 'badSessionStartTime' : return { status: 400, message: 'Session "start_time" must be a String and is required' }
+        case 'badSessionLocation' : return { status: 400, message: 'Session "location" must be a String and is required' }
+        case 'badSessionDuration' : return { status: 400, message: 'Session "duration" must be a String and is required' }
+        case 'badSessionDelay' : return { status: 400, message: 'Session "delay" must be a String and is required' }
 
         // MEETING ERRORS
 
