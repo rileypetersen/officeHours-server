@@ -37,9 +37,21 @@ async function organizationCreate({ user_id, name, short_description, long_descr
 };
 
 async function orgUpdate(body) {
-  const { user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
-  if (!user_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg')
-  return true
+    const { user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
+    if (!user_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg')
+    return true
 };
+
+async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }) {
+    if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId')
+    if (!organization_id || typeof organization_id !== 'number') throw new Error('badSessionOrganizationId')
+    if (!date || typeof date !== 'string') throw new Error('badSessionDate')
+    if (!start_time || typeof start_time !== 'string') throw new Error('badSessionStartTime')
+    if (!location || typeof location !== 'string') throw new Error('badSessionLocation')
+    if (!duration || typeof duration !== 'string') throw new Error('badSessionDuration')
+    if (!delay || typeof delay !== 'string') throw new Error('badSessionDelay')
+    return true
+}
+
 
 module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate };
