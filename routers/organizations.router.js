@@ -9,9 +9,9 @@ router.get('/:id', OrganizationsController.show)
 
 router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)
 
-router.patch('/:oid', OrganizationsController.isValidOrgPatch)
+router.patch('/:id', OrganizationsController.isValidOrgPatch)
 
-router.delete('/:oid', OrganizationsController.destroy)
+router.delete('/:id', OrganizationsController.destroy)
 
 
 module.exports = router
