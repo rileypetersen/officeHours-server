@@ -5,7 +5,7 @@ const { SessionsController } = require('../controllers')
 
 router.get('/', SessionsController.index)
 
-// router.get('/:sid', SessionsController.show)
+router.get('/:sid', SessionsController.show)
 
 // router.post('/', SessionsController.create)
 
