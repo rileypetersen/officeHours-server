@@ -17,4 +17,4 @@ class OrganizationsModel extends Model {
 };
 
 
-module.exports= OrganizationsModel
+module.exports = OrganizationsModel

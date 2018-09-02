@@ -13,9 +13,9 @@ module.exports = (tableName) => {
             return knex(tableName)
                 .where({ id })
                 .first()
-                .then(found => {
-                    if (!found) throw new Error(`${tableName}NotFound`)
-                    return found
+                .then(res => {
+                    if (!res) throw new Error(`${tableName}NotFound`)
+                    return res
                 })
         };
 
@@ -23,7 +23,10 @@ module.exports = (tableName) => {
             return knex(tableName)
                 .insert(body)
                 .returning('*')
-                .then(([res]) => res)
+                .then(([res]) => {
+                    if (!res) throw new Error(`${tableName}NotFound`)
+                    return res
+                })
         };
 
         static update(id, body) {
@@ -31,7 +34,10 @@ module.exports = (tableName) => {
                 .update(body)
                 .where({ id })
                 .returning('*')
-                .then(([res]) => res)
+                .then(([res]) => {
+                    if (!res) throw new Error(`${tableName}NotFound`)
+                    return res
+                })
         };
 
         static destroy(id) {
@@ -39,7 +45,10 @@ module.exports = (tableName) => {
                 .del()
                 .where({ id })
                 .returning('*')
-                .then(([res]) => res)
+                .then(([res]) => {
+                    if (!res) throw new Error(`${tableName}NotFound`)
+                    return res
+                })
         };
 
     }
