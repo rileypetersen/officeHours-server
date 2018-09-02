@@ -9,7 +9,7 @@ module.exports = (tableName) => {
             return knex(tableName)
         };
 
-        static show(id) {          
+        static show(id) { 
             return knex(tableName)
                 .where({ id })
                 .first()
