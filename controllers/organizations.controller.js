@@ -10,13 +10,6 @@ class OrganizationsController extends Controller {
     super()
   };
 
-  // static show(req, res, next) {
-  //   console.log('welp',req.params)
-  //   OrganizationsModel.show(req.params.oid)
-  //     .then(data => res.status(201).json({ data }))
-  //     .catch(err => next(err));
-  // };
-
   static isValidOrgCreate(req, res, next) {
     validate.organizationCreate(req.body)
       .then(() =>  UsersModel.show(req.body.user_id))
@@ -30,8 +23,8 @@ class OrganizationsController extends Controller {
 
   static isValidOrgPatch(req, res, next) {
     validate.orgUpdate(req.body)
-      .then(() => OrganizationsModel.show(req.params.oid))
-      .then(() => OrganizationsModel.update(req.params.oid, req.body))
+      .then(() => OrganizationsModel.show(req.params.id))
+      .then(() => OrganizationsModel.update(req.params.id, req.body))
       .then(data => res.status(201).json({ data }))
       .catch(err => next(err));
   };
