@@ -54,4 +54,4 @@ async function sessionCreate({ user_id, organization_id, date, start_time, locat
 }
 
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate };
