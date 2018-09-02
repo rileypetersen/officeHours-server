@@ -33,6 +33,7 @@ function processErrorMessage(err) {
         case 'aFieldRequiredOrg' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "name", "short_description", "long_description", "logo_img_url", "website_url", "hosts_can_create_sessions" ' }
 
         // SESSION ERRORS
+        case 'sessionsNotFound' : return { status: 404, message: 'Session not found' }
 
         // MEETING ERRORS
 
