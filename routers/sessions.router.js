@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true })
 const { SessionsController } = require('../controllers')
 
 
-// router.get('/', SessionsController.index)
+router.get('/', SessionsController.index)
 
 // router.get('/:sid', SessionsController.show)
 
