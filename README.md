@@ -76,7 +76,7 @@
 **GET /api/organizations**
 - Get all organizations
 
-**GET /api/organizations/:oid**
+**GET /api/organizations/:id**
 - Get an organization via ID
 
 **POST /api/organizations**
@@ -94,7 +94,7 @@
 }
 ```
 
-**PATCH /api/organizations/:oid**
+**PATCH /api/organizations/:id**
 - Update an organization's info via ID
     - at least one(1) of the following fields in body is required:
 ```
@@ -109,41 +109,77 @@
 }
 ```
 
-**DELETE /api/organizations/:oid**
+**DELETE /api/organizations/:id**
 - Delete an organization via ID
 
 
 ### ----- SessionsRoutes --------------------------------------------------------------------------
 
-**GET /api/organizations/:oid/sessions**
+**GET /api/organizations/:id/sessions**
 - Get all sessions
 
-**GET /api/organizations/:oid/sessions/:sid**
+**GET /api/organizations/:id/sessions/:sid**
 - Get a session via ID
 
-**POST /api/organizations/:oid/sessions**
+**POST /api/organizations/:id/sessions**
 - Create a session
+    - required fields in req.body:
+```
+{
+    user_id,            // INTEGER
+    organization_id,    // INTEGER
+    date,               // STRING
+    start_time,         // STRING
+    location,           // STRING
+    duration,           // STRING
+    delay               // STRING
+}
+```
 
-**PATCH /api/organizations/:oid/sessions/:sid**
+**PATCH /api/organizations/:id/sessions/:sid**
 - Update a session's info
+    - at least one(1) of the following fields in body is required:
+```
+{
+    user_id,            // INTEGER
+    organization_id,    // INTEGER
+    date,               // STRING
+    start_time,         // STRING
+    location,           // STRING
+    duration,           // STRING
+    delay               // STRING
+}
+```
 
-**DELETE /api/organizations/:oid/sessions/:sid**
+**DELETE /api/organizations/:id/sessions/:sid**
 - Delete a session via ID 
 
 
 ### ----- MeetingsRoutes --------------------------------------------------------------------------
 
-**GET /api/organizations/:oid/sessions/:sid/meetings**
+**GET /api/organizations/:id/sessions/:sid/meetings**
 - Get all meetings
 
-**GET /api/organizations/:oid/sessions/:sid/meetings/:mid**
+**GET /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Get an meetings via ID
 
-**POST /api/organizations/:oid/sessions/:sid/meetings**
+**POST /api/organizations/:id/sessions/:sid/meetings**
 - Create a meeting
+    - required fields in req.body:
+```
+{
 
-**PATCH /api/organizations/:oid/sessions/:sid/meetings/:mid**
+}
+```
+
+**PATCH /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Update a meeting's info
+    - at least one(1) of the following fields in body is required:
+```
+{
 
-**DELETE /api/organizations/:oid/sessions/:sid/meetings/:mid**
+}
+```
+
+**DELETE /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Delete a meeting via ID
