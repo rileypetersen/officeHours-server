@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Sessions`);
-const { SessionsModel, OrganizationsModel } = require('../models');
+const { UsersModel, OrganizationsModel, SessionsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
 
@@ -17,14 +17,22 @@ class SessionsController extends Controller {
     };
 
     static isValidSessionCreate(req, res, next) {
-    // validate.sessionCreate(req.body)
-    //   .then(() =>  UsersModel.show(req.body.user_id))
-    //   .then(() => OrganizationsModel.getOrgByName(req.params.id))
-    //   .then(org => {
-    //     if (org !== undefined) throw new Error('alreadyOrg')
-    //     next()
-    //   })
-    //   .catch(err => next(err));
+        console.log("ctrl")
+        // check for all required info 
+        validate.sessionCreate(req.body)
+            
+            // ensure org exsits
+            .then(() => OrganizationsModel.show(req.params.id))
+
+            .then(() =>  UsersModel.show(req.body.user_id))
+            .then(user => {
+                // check if requesting user can create session
+                console.log('this far???!!!')
+            })
+
+            // if we make it here, good to create new session
+            .then(() => next())
+            .catch(err => next(err));
     };
 
     static isValidSessionPatch(req, res, next) {
