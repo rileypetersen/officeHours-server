@@ -5,13 +5,13 @@ const { OrganizationsController } = require('../controllers')
 
 router.get('/', OrganizationsController.index)
 
-router.get('/:oid', OrganizationsController.show)
+router.get('/:id', OrganizationsController.show)
 
 router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)
 
 router.patch('/:oid', OrganizationsController.isValidOrgPatch)
 
-// router.delete('/:oid', OrganizationsController.destroy)
+router.delete('/:oid', OrganizationsController.destroy)
 
 
 module.exports = router
