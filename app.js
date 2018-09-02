@@ -15,9 +15,9 @@ app.use(bodyParser.json({ limit: '50mb' }));
 
 app.use('/api/users', UsersRouter);
 app.use('/api/organizations', OrganizationsRouter);
-app.use('/api/organizations/:oid/sessions', SessionsRouter);
-app.use('/api/organizations/:oid/sessions/:sid/meetings', MeetingsRouter);
-app.use('/api/organizations/:oid/tags', TagsRouter);
+app.use('/api/organizations/:id/sessions', SessionsRouter);
+app.use('/api/organizations/:id/sessions/:sid/meetings', MeetingsRouter);
+app.use('/api/organizations/:id/tags', TagsRouter);
 
 app.use((req, res) => {
   const status = 404;
