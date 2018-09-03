@@ -56,5 +56,11 @@ async function sessionCreate({ user_id, organization_id, date, start_time, locat
     return true
 }
 
+async function sessionUpdate(body) {
+    const { user_id, organization_id, date, start_time, location, duration, delay } = body
+    if ( !user_id && !organization_id && !date && !start_time && !location && !duration && !delay) throw new Error('aFieldRequiredSession')
+    return true
+}
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate };
+
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate };
