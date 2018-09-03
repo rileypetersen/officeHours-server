@@ -2,6 +2,9 @@ const Controller = require('./Controller.js')(`Sessions`);
 const { UsersModel, OrganizationsModel, SessionsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
+const moment = require('moment')
+const dateFormat = 'MM-DD-YYYY'
+const timeFormat = '+-HH:mm a'
 
 
 class SessionsController extends Controller {
@@ -17,20 +20,16 @@ class SessionsController extends Controller {
     };
 
     static isValidSessionCreate(req, res, next) {
-        console.log("ctrl")
-        // check for all required info 
-        validate.sessionCreate(req.body)
-            
-            // ensure org exsits
+        // !!!!!!!!! temp use of moment on: DATE && START_TIME for route testing !!!!!!!!!
+        req.body.date = moment(req.body.date, dateFormat).format()
+        req.body.start_time = moment(req.body.start_time, timeFormat).format()
+        
+        validate.sessionCreate(req.body, parseInt(req.params.id))
             .then(() => OrganizationsModel.show(req.params.id))
-
             .then(() =>  UsersModel.show(req.body.user_id))
             .then(user => {
-                // check if requesting user can create session
-                console.log('this far???!!!')
+                if (user.can_create_session !== true) throw new Error('userCanNotCreateSession')
             })
-
-            // if we make it here, good to create new session
             .then(() => next())
             .catch(err => next(err));
     };
