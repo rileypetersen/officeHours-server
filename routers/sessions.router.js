@@ -11,7 +11,7 @@ router.post('/', SessionsController.isValidSessionCreate, SessionsController.cre
 
 router.patch('/:sid', SessionsController.isValidSessionPatch)
 
-// router.delete('/:sid', SessionsController.destroy)
+router.delete('/:sid', SessionsController.destroy)
 
 
 module.exports = router
