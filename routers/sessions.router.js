@@ -9,7 +9,7 @@ router.get('/:sid', SessionsController.show)
 
 router.post('/', SessionsController.isValidSessionCreate, SessionsController.create)
 
-// router.patch('/:sid', SessionsController.update)
+router.patch('/:sid', SessionsController.isValidSessionPatch)
 
 // router.delete('/:sid', SessionsController.destroy)
 
