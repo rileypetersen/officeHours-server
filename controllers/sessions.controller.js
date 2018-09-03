@@ -35,11 +35,12 @@ class SessionsController extends Controller {
     };
 
     static isValidSessionPatch(req, res, next) {
-    // validate.orgUpdate(req.body)
-    //   .then(() => OrganizationsModel.show(req.params.id))
-    //   .then(() => OrganizationsModel.update(req.params.id, req.body))
-    //   .then(data => res.status(201).json({ data }))
-    //   .catch(err => next(err));
+        validate.sessionUpdate(req.body)
+            .then(() => OrganizationsModel.show(req.params.id))
+            .then(() => SessionsModel.show(req.params.sid))      
+            .then(() => SessionsModel.update(req.params.sid, req.body))
+            .then(data => res.status(201).json({ data }))
+            .catch(err => next(err));
     };
 
 };
