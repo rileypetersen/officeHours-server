@@ -1,3 +1,6 @@
+const moment = require('moment')
+
+
 async function userCreate({ user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session }) {
     if (!user_type || typeof user_type !== 'string') throw new Error('badUserType')
     if (!first_name || typeof first_name !== 'string') throw new Error('badFirstName')
@@ -42,11 +45,11 @@ async function orgUpdate(body) {
     return true
 };
 
-async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }) {
+async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }, paramsOrgId) {
     if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId')
-    if (!organization_id || typeof organization_id !== 'number') throw new Error('badSessionOrganizationId')
-    if (!date || typeof date !== 'string') throw new Error('badSessionDate')
-    if (!start_time || typeof start_time !== 'string') throw new Error('badSessionStartTime')
+    if (!organization_id || typeof organization_id !== 'number' || organization_id !== paramsOrgId) throw new Error('badSessionOrganizationId')
+    if (!date || typeof date !== 'string' || !moment(date).isValid()) throw new Error('badSessionDate')
+    if (!start_time || typeof start_time !== 'string' || !moment(start_time).isValid()) throw new Error('badSessionStartTime')
     if (!location || typeof location !== 'string') throw new Error('badSessionLocation')
     if (!duration || typeof duration !== 'string') throw new Error('badSessionDuration')
     if (!delay || typeof delay !== 'string') throw new Error('badSessionDelay')
