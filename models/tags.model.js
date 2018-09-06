@@ -10,4 +10,4 @@ class TagsModel extends Model {
 };
 
 
-module.exports= TagsModel
+module.exports = TagsModel

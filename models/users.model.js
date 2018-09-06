@@ -26,4 +26,4 @@ class UsersModel extends Model {
 };
 
 
-module.exports= UsersModel
+module.exports = UsersModel

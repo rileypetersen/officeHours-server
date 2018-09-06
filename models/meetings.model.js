@@ -10,4 +10,4 @@ class MeetingsModel extends Model {
 };
 
 
-module.exports= MeetingsModel
+module.exports = MeetingsModel

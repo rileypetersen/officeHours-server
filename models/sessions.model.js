@@ -10,4 +10,4 @@ class SessionsModel extends Model {
 };
 
 
-module.exports= SessionsModel
+module.exports = SessionsModel
