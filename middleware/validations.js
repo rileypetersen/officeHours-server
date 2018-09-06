@@ -18,6 +18,7 @@ async function userCreate({ user_type, first_name, last_name, user_name, profile
 
 async function userUpdate(body) {
     const { user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = body
+    if (can_create_session !== undefined && typeof can_create_session !== 'boolean') throw new Error('aFieldRequired')
     if (!user_type && !first_name && !last_name && !user_name && !profile_img_url && !title && !short_description && !long_description && !linkedin_url && !website_url) throw new Error('aFieldRequired')
     return true
 };
@@ -41,6 +42,7 @@ async function organizationCreate({ user_id, name, short_description, long_descr
 
 async function orgUpdate(body) {
     const { user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
+    if (hosts_can_create_sessions !== undefined && typeof hosts_can_create_sessions !== 'boolean') throw new Error('aFieldRequired')
     if (!user_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg')
     return true
 };
