@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Meetings`);
-const { UsersModel, OrganizationsModel } = require('../models');
+const { UsersModel, OrganizationsModel, SessionsModel, MeetingsModel } = require('../models');
 const validate = require('../middleware/validations');
 
 
