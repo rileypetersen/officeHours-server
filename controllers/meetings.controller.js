@@ -13,7 +13,7 @@ class MeetingsController extends Controller {
       .then(() => SessionsModel.show(req.params.sid))
       .then(() => MeetingsModel.show(req.params.mid))
       .then(data => res.status(201).json({ data }))
-      .catch(err => next(err))
+      .catch(err => next(err));
   };
 
   static isValidMeetingCreate(req, res, next) {
