@@ -1,9 +1,8 @@
-const authModel = require('../../models/Shop/auth')
 const jwt = require('jsonwebtoken')
 
 
 class Auth {
-	
+
 	static isAuthorized(req, res, next) {
 		if (!req.headers.authorization) throw new Error('userUnauthorized')
 		const [scheme, credentials] = req.headers.authorization.split(' ')
@@ -13,7 +12,7 @@ class Auth {
 			next()
 		})
 	};
-	
+
 	static isSelf(req, res, next) {
 		if (parseInt(req.params.staffId) !== req.claim.id) throw new Error('userUnauthorized')
 		next()
