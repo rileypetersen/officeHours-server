@@ -7,6 +7,7 @@ function processErrorMessage(err) {
 		case 'badFirstName' : return { status: 400, message: 'User "first_name" must: be a String and is required' };
 		case 'badLastName' : return { status: 400, message: 'User "last_name" must: be a String and is required' };
 		case 'badUserName' : return { status: 400, message: 'User "user_name" must: be a String and is required' };
+		case 'badEmail' : return { status: 400, message: 'User "email" must: be a String and is required' };
 		case 'badProfileImg' : return { status: 400, message: 'User "profile_img_url" must: be a String and is required' };
 		case 'badTitle' : return { status: 400, message: 'User "title" must: be a String and is required' };
 		case 'badShortDescription' : return { status: 400, message: 'User "short_description" must: be a String and is required' };
