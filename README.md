@@ -28,6 +28,7 @@
     first_name,             // STRING
     last_name,              // STRING
     user_name,              // STRING
+    email,                  // STRING    
     profile_img_url,        // STRING
     title,                  // STRING
     short_description,      // STRING
@@ -56,6 +57,7 @@
     first_name,             // STRING
     last_name,              // STRING
     user_name,              // STRING
+    email,                  // STRING    
     password,               // STRING
     profile_img_url,        // STRING
     title,                  // STRING
