@@ -20,7 +20,7 @@ function processErrorMessage(err) {
 		case 'usersNotFound' : return { status: 404, message: 'User not found' };
 		case 'invalidUserName' : return { status: 400, message: 'A valid "user_name" is required to login' };
 		case 'invalidPassword' : return { status: 400, message: 'A valid "password" is required to login' };
-		case 'userUnauthorized' : return { status: 401, message: 'User Unauthorized' };
+		case 'userUnauthorized' : return { status: 401, message: 'User is not authorized to access this resource' };
 
 		// ORGANIZATION ERRORS
 		case 'badOrgUserId' : return { status: 400, message: 'Organization "user_id" must: be an Integer and is required' };
