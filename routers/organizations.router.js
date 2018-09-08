@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router({ mergeParams: true })
-const { OrganizationsController } = require('../controllers')
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+const { OrganizationsController } = require('../controllers');
 
 
 router.get('/', OrganizationsController.index)
@@ -14,4 +14,4 @@ router.patch('/:id', OrganizationsController.isValidOrgPatch)
 router.delete('/:id', OrganizationsController.destroy)
 
 
-module.exports = router
+module.exports = router;
