@@ -4,21 +4,21 @@ const validate = require('../middleware/validations');
 
 
 class TagsController extends Controller {
-  constructor(){
-    super()
-  };
+	constructor(){
+		super()
+	};
 
-  static isValidTagCreate(req, res, next) {
-    // validate.tagCreate(req.body)
-      
-    //   .catch(err => next(err));
-  };
+	static isValidTagCreate(req, res, next) {
+		// validate.tagCreate(req.body)
+		
+		//   .catch(err => next(err));
+	};
 
-  static isValidTagPatch(req, res, next) {
-    // validate.orgUpdate(req.body)
-      
-    //   .catch(err => next(err));
-  };
+	static isValidTagPatch(req, res, next) {
+		// validate.orgUpdate(req.body)
+		
+		//   .catch(err => next(err));
+	};
 
 };
 
