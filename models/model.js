@@ -14,9 +14,9 @@ module.exports = (tableName) => {
                 .where({ id })
                 .first()
                 .then(res => {
-                        if (!res) throw new Error(`${tableName}NotFound`)
-                        return res
-                })
+                        if (!res) throw new Error(`${tableName}NotFound`);
+                        return res;
+                });
         };
 
         static create(body) {
@@ -24,9 +24,9 @@ module.exports = (tableName) => {
                 .insert(body)
                 .returning('*')
                 .then(([res]) => {
-                    if (!res) throw new Error(`${tableName}NotFound`)
-                    return res
-                })
+                    if (!res) throw new Error(`${tableName}NotFound`);
+                    return res;
+                });
         };
 
         static update(id, body) {
@@ -36,8 +36,8 @@ module.exports = (tableName) => {
                 .returning('*')
                 .then(([res]) => {
                     if (!res) throw new Error(`${tableName}NotFound`);
-                    return res
-                })
+                    return res;
+                });
         };
 
         static destroy(id) {
@@ -46,13 +46,13 @@ module.exports = (tableName) => {
                 .where({ id })
                 .returning('*')
                 .then(([res]) => {
-                    if (!res) throw new Error(`${tableName}NotFound`)
-                    return res
+                    if (!res) throw new Error(`${tableName}NotFound`);
+                    return res;
                 });
         };
 
     };
 
-    return Model
+    return Model;
 
 };
