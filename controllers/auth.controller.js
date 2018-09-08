@@ -16,7 +16,21 @@ class Auth {
 			})
 			.catch(err => next(err));
 	};
-	
+
+	static getAuthStatus(req, res, next) {
+		res.status(200).send({ ...req.claim })
+	};
+
+	static isAuthenticated(req, res, next) {
+		Token.verifyAndExtractHeaderToken(req.headers)
+			.catch(err => { throw new Error('invalidToken') })
+			.then(token => {
+				req.claim = token;
+				next();
+			})
+			.catch(err => next(err));
+	};
+	 
 	// methods still needed:
 		// authorize owner of org for patch/delete
 		// authorise user type/status can create sessions
