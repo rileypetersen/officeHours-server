@@ -11,12 +11,12 @@ module.exports = (tableName) => {
 
         static show(id) {
             return knex(tableName)
-            .where({ id })
-            .first()
-            .then(res => {
-                    if (!res) throw new Error(`${tableName}NotFound`)
-                    return res
-            })
+                .where({ id })
+                .first()
+                .then(res => {
+                        if (!res) throw new Error(`${tableName}NotFound`)
+                        return res
+                })
         };
 
         static create(body) {
