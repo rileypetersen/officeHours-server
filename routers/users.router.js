@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { UsersController } = require('../controllers');
+const { AuthController, UsersController } = require('../controllers');
 
 
 router.get('/', UsersController.index) 
@@ -11,9 +11,9 @@ router.post('/register', UsersController.isValidUserCreate, UsersController.crea
 
 router.post('/login', UsersController.login)
 
-router.patch('/:id', UsersController.isValidUserPatch, UsersController.update)
+router.patch('/:id', AuthController.isOwnerOfUser, UsersController.isValidUserPatch, UsersController.update)
 
-router.delete('/:id', UsersController.destroy) 
+router.delete('/:id', AuthController.isOwnerOfUser, UsersController.destroy) 
 
 
 module.exports = router;
