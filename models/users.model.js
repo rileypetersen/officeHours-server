@@ -23,6 +23,16 @@ class UsersModel extends Model {
 			.first()
 	};
 
+	static verifyUserId(id) {
+		return knex('users')
+			.where({ id })
+			.first()
+			.then(user => {
+				if (!user) throw new Error('userUnauthorized');
+				return user;
+			})
+	};
+
 };
 
 
