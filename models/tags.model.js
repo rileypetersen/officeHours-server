@@ -3,11 +3,11 @@ const knex = require('../db/knex');
 
 
 class TagsModel extends Model {
-  constructor(){
-    super()
-  };
+	constructor(){
+		super()
+	};
 
 };
 
 
-module.exports = TagsModel
+module.exports = TagsModel;
