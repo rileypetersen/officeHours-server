@@ -8,14 +8,14 @@ const secret = process.env.SECRET_KEY;
 class Token {
 
 	static sign(id) {
-		const sub = { id }
-		const expiresIn = '7 days'
-		return signPromise({ sub }, secret, { expiresIn })
+		const sub = { id };
+		const expiresIn = '7 days';
+		return signPromise({ sub }, secret, { expiresIn });
 	};
 
 	static verifyAndExtractHeaderToken(headers) {
-		const token = headers.authorization ? headers.authorization.replace('Bearer ', '') : null
-		return verifyPromise(token, secret)
+		const token = headers.authorization ? headers.authorization.replace('Bearer ', '') : null;
+		return verifyPromise(token, secret);
 	};
 
 };
