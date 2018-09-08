@@ -1,11 +1,12 @@
 const moment = require('moment');
 
 
-async function userCreate({ user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session }) {
+async function userCreate({ user_type, first_name, last_name, user_name, email, password, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session }) {
     if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
     if (!first_name || typeof first_name !== 'string') throw new Error('badFirstName');
     if (!last_name || typeof last_name !== 'string') throw new Error('badLastName');
     if (!user_name || typeof user_name !== 'string') throw new Error('badUserName');
+    if (!email || typeof email !== 'string') throw new Error('badEmail');
     if (!profile_img_url || typeof profile_img_url !== 'string') throw new Error('badProfileImg');
     if (!title || typeof title !== 'string') throw new Error('badTitle');
     if (!short_description || typeof short_description !== 'string') throw new Error('badShortDescription');
@@ -17,7 +18,7 @@ async function userCreate({ user_type, first_name, last_name, user_name, profile
 };
 
 async function userUpdate(body) {
-    const { user_type, first_name, last_name, user_name, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = body
+    const { user_type, first_name, last_name, user_name, email, password, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = body
     if (can_create_session !== undefined && typeof can_create_session !== 'boolean') throw new Error('aFieldRequired');
     if (!user_type && !first_name && !last_name && !user_name && !profile_img_url && !title && !short_description && !long_description && !linkedin_url && !website_url) throw new Error('aFieldRequired');
     return true;
