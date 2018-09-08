@@ -3,9 +3,9 @@ const router = express.Router({ mergeParams: true })
 const { MeetingsController } = require('../controllers')
 
 
-// router.get('/', MeetingsController.index)
+router.get('/', MeetingsController.index)
 
-// router.get('/:mid', MeetingsController.show)
+router.get('/:mid', MeetingsController.show)
 
 // router.post('/', MeetingsController.create)
 

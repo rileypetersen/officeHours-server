@@ -12,7 +12,7 @@ class Auth {
 			next()
 		})
 	};
-	
+
 	static isSelf(req, res, next) {
 		if (parseInt(req.params.id) !== req.claim.id) throw new Error('userUnauthorized')
 		next()
