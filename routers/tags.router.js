@@ -1,6 +1,6 @@
-const express = require('express')
-const router = express.Router({ mergeParams: true })
-const { TagsController } = require('../controllers')
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+const { TagsController } = require('../controllers');
 
 
 // router.get('/', TagsController.index)
@@ -14,4 +14,4 @@ const { TagsController } = require('../controllers')
 // router.delete('/:tid', TagsController.destroy)
 
 
-module.exports = router
+module.exports = router;
