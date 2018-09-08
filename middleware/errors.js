@@ -43,10 +43,10 @@ function processErrorMessage(err) {
         case 'badSessionDuration' : return { status: 400, message: 'Session "duration" must: be a String and is required' }
         case 'badSessionDelay' : return { status: 400, message: 'Session "delay" must: be a String and is required' }
         case 'userCanNotCreateSession' : return { status: 400, message: 'User not allowed to create sessions' }
-        case 'aFieldRequiredSession' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "organization_id", "date", "start_time", "location", "duration", "delay" '}
+        case 'aFieldRequiredSession' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "organization_id", "date", "start_time", "location", "duration", "delay" ' }
 
         // MEETING ERRORS
-        case 'meetingsNotFound' : return { status: 404, message: 'Meeting not found'}
+        case 'meetingsNotFound' : return { status: 404, message: 'Meeting not found' }
 
         // TAG ERRORS
 
