@@ -19,7 +19,7 @@ class MeetingsController extends Controller {
   static show(req, res, next) {
     OrganizationsModel.show(req.params.id)
       .then(() => SessionsModel.show(req.params.id, req.params.sid))
-      .then(() => MeetingsModel.show(req.params.mid))
+      .then(() => MeetingsModel.show(req.params.sid, req.params.mid))
       .then(data => res.status(201).json({ data }))
       .catch(err => next(err));
   };
