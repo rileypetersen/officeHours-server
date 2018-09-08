@@ -35,7 +35,7 @@ module.exports = (tableName) => {
                 .where({ id })
                 .returning('*')
                 .then(([res]) => {
-                    if (!res) throw new Error(`${tableName}NotFound`)
+                    if (!res) throw new Error(`${tableName}NotFound`);
                     return res
                 })
         };
@@ -48,10 +48,10 @@ module.exports = (tableName) => {
                 .then(([res]) => {
                     if (!res) throw new Error(`${tableName}NotFound`)
                     return res
-                })
+                });
         };
 
-    }
+    };
 
     return Model
 
