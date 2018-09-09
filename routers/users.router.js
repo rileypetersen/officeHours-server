@@ -7,7 +7,7 @@ router.get('/', UsersController.index)
 
 router.get('/:id', UsersController.show)
 
-router.get('/token', UsersController.isAuthenticated, UsersController.getAuthStatus)
+router.get('/token', AuthController.isAuthenticated, AuthController.getAuthStatus)
 
 router.post('/register', UsersController.isValidUserCreate, UsersController.create)
 
