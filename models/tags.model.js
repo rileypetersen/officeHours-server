@@ -7,7 +7,7 @@ class TagsModel extends Model {
 		super()
 	};
 
-	static addOrRemoveTag({ user_id, tag_id }) {
+	static addOrRemoveTag(user_id, tag_id) {
 		return knex('users_tags')
 			.where({ user_id, tag_id })
 			.first()
@@ -23,7 +23,7 @@ class TagsModel extends Model {
 			})
 	};
 
-	static getUserTags(user_id) {
+	static showUserTags(user_id) {
 		return knex('users_tags')
 			.where({ user_id })
 	};
