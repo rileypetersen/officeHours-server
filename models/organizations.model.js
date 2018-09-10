@@ -7,6 +7,16 @@ class OrganizationsModel extends Model {
 		super()
 	};
 
+	// static showOrgUsers(org_id) {
+	// 	return knex('organizations_users')
+	// 		.where({ org_id })
+	// 		.join('users', 'id', 'user_id')
+	// 		.then(data => {
+	// 			console.log('wow: ', data);
+	// 			return data;
+	// 		})
+	// };
+
 	static getOrgByName(name) {
 		return knex('organizations')
 			.where({ name })
