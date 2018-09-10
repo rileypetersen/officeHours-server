@@ -10,6 +10,12 @@ class OrganizationsController extends Controller {
 		super()
 	};
 
+	// static showOrgUsers(req, res, next) {
+	// 	OrganizationsModel.showOrgUsers(req.params.id)
+	// 		.then(data => res.status(201).json({ data }))
+	// 		.catch(err => next(err));
+	// }
+
 	static isValidOrgCreate(req, res, next) {
 		validate.organizationCreate(req.body)
 			.then(() =>  UsersModel.show(req.body.user_id))
