@@ -2,7 +2,7 @@
 
 ## Database Structure
 
-![](./images/officeHours-ERD.png)
+![](./images/OfficeHoursERD.png)
 
 ## Setup
 1. Fork and clone this repository
