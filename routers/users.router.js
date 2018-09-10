@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { AuthController, UsersController } = require('../controllers');
+const { AuthController, TagsController, UsersController } = require('../controllers');
 
 
 router.get('/', UsersController.index) 
@@ -12,6 +12,10 @@ router.get('/token', AuthController.isAuthenticated, AuthController.getAuthStatu
 router.post('/register', UsersController.isValidUserCreate, UsersController.create)
 
 router.post('/login', UsersController.login)
+
+router.post('/:id/tags', TagsController.addOrRemoveTag)
+
+// router.post('/invite', UsersController.invite)
 
 router.patch('/:id', AuthController.isOwnerOfUser, UsersController.isValidUserPatch, UsersController.update)
 
