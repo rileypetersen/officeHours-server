@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Tags`);
-const { UsersModel, OrganizationsModel } = require('../models');
+const { UsersModel, OrganizationsModel, TagsModel } = require('../models');
 const validate = require('../middleware/validations');
 
 
@@ -18,6 +18,13 @@ class TagsController extends Controller {
 		// validate.orgUpdate(req.body)
 		
 		//   .catch(err => next(err));
+	};
+
+	static addOrRemoveTag(req, res, next) {
+		TagsModel.addOrRemoveTag(req.body)
+			.then(() => TagsModel.getUserTags(req.body.user_id))
+			.then(data => res.status(200).json({ data }))
+		  	.catch(err => next(err));
 	};
 
 };
