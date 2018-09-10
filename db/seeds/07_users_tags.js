@@ -148,12 +148,12 @@ exports.seed = function(knex, Promise) {
           tag_id: 29
         },
         {
-          id: 20,
+          id: 30,
           user_id: 2,
           tag_id: 210
         },
         {
-          id: 21,
+          id: 31,
           user_id: 2,
           tag_id: 411
         }
