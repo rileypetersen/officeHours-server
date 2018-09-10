@@ -13,6 +13,8 @@ router.post('/register', UsersController.isValidUserCreate, UsersController.crea
 
 router.post('/login', UsersController.login)
 
+router.get('/:id/tags', TagsController.showUserTags)
+
 router.post('/:id/tags', TagsController.addOrRemoveTag)
 
 // router.post('/invite', UsersController.invite)
