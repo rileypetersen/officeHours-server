@@ -3,7 +3,6 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.string('first_name').notNullable();
     table.string('last_name').notNullable();
-    table.string('user_name').notNullable();
     table.string('email').notNullable();
     table.string('hashed_password').notNullable();
     table.text('profile_img_url').notNullable().defaultTo('https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg');
