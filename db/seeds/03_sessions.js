@@ -8,8 +8,9 @@ exports.seed = (knex, Promise) => {
       return knex('sessions').insert([
         {
           id: 1,
-          user_id: 4,
           organization_id: 1,
+          organizer_id: 4,
+          host_id: 1,
           date: moment('10/11/2018', dateFormat).format(),
           start_time: moment('7:00am', timeFormat).format(),
           location: 'Starbucks Reserve',
@@ -18,8 +19,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 2,
-          user_id: 3,
           organization_id: 2,
+          organizer_id: 3,
+          host_id: 2,
           date: moment('10/15/2018', dateFormat).format(),
           start_time: moment('11:00am', timeFormat).format(),
           location: 'Comotion Labs',
@@ -28,8 +30,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 3,
-          user_id: 3,
           organization_id: 2,
+          organizer_id: 3,
+          host_id: 2,
           date: moment('10/16/2018', dateFormat).format(),
           start_time: moment('1:00pm', timeFormat).format(),
           location: 'WeWork Holyoke',
@@ -38,8 +41,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 4,
-          user_id: 3,
           organization_id: 2,
+          organizer_id: 3,
+          host_id: 2,
           date: moment('10/17/2018', dateFormat).format(),
           start_time: moment('2:00pm', timeFormat).format(),
           location: 'Caffe Umbria',
@@ -48,8 +52,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 5,
-          user_id: 5,
           organization_id: 1,
+          organizer_id: 5,
+          host_id: 1,
           date: moment('10/18/2018', dateFormat).format(),
           start_time: moment('11:00am', timeFormat).format(),
           location: 'Starbucks Reserve',
@@ -58,8 +63,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 6,
-          user_id: 5,
           organization_id: 1,
+          organizer_id: 5,
+          host_id: 1,
           date: moment('10/23/2018', dateFormat).format(),
           start_time: moment('1:00pm', timeFormat).format(),
           location: 'Starbucks Reserve',
@@ -68,8 +74,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 7,
-          user_id: 4,
           organization_id: 1,
+          organizer_id: 4,
+          host_id: 1,
           date: moment('10/25/2018', dateFormat).format(),
           start_time: moment('2:00pm', timeFormat).format(),
           location: 'Starbucks Reserve',
@@ -78,8 +85,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 8,
-          user_id: 4,
           organization_id: 1,
+          organizer_id: 4,
+          host_id: 1,
           date: moment('10/24/2018', dateFormat).format(),
           start_time: moment('11:00am', timeFormat).format(),
           location: 'Starbucks Reserve',
@@ -88,8 +96,9 @@ exports.seed = (knex, Promise) => {
         },
         {
           id: 9,
-          user_id: 5,
           organization_id: 1,
+          organizer_id: 5,
+          host_id: 1,
           date: moment('10/31/2018', dateFormat).format(),
           start_time: moment('1:00pm', timeFormat).format(),
           location: 'Starbucks Reserve',
