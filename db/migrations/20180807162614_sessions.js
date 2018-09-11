@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
     table.integer('organization_id').notNullable();
     table.foreign('organization_id').references('organizations.id').onDelete('CASCADE');
     table.integer('organizer_id').notNullable();
-    table.foreign('organizer_id').references('organizations.organizer_id').onDelete('CASCADE');
+    table.foreign('organizer_id').references('users.id').onDelete('CASCADE');
     table.integer('host_id').unsigned();
     table.foreign('host_id').references('users.id').onDelete('CASCADE');
     table.string('date').notNullable();
