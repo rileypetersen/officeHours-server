@@ -1,5 +1,3 @@
-// 'users_tags' table
-
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('users_tags', table => {
       table.increments();
