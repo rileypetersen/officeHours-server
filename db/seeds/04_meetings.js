@@ -1,8 +1,6 @@
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
+exports.seed = (knex, Promise) => {
   return knex('meetings').del()
-    .then(function () {
-      // Inserts seed entries
+    .then(() => {
       return knex('meetings').insert([
         {
           id: 1,

@@ -1,10 +1,8 @@
 const bcrypt = require('bcryptjs');
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
+exports.seed = (knex, Promise) => {
   return knex('users').del()
-    .then(function () {
-      // Inserts seed entries
+    .then( () => {
       return knex('users').insert([
         {
           id: 1,

@@ -2,11 +2,9 @@ const moment = require('moment')
 const dateFormat = 'MM-DD-YYYY'
 const timeFormat = '+-HH:mm a'
 
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
+exports.seed = (knex, Promise) => {
   return knex('sessions').del()
-    .then(function () {
-      // Inserts seed entries
+    .then(() => {
       return knex('sessions').insert([
         {
           id: 1,

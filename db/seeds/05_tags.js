@@ -1,8 +1,6 @@
-exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
+exports.seed = (knex, Promise) => {
   return knex('tags').del()
-    .then(function () {
-      // Inserts seed entries
+    .then(() => {
       return knex('tags').insert([
         { id: 1, tag_name: '.NET' },
         { id: 2, tag_name: '3D Modeling' },
