@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         table.integer('organization_id').notNullable();
         table.foreign('organization_id').references('organizations.id').onDelete('CASCADE');
         table.string('user_type').defaultTo('member');
-        table.string('title').notNullable();
+        table.string('user_title').defaultTo('...');
         table.boolean('can_create_session').notNullable().defaultTo(false);        
     });
   };
