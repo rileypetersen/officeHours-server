@@ -30,8 +30,9 @@ async function userLogin({ user_name, password }) {
     return true;
 };
 
-async function organizationCreate({ user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions }) {
-    if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUserId');
+// Are all the column names from organizations table present/correct below? Once checked hit with postman route and test, fix bugs from there.
+async function organizationCreate({ organization_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions }) {
+    if (!organization_id || typeof organization_id !== 'number') throw new Error('badOrgId');
     if (!name || typeof name !== 'string') throw new Error('badOrgName');
     if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShortDescription');
     if (!long_description || typeof long_description !== 'string') throw new Error('badOrgLongDescription');
