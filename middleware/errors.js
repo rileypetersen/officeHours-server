@@ -15,10 +15,10 @@ function processErrorMessage(err) {
 		case 'badLinkedinURL' : return { status: 400, message: 'User "linkedin_url" must: be a String and is required' };
 		case 'badWebsiteURL' : return { status: 400, message: 'User "website_url" must: be a String and is required' };
 		case 'badCanCreateSession' : return { status: 400, message: 'User "can_create_session" must: be a String and is required' };
-		case 'aFieldRequired' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_type", "first_name", "last_name", "user_name", "profile_img_url", "title", "short_description", "long_description", "linkedin_url", "website_url", "can_create_session" ' };
-		case 'userNameTaken' : return { status: 400, message: 'Entered "user_name" is already in use' };
+		case 'aFieldRequired' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_type", "first_name", "last_name", "email", "profile_img_url", "title", "short_description", "long_description", "linkedin_url", "website_url", "can_create_session" ' };
+		case 'userEmailTaken' : return { status: 400, message: 'Entered "email" is already in use' };
 		case 'usersNotFound' : return { status: 404, message: 'User not found' };
-		case 'invalidUserName' : return { status: 400, message: 'A valid "user_name" is required to login' };
+		case 'invalidUserEmail' : return { status: 400, message: 'A valid "email" is required to login' };
 		case 'invalidPassword' : return { status: 400, message: 'A valid "password" is required to login' };
 		case 'userUnauthorized' : return { status: 401, message: 'User is not authorized to access this resource' };
 
