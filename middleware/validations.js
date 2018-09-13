@@ -37,8 +37,8 @@ async function userOrgUpdate(body) {
     return true;
 };
 
-async function userLogin({ user_name, password }) {
-    if (!user_name) throw new Error('invalidUserEmail');
+async function userLogin({ email, password }) {
+    if (!email) throw new Error('invalidUserEmail');
     if (!password) throw new Error('invalidPassword');
     return true;
 };
