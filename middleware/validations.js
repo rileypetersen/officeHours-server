@@ -6,7 +6,7 @@ async function userCreate({ first_name, last_name, email, password, profile_img_
     if (!last_name || typeof last_name !== 'string') throw new Error('badLastName');
     if (!email || typeof email !== 'string') throw new Error('badEmail');
     if (!password || typeof password !== 'string') throw new Error('badPassword');
-    // below are not required
+    // below are NOT *required*
     if (profile_img_url !== undefined && typeof profile_img_url !== 'string') throw new Error('badProfileImg');
     if (short_description !== undefined && typeof short_description !== 'string') throw new Error('badShortDescription');
     if (long_description !== undefined && typeof long_description !== 'string') throw new Error('badLongDescription');
