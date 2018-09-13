@@ -25,6 +25,7 @@ class UsersController extends Controller {
 	// controller must alter 2 tables: "users" && "users_organizations" now (potentially)
 	// all info still passed via req.body
 	static isValidUserPatch(req, res, next) {
+		console.log(req.body)
 		validate.userUpdate(req.body)
 			.then(() => UsersModel.show(req.params.id))
 			.then(user => {
