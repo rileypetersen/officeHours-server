@@ -7,4 +7,4 @@ module.exports = {
     MeetingsRouter: require('./meetings.router'),
     MembersRouter: require('./meetings_members.router'),
     TagsRouter: require('./tags.router')
-}
+};
