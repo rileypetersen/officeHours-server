@@ -21,21 +21,21 @@
 
 **POST /api/users/register**
 - Create a new user
-    - required fields in req.body:
+    - fields in req.body:
 ```
 {
-    user_type,              // STRING
+    // REQUIRED 
     first_name,             // STRING
     last_name,              // STRING
-    user_name,              // STRING
-    email,                  // STRING    
+    email,                  // STRING
+    password,               // STRING
+
+    // NOT REQUIRED
     profile_img_url,        // STRING
-    title,                  // STRING
     short_description,      // STRING
     long_description,       // STRING
     linkedin_url,           // STRING
     website_url,            // STRING
-    can_create_session      // BOOLEAN
 }
 ```
 
@@ -44,7 +44,7 @@
     - required fields in req.body:
 ```
 {
-    user_name,              // STRING
+    email,                  // STRING
     password,               // STRING
 }
 ```
@@ -56,8 +56,7 @@
 {
     first_name,             // STRING
     last_name,              // STRING
-    user_name,              // STRING
-    email,                  // STRING    
+    email,                  // STRING
     password,               // STRING
     profile_img_url,        // STRING
     title,                  // STRING
@@ -86,7 +85,7 @@
     - required fields in req.body:
 ```
 {
-    user_id,                    // INTEGER
+    organizer_id,               // INTEGER
     name,                       // STRING
     short_description,          // STRING
     long_description,           // STRING
@@ -101,7 +100,7 @@
     - at least one(1) of the following fields in body is required:
 ```
 {
-    user_id,                    // INTEGER
+    organizer_id,               // INTEGER
     name,                       // STRING
     short_description,          // STRING
     long_description,           // STRING
@@ -113,6 +112,44 @@
 
 **DELETE /api/organizations/:id**
 - Delete an organization via ID
+
+
+### ----- OrganizationsUsersRoutes ---------------------------------------------------------------------
+
+**GET /api/organizations/:id/users**
+- Get all organization's users
+
+**GET /api/organizations/:id/users**
+- Get an organization's user via ID
+
+**POST /api/organizations/:id/users**
+- Create a user for an organization
+    - required 
+```
+{
+    user_id,                // INTEGER
+    organization_id,        // INTEGER
+    user_type,              // STRING
+    user_title,             // STRING
+    can_create_sessions     // BOOLEAN
+}
+```
+
+**PATCH /api/organizations/:id/users/:uid**
+- Update a user for an organization
+    - at least one(1) of the following fields in body is required:
+```
+{
+    user_id,                // INTEGER
+    organization_id,        // INTEGER
+    user_type,              // STRING
+    user_title,             // STRING
+    can_create_sessions     // BOOLEAN
+}
+```
+
+**DELETE /api/organizations/:id/users/:uid**
+- Delete an organization's user via ID
 
 
 ### ----- SessionsRoutes --------------------------------------------------------------------------
