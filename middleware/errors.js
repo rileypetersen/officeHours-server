@@ -8,6 +8,7 @@ function processErrorMessage(err) {
 		case 'badLastName' : return { status: 400, message: 'User "last_name" must: be a String and is required' };
 		case 'badUserName' : return { status: 400, message: 'User "user_name" must: be a String and is required' };
 		case 'badEmail' : return { status: 400, message: 'User "email" must: be a String and is required' };
+		case 'badPassword' : return { status: 400, message: 'User "password" must: be a String and is required'};
 		case 'badProfileImg' : return { status: 400, message: 'User "profile_img_url" must: be a String and is required' };
 		case 'badTitle' : return { status: 400, message: 'User "title" must: be a String and is required' };
 		case 'badShortDescription' : return { status: 400, message: 'User "short_description" must: be a String and is required' };
@@ -20,6 +21,7 @@ function processErrorMessage(err) {
 		case 'usersNotFound' : return { status: 404, message: 'User not found' };
 		case 'invalidUserEmail' : return { status: 400, message: 'A valid "email" is required to login' };
 		case 'invalidPassword' : return { status: 400, message: 'A valid "password" is required to login' };
+		case 'anOrgRequiredUserOrg' : return { status: 400, message: 'An "organization_id" must: be a Number and is required' }
 		case 'userUnauthorized' : return { status: 401, message: 'User is not authorized to access this resource' };
 
 		// ORGANIZATION ERRORS

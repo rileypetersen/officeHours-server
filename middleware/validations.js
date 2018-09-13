@@ -1,25 +1,39 @@
 const moment = require('moment');
 
 
-async function userCreate({ user_type, first_name, last_name, user_name, email, password, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session }) {
-    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
+async function userCreate({ first_name, last_name, email, password, profile_img_url, short_description, long_description, linkedin_url, website_url }) {
     if (!first_name || typeof first_name !== 'string') throw new Error('badFirstName');
     if (!last_name || typeof last_name !== 'string') throw new Error('badLastName');
     if (!email || typeof email !== 'string') throw new Error('badEmail');
-    if (!profile_img_url || typeof profile_img_url !== 'string') throw new Error('badProfileImg');
-    if (!title || typeof title !== 'string') throw new Error('badTitle');
-    if (!short_description || typeof short_description !== 'string') throw new Error('badShortDescription');
-    if (!long_description || typeof long_description !== 'string') throw new Error('badLongDescription');
-    if (!linkedin_url || typeof linkedin_url !== 'string') throw new Error('badLinkedinURL');
-    if (!website_url || typeof website_url !== 'string') throw new Error('badWebsiteURL');
-    if (typeof can_create_session !== 'boolean') throw new Error('badCanCreateSession');
+    if (!password || typeof password !== 'string') throw new Error('badPassword');
+    // below are not required
+    if (profile_img_url !== undefined && typeof profile_img_url !== 'string') throw new Error('badProfileImg');
+    if (short_description !== undefined && typeof short_description !== 'string') throw new Error('badShortDescription');
+    if (long_description !== undefined && typeof long_description !== 'string') throw new Error('badLongDescription');
+    if (linkedin_url !== undefined && typeof linkedin_url !== 'string') throw new Error('badLinkedinURL');
+    if (website_url !== undefined && typeof website_url !== 'string') throw new Error('badWebsiteURL');
     return true;
 };
 
 async function userUpdate(body) {
-    const { user_type, first_name, last_name, email, password, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_session } = body
-    if (can_create_session !== undefined && typeof can_create_session !== 'boolean') throw new Error('aFieldRequired');
+    const { user_type, first_name, last_name, email, password, profile_img_url, title, short_description, long_description, linkedin_url, website_url, can_create_sessions } = body
+    if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequired');
     if (!user_type && !first_name && !last_name && !profile_img_url && !title && !short_description && !long_description && !linkedin_url && !website_url) throw new Error('aFieldRequired');
+    return true;
+};
+
+async function userOrgAdd({ organization_id, user_type, user_title, can_create_sessions }) {
+    if (!organization_id || typeof organization_id !== 'number') throw new Error('anOrgRequiredUserOrg')
+    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');    
+    if (!title || typeof title !== 'string') throw new Error('badTitle');
+    if (typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
+    return true;
+};
+
+async function userOrgUpdate(body) {
+    const { user_type, user_title, can_create_sessions } = body
+    if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequiredUserOrg');
+    if (!user_type && !user_title) throw new Error('aFieldRequiredUserOrg')
     return true;
 };
 
