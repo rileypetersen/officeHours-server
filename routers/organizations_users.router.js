@@ -7,7 +7,7 @@ const { OrganizationsController } = require('../controllers');
 
 // router.post('/', OrganizationsController.addOrgUser)
 
-// router.post('/:uid', OrganizationsController.updateOrgUser)
+// router.patch('/:uid', OrganizationsController.updateOrgUser)
 
 // router.post('/:uid', OrganizationsController.removeOrgUser)
 
