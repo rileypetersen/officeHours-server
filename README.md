@@ -59,12 +59,10 @@
     email,                  // STRING
     password,               // STRING
     profile_img_url,        // STRING
-    title,                  // STRING
     short_description,      // STRING
     long_description,       // STRING
     linkedin_url,           // STRING
     website_url,            // STRING
-    can_create_session      // BOOLEAN
 }
 ```
 
@@ -192,6 +190,24 @@
 
 **DELETE /api/organizations/:id/sessions/:sid**
 - Delete a session via ID 
+
+
+### ----- SessionsHostsRoutes ---------------------------------------------------------------------
+
+**GET /api/organizations/:id/sessions/:sid/host**
+- Get a session's host
+
+**POST /api/organizations/:id/sessions/:sid/host**
+- Assign a host to a session
+    - required fields in req.body:
+```
+{
+    host_id,        // INTEGER
+}
+```
+
+**DELETE /api/organizations/:id/sessions/:sid/hosts/:hid**
+- Remove host from a session via ID 
 
 
 ### ----- MeetingsRoutes --------------------------------------------------------------------------
