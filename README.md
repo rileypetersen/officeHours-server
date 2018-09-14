@@ -232,9 +232,27 @@
     - at least one(1) of the following fields in body is required:
 ```
 {
-
+    
 }
 ```
 
 **DELETE /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Delete a meeting via ID
+
+
+### ----- MeetingsMemberRoutes --------------------------------------------------------------------
+
+**GET /api/organizations/:id/sessions/:sid/meetings/:mid/members**
+- Get a meeting's members
+
+**POST /api/organizations/:id/sessions/:sid/meetings/:mid/members**
+- Assign a meetings/:mid/members to a session
+    - required fields in req.body:
+```
+{
+    member_id,      // INTEGER
+}
+```
+
+**DELETE /api/organizations/:id/sessions/:sid/meetings/:mid/members/:memid**
+- Remove member from a meeting via ID 
