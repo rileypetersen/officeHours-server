@@ -1,3 +1,5 @@
+_This project is currently under construction._
+
 # OfficeHours-server
 
 ## Database Structure
