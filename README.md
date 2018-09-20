@@ -8,6 +8,7 @@ _This project is currently under construction._
 
 ## Setup
 1. Fork and clone this repository
+1. `cd officeHours-server/`
 1. `createdb officehours`
 1. `npm run setup`
 
