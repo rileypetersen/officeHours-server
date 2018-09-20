@@ -12,7 +12,7 @@ class OrganizationsModel extends Model {
 			.where({ organization_id })
 	};
 
-	static showOrgUsers(user_id, organization_id) {
+	static showOrgUser(user_id, organization_id) {
 		return knex('users_organizations')
 			.where({ user_id, organization_id })
 			.first()

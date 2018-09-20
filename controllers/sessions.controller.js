@@ -32,7 +32,7 @@ class SessionsController extends Controller {
         req.body.start_time = moment(req.body.start_time, timeFormat).format();
 
         validate.sessionCreate(req.body, parseInt(req.query.org_id))
-            .then(() =>  OrganizationsModel.showOrgUsers(req.body.user_id, req.query.org_id))
+            .then(() =>  OrganizationsModel.showOrgUser(req.body.user_id, req.query.org_id))
             .then(user => {
                 if (user.can_create_sessions !== true) throw new Error('userCanNotCreateSession');
                 req.body.organizer_id = req.body.user_id
