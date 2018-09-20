@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Sessions`);
-const { UsersModel, OrganizationsModel, SessionsModel } = require('../models');
+const { UsersModel, OrganizationsModel, SessionsModel, MeetingsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
 const moment = require('moment');
@@ -15,6 +15,16 @@ class SessionsController extends Controller {
     static index(req, res, next) {
         OrganizationsModel.show(req.query.org_id)
             .then(() => SessionsModel.index(req.query.org_id))
+            .then(sessions => {
+                let promises = sessions.map((session) => {
+                    return MeetingsModel.index(req.query.org_id, session.id)
+                        .then((meetings) => {
+                            session.meetings = meetings
+                            return session
+                        })
+                })
+                return Promise.all(promises)
+            })
             .then(data => res.status(201).json({ data }))
             .catch(err => next(err));
     };
