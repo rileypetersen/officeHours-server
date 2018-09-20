@@ -43,8 +43,8 @@ async function userLogin({ email, password }) {
     return true;
 };
 
-async function organizationCreate({ user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions }) {
-    if (!user_id || typeof user_id !== 'number') throw new Error('badOrgUserId');
+async function organizationCreate({ organizer_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions }) {
+    if (!organizer_id || typeof organizer_id !== 'number') throw new Error('badOrgUserId');
     if (!name || typeof name !== 'string') throw new Error('badOrgName');
     if (!short_description || typeof short_description !== 'string') throw new Error('badOrgShortDescription');
     if (!long_description || typeof long_description !== 'string') throw new Error('badOrgLongDescription');
@@ -55,15 +55,15 @@ async function organizationCreate({ user_id, name, short_description, long_descr
 };
 
 async function orgUpdate(body) {
-    const { user_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
+    const { organizer_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
     if (hosts_can_create_sessions !== undefined && typeof hosts_can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrg');
-    if (!user_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg');
+    if (!organizer_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg');
     return true;
 };
 
-async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }, paramsOrgId) {
-    if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId');
-    if (!organization_id || typeof organization_id !== 'number' || organization_id !== paramsOrgId) throw new Error('badSessionOrganizationId');
+async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }, queryOrgId) {
+    if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId'); 
+    if (!organization_id || typeof organization_id !== 'number' || organization_id !== queryOrgId) throw new Error('badSessionOrganizationId');
     if (!date || typeof date !== 'string' || !moment(date).isValid()) throw new Error('badSessionDate');
     if (!start_time || typeof start_time !== 'string' || !moment(start_time).isValid()) throw new Error('badSessionStartTime');
     if (!location || typeof location !== 'string') throw new Error('badSessionLocation');

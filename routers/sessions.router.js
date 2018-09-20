@@ -5,13 +5,13 @@ const { SessionsController } = require('../controllers');
 
 router.get('/', SessionsController.index)
 
-router.get('/:sid', SessionsController.show)
+router.get('/:id', SessionsController.show)
 
 router.post('/', SessionsController.isValidSessionCreate, SessionsController.create)
 
-router.patch('/:sid', SessionsController.isValidSessionPatch)
+router.patch('/:id', SessionsController.isValidSessionPatch)
 
-router.delete('/:sid', SessionsController.destroy)
+router.delete('/:id', SessionsController.destroy)
 
 
 module.exports = router;

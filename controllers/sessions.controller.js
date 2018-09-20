@@ -13,15 +13,15 @@ class SessionsController extends Controller {
     };
 
     static index(req, res, next) {
-        OrganizationsModel.show(req.params.id)
-            .then(() => SessionsModel.index(req.params.id))
+        OrganizationsModel.show(req.query.org_id)
+            .then(() => SessionsModel.index(req.query.org_id))
             .then(data => res.status(201).json({ data }))
             .catch(err => next(err));
     };
 
     static show(req, res, next) {
-        OrganizationsModel.show(req.params.id)
-            .then(() => SessionsModel.show(req.params.id, req.params.sid))
+        OrganizationsModel.show(req.query.org_id)
+            .then(() => SessionsModel.show(req.query.org_id, req.params.id))
             .then(data => res.status(201).json({ data }))
             .catch(err => next(err))
     };
@@ -31,21 +31,29 @@ class SessionsController extends Controller {
         req.body.date = moment(req.body.date, dateFormat).format();
         req.body.start_time = moment(req.body.start_time, timeFormat).format();
 
-        validate.sessionCreate(req.body, parseInt(req.params.id))
-            .then(() => OrganizationsModel.show(req.params.id))
-            .then(() =>  UsersModel.show(req.body.user_id))
+        validate.sessionCreate(req.body, parseInt(req.query.org_id))
+            .then(() =>  OrganizationsModel.showOrgUsers(req.body.user_id, req.query.org_id))
             .then(user => {
-                if (user.can_create_session !== true) throw new Error('userCanNotCreateSession');
+                if (user.can_create_sessions !== true) throw new Error('userCanNotCreateSession');
+                req.body.organizer_id = req.body.user_id
+                delete req.body.user_id
+                next();
             })
-            .then(() => next())
             .catch(err => next(err));
     };
 
     static isValidSessionPatch(req, res, next) {
         validate.sessionUpdate(req.body)
-            .then(() => OrganizationsModel.show(req.params.id))
-            .then(() => SessionsModel.show(req.params.sid))
-            .then(() => SessionsModel.update(req.params.sid, req.body))
+            .then(() => OrganizationsModel.show(req.query.org_id))
+            .then(() => SessionsModel.show(req.query.org_id, req.params.id))
+            .then(() => SessionsModel.update(req.params.id, req.body))
+            .then(data => res.status(201).json({ data }))
+            .catch(err => next(err));
+    };
+
+    static destroy(req, res, next) {
+        SessionsModel.show(req.query.org_id, req.params.id)
+            .then(() => SessionsModel.destroy(req.params.id))
             .then(data => res.status(201).json({ data }))
             .catch(err => next(err));
     };
