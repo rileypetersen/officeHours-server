@@ -141,7 +141,7 @@ _This project is currently under construction._
 ```
 {
     data: {
-        id,
+        id,                             // INTEGER
         organizer_id,                   // INTEGER
         name,                           // STRING
         short_description,              // STRING
@@ -171,7 +171,7 @@ _This project is currently under construction._
 ```
 {
     data: {
-        id,
+        id,                             // INTEGER
         organizer_id,                   // INTEGER
         name,                           // STRING
         short_description,              // STRING
@@ -189,7 +189,7 @@ _This project is currently under construction._
 ```
 {
     data: {
-        id,
+        id,                             // INTEGER
         organizer_id,                   // INTEGER
         name,                           // STRING
         short_description,              // STRING
@@ -242,11 +242,75 @@ _This project is currently under construction._
 
 ### ----- SessionsRoutes --------------------------------------------------------------------------
 
-**GET /api/organizations/:id/sessions**
-- Get all sessions
+**GET api/sessions/?org_id=##**
+- Get all sessions with attached meetings
+- Returning data structure:
+```
+{
+    data: [
+        {
+            id,                         // INTEGER
+            organization_id,            // INTEGER
+            organizer_id,               // INTEGER
+            host_id,                    // INTEGER
+            date,                       // STRING
+            location,                   // STRING
+            start_time,                 // STRING
+            duration,                   // STRING
+            delay,                      // STRING
+            meetings: [  
+                {
+                    id,                 // INTEGER
+                    organization_id,    // INTEGER
+                    session_id,         // INTEGER
+                    host_id,            // INTEGER
+                    member_id,          // INTEGER
+                    location,           // STRING
+                    duration,           // STRING
+                    delay,              // STRING
+                    topic_1,            // STRING
+                    topic_2,            // STRING
+                    topic_3,            // STRING
+                }
+            ]
+        }
+    ]
+}
+```
 
 **GET /api/organizations/:id/sessions/:sid**
-- Get a session via ID
+- Get a session via ID with attached meetings
+- Returning data structure:
+```
+{
+    data: {
+        id,                         // INTEGER
+        organization_id,            // INTEGER
+        organizer_id,               // INTEGER
+        host_id,                    // INTEGER
+        date,                       // STRING
+        location,                   // STRING
+        start_time,                 // STRING
+        duration,                   // STRING
+        delay,                      // STRING
+        meetings: [  
+            {
+                id,                 // INTEGER
+                organization_id,    // INTEGER
+                session_id,         // INTEGER
+                host_id,            // INTEGER
+                member_id,          // INTEGER
+                location,           // STRING
+                duration,           // STRING
+                delay,              // STRING
+                topic_1,            // STRING
+                topic_2,            // STRING
+                topic_3,            // STRING
+            }
+        ]
+    }
+}
+```
 
 **POST /api/organizations/:id/sessions**
 - Create a session
