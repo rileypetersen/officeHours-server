@@ -278,7 +278,7 @@ _This project is currently under construction._
 }
 ```
 
-**GET /api/organizations/:id/sessions/:sid**
+**GET /api/sessions/:id?org_id=##**
 - Get a session via ID with attached meetings
 - Returning data structure:
 ```
@@ -312,7 +312,7 @@ _This project is currently under construction._
 }
 ```
 
-**POST /api/organizations/:id/sessions**
+**POST /api/sessions/?org_id=##**
 - Create a session
     - required fields in req.body:
 ```
@@ -326,8 +326,24 @@ _This project is currently under construction._
     delay               // STRING
 }
 ```
+- Returning data structure:
+```
+{
+    data: {
+        id,                         // INTEGER
+        organization_id,            // INTEGER
+        organizer_id,               // INTEGER
+        host_id,                    // INTEGER
+        date,                       // STRING
+        location,                   // STRING
+        start_time,                 // STRING
+        duration,                   // STRING
+        delay                       // STRING
+    }
+}
+```
 
-**PATCH /api/organizations/:id/sessions/:sid**
+**PATCH /api/sessions/:id?org_id=##**
 - Update a session's info
     - at least one(1) of the following fields in body is required:
 ```
@@ -341,9 +357,41 @@ _This project is currently under construction._
     delay               // STRING
 }
 ```
+- Returning data structure:
+```
+{
+    data: {
+        id,                         // INTEGER
+        organization_id,            // INTEGER
+        organizer_id,               // INTEGER
+        host_id,                    // INTEGER
+        date,                       // STRING
+        location,                   // STRING
+        start_time,                 // STRING
+        duration,                   // STRING
+        delay                       // STRING
+    }
+}
+```
 
-**DELETE /api/organizations/:id/sessions/:sid**
+**DELETE /api/sessions/:id?org_id=##**
 - Delete a session via ID 
+- Returning data structure:
+```
+{
+    data: {
+        id,                         // INTEGER
+        organization_id,            // INTEGER
+        organizer_id,               // INTEGER
+        host_id,                    // INTEGER
+        date,                       // STRING
+        location,                   // STRING
+        start_time,                 // STRING
+        duration,                   // STRING
+        delay                       // STRING
+    }
+}
+```
 
 
 ### ----- SessionsHostsRoutes ---------------------------------------------------------------------
