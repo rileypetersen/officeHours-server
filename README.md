@@ -77,37 +77,46 @@ _This project is currently under construction._
 
 **GET /api/organizations**
 - Get all organizations
+- Returning data structure:
+```
+{
+    data: [
+        {
+            id,                             // INTEGER
+            organizer_id,                   // INTEGER
+            name,                           // STRING
+            short_description,              // STRING
+            long_description,               // STRING
+            logo_img_url,                   // STRING
+            website_url,                    // STRING
+            hosts_can_create_sessions       // BOOLEAN
+        }
+    ]
+}
+```
 
 **GET /api/organizations/:id**
 - Get an organization via ID
 - Returning data structure:
 ```
 {
-    "data": {
-        "id": 1,
-        "organizer_id": 1,
-        "name": "WTIA",
-        "short_description": "Washington Technology Industry Association is a trade association unifying the voice of the technology community in Washington state.",
-        "long_description": "WTIA is an influential co-op of 800 tech companies large and small. We are pragmatic partners with education and government leaders building a better world.",
-        "website_url": "http://www.washingtontechnology.org",
-        "logo_img_url": "https://i1.wp.com/www.dkparker.com/wp-content/uploads/2018/04/wtia-startupclub-logo-800px.png?fit=800%2C274",
-        "hosts_can_create_sessions": true,
-        "users": [
+    data: {
+        id,                             // INTEGER
+        organizer_id,                   // INTEGER
+        name,                           // STRING
+        short_description,              // STRING
+        long_description,               // STRING
+        logo_img_url,                   // STRING
+        website_url,                    // STRING
+        hosts_can_create_sessions       // BOOLEAN
+        users: [
             {
-                "id": 1,
-                "user_id": 1,
-                "organization_id": 1,
-                "user_type": "organizer",
-                "user_title": "Startup Ambassador",
-                "can_create_sessions": true
-            },
-            {
-                "id": 3,
-                "user_id": 3,
-                "organization_id": 1,
-                "user_type": "host",
-                "user_title": "Investor",
-                "can_create_sessions": false
+                id:,                    //INTEGER
+                user_id,                //INTEGER
+                organization_id,        //INTEGER
+                user_type,              //STRING
+                user_title,             //STRING
+                can_create_sessions     //BOOLEAN
             }
         ]
     }
@@ -119,13 +128,13 @@ _This project is currently under construction._
     - required fields in req.body:
 ```
 {
-    organizer_id,               // INTEGER
-    name,                       // STRING
-    short_description,          // STRING
-    long_description,           // STRING
-    logo_img_url,               // STRING
-    website_url,                // STRING
-    hosts_can_create_sessions   // BOOLEAN
+    organizer_id,                       // INTEGER
+    name,                               // STRING
+    short_description,                  // STRING
+    long_description,                   // STRING
+    logo_img_url,                       // STRING
+    website_url,                        // STRING
+    hosts_can_create_sessions           // BOOLEAN
 }
 ```
 - Retruning data structure:
@@ -149,13 +158,13 @@ _This project is currently under construction._
     - at least one(1) of the following fields in body is required:
 ```
 {
-    organizer_id,               // INTEGER
-    name,                       // STRING
-    short_description,          // STRING
-    long_description,           // STRING
-    logo_img_url,               // STRING
-    website_url,                // STRING
-    hosts_can_create_sessions   // BOOLEAN
+    organizer_id,                       // INTEGER
+    name,                               // STRING
+    short_description,                  // STRING
+    long_description,                   // STRING
+    logo_img_url,                       // STRING
+    website_url,                        // STRING
+    hosts_can_create_sessions           // BOOLEAN
 }
 ```
 - Retruning data structure:
