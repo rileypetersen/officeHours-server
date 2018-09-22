@@ -38,23 +38,51 @@ _This project is currently under construction._
     short_description,      // STRING
     long_description,       // STRING
     linkedin_url,           // STRING
-    website_url,            // STRING
+    website_url             // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                     // INTEGER
+        first_name,             // STRING
+        last_name,              // STRING
+        email,                  // STRING
+        profile_img_url,        // STRING
+        short_description,      // STRING
+        long_description,       // STRING
+        linkedin_url,           // STRING
+        website_url             // STRING
+    }
 }
 ```
 
 **POST /api/users/login**
 - Login existing user
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
-    email,                  // STRING
-    password,               // STRING
+    email,          // STRING
+    password,       // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data:           // INTEGER
+}
+```
+- Returning in headers:
+```
+{
+    Auth Bearer:    // STRING
 }
 ```
 
 **PATCH /api/users/:id**
 - Update user info via ID
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
     first_name,             // STRING
@@ -125,7 +153,7 @@ _This project is currently under construction._
 
 **POST /api/organizations**
 - Create an organization
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
     organizer_id,                       // INTEGER
@@ -137,7 +165,7 @@ _This project is currently under construction._
     hosts_can_create_sessions           // BOOLEAN
 }
 ```
-- Retruning data structure:
+- Returning data structure:
 ```
 {
     data: {
@@ -155,7 +183,7 @@ _This project is currently under construction._
 
 **PATCH /api/organizations/:id**
 - Update an organization's info via ID
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
     organizer_id,                       // INTEGER
@@ -167,7 +195,7 @@ _This project is currently under construction._
     hosts_can_create_sessions           // BOOLEAN
 }
 ```
-- Retruning data structure:
+- Returning data structure:
 ```
 {
     data: {
@@ -185,7 +213,7 @@ _This project is currently under construction._
 
 **DELETE /api/organizations/:id**
 - Delete an organization via ID
-- Retruning data structure:
+- Returning data structure:
 ```
 {
     data: {
@@ -212,7 +240,7 @@ _This project is currently under construction._
 
 **POST /api/organizations/:id/users**
 - Create a user for an organization
-    - required 
+    - Required 
 ```
 {
     user_id,                // INTEGER
@@ -225,7 +253,7 @@ _This project is currently under construction._
 
 **PATCH /api/organizations/:id/users/:uid**
 - Update a user for an organization
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
     user_id,                // INTEGER
@@ -314,7 +342,7 @@ _This project is currently under construction._
 
 **POST /api/sessions/?org_id=##**
 - Create a session
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
     user_id,            // INTEGER
@@ -345,7 +373,7 @@ _This project is currently under construction._
 
 **PATCH /api/sessions/:id?org_id=##**
 - Update a session's info
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
     user_id,            // INTEGER
@@ -401,7 +429,7 @@ _This project is currently under construction._
 
 **POST /api/organizations/:id/sessions/:sid/host**
 - Assign a host to a session
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
     host_id,        // INTEGER
@@ -422,7 +450,7 @@ _This project is currently under construction._
 
 **POST /api/organizations/:id/sessions/:sid/meetings**
 - Create a meeting
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
 
@@ -431,7 +459,7 @@ _This project is currently under construction._
 
 **PATCH /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Update a meeting's info
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
     
@@ -449,7 +477,7 @@ _This project is currently under construction._
 
 **POST /api/organizations/:id/sessions/:sid/meetings/:mid/members**
 - Assign a meetings/:mid/members to a session
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
     member_id,      // INTEGER
