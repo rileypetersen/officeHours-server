@@ -593,7 +593,7 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    member_id,      // INTEGER
+    member_id,                              // INTEGER
 }
 ```
 - Returning data structure:
