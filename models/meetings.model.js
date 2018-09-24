@@ -17,6 +17,11 @@ class MeetingsModel extends Model {
 			})
 	}
 
+	static getAllOrgMeetings(organization_id) {
+		return knex('meetings')
+			.where({ organization_id })
+	}
+
 	static index(organization_id, session_id) {
 		return knex('meetings')
 			.where({ organization_id, session_id })

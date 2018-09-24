@@ -5,7 +5,7 @@ const { MeetingsController } = require('../controllers');
 
 router.get('/', MeetingsController.index)
 
-router.get('/:id', MeetingsController.show)
+// router.get('/:id', MeetingsController.show)
 
 // router.post('/', MeetingsController.create)
 
