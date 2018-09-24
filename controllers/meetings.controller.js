@@ -35,6 +35,14 @@ class MeetingsController extends Controller {
 		//   .catch(err => next(err));
 	};
 
+	static addMember(req, res, next) {
+		OrganizationsModel.show(req.body.organization_id)
+			.then(() => MeetingsModel.show(req.body.organization_id, req.params.id))
+			.then(() => MeetingsModel.update(req.params.id, req.body))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	};
+
 };
 
 
