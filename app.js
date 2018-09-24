@@ -23,7 +23,7 @@ app.use('/api/sessions', SessionsRouter);
 
 // app.use('/api/sessions/:id/hosts', HostsRouter);
 
-// app.use('/api/meetings', MeetingsRouter);
+app.use('/api/meetings', MeetingsRouter);
 
 // app.use('/api/meetings/:id/members', MembersRouter);
 

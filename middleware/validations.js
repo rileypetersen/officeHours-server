@@ -24,7 +24,7 @@ async function userUpdate(body) {
 
 async function userOrgAdd({ organization_id, user_type, user_title, can_create_sessions }) {
     if (!organization_id || typeof organization_id !== 'number') throw new Error('anOrgRequiredUserOrg')
-    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');    
+    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
     if (!title || typeof title !== 'string') throw new Error('badTitle');
     if (typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
     return true;
@@ -62,7 +62,7 @@ async function orgUpdate(body) {
 };
 
 async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }, queryOrgId) {
-    if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId'); 
+    if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId');
     if (!organization_id || typeof organization_id !== 'number' || organization_id !== queryOrgId) throw new Error('badSessionOrganizationId');
     if (!date || typeof date !== 'string' || !moment(date).isValid()) throw new Error('badSessionDate');
     if (!start_time || typeof start_time !== 'string' || !moment(start_time).isValid()) throw new Error('badSessionStartTime');

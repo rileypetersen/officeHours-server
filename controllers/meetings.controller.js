@@ -9,17 +9,15 @@ class MeetingsController extends Controller {
 	};
 
 	static index(req, res, next) {
-		OrganizationsModel.show(req.params.id)
-			.then(() => SessionsModel.show(req.params.id, req.params.sid))
-			.then(() => MeetingsModel.index(req.params.id, req.params.sid))
+		OrganizationsModel.show(req.query.org_id)
+			.then(() => MeetingsModel.getAllOrgMeetings(req.query.org_id))
 			.then(data => res.status(201).json({ data }))
 			.catch(err => next(err));
 	};
 
 	static show(req, res, next) {
-		OrganizationsModel.show(req.params.id)
-			.then(() => SessionsModel.show(req.params.id, req.params.sid))
-			.then(() => MeetingsModel.show(req.params.sid, req.params.mid))
+		OrganizationsModel.show(req.query.org_id)
+			.then(() => MeetingsModel.show(req.query.org_id, req.params.id))
 			.then(data => res.status(201).json({ data }))
 			.catch(err => next(err));
 	};
@@ -34,6 +32,14 @@ class MeetingsController extends Controller {
 		// validate.meetingUpdate(req.body)
 
 		//   .catch(err => next(err));
+	};
+
+	static addMember(req, res, next) {
+		OrganizationsModel.show(req.body.organization_id)
+			.then(() => MeetingsModel.show(req.body.organization_id, req.params.id))
+			.then(() => MeetingsModel.update(req.params.id, req.body))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
 	};
 
 };
