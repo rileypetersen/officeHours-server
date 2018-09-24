@@ -17,8 +17,6 @@ router.get('/:id/tags', TagsController.showUserTags)
 
 router.post('/:id/tags', TagsController.addOrRemoveTag)
 
-// router.post('/invite', UsersController.invite)
-
 router.patch('/:id', AuthController.isOwnerOfUser, UsersController.isValidUserPatch, UsersController.update)
 
 router.delete('/:id', AuthController.isOwnerOfUser, UsersController.destroy) 

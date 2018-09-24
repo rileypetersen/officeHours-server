@@ -5,13 +5,13 @@ const { MeetingsController } = require('../controllers');
 
 router.get('/', MeetingsController.index)
 
-router.get('/:mid', MeetingsController.show)
+router.get('/:id', MeetingsController.show)
 
 // router.post('/', MeetingsController.create)
 
-// router.patch('/:mid', MeetingsController.update)
+// router.patch('/:id', MeetingsController.update)
 
-// router.delete('/:mid', MeetingsController.destroy)
+// router.delete('/:id', MeetingsController.destroy)
 
 
 module.exports = router;

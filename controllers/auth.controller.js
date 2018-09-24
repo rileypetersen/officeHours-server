@@ -4,18 +4,6 @@ const jwt = require('jsonwebtoken');
 
 
 class Auth {
-		
-	static isOwnerOfUser(req, res, next) {
-		const userId = req.params.id;
-		Token.verifyAndExtractHeaderToken(req.headers)
-			.catch(err => { throw new Error('invalidToken') })
-			.then(token => UsersModel.verifyUserId(token.sub.id))
-			.then(user => {
-				if (user.id != userId) throw new Error('unauthorizedUser');
-				next();
-			})
-			.catch(err => next(err));
-	};
 
 	static getAuthStatus(req, res, next) {
 		res.status(200).send({ ...req.claim })
@@ -30,21 +18,49 @@ class Auth {
 			})
 			.catch(err => next(err));
 	};
-	 
-	// methods still needed:
-		// authorize owner of org for patch/delete
-		// authorise user type/status can create sessions
-		// authorise user type/status can create meetings
 		
-		// authorise user type/status can "view" sessions		
-		// authorise user type/status can "join" sessions
-		// authorise user type/status can "alter" sessions		
-		// authorise user type/status can "leave" sessions
+	static isOwnerOfUser(req, res, next) {
+		const userId = req.params.id;
+		Token.verifyAndExtractHeaderToken(req.headers)
+			.catch(err => { throw new Error('invalidToken') })
+			.then(token => UsersModel.verifyUserId(token.sub.id))
+			.then(user => {
+				if (user.id != userId) throw new Error('userUnauthorized');
+				next();
+			})
+			.catch(err => next(err));
+	};
 
-		// authorise user type/status can "view" meetings				
-		// authorise user type/status can "join" meetings
-		// authorise user type/status can "alter" meetings		
-		// authorise user type/status can "leave" meetings	
+	// authorize owner of org for:
+		// patch/delete on org
+		// get/post/patch/delete sessions
+	static isOrganizerOfOrg(req, res, next){
+		const orgId = req.params.id;
+		let userId;
+		Token.verifyAndExtractHeaderToken(req.headers)
+			.catch(err => { throw new Error('invalidToken') })
+			.then(token => UsersModel.verifyUserId(token.sub.id))
+			.then(user => {
+				if (user.id != userId) throw new Error('userUnauthorized');
+				next();
+			})
+			.catch(err => next(err));
+	};
+
+	// authorize host of org for:
+		// signup/remove self from sessions
+		// get/post/patch/delete meetings
+	static isHostOfOrg(req, res, next) {
+
+	};
+
+	// authorize member of org for:
+		// signup/remove self from meetings
+		// get/post/patch/delete meetings topics
+	static isMemberOfOrg(req, res, next) {
+
+	};
+
 };
 
 

@@ -5,8 +5,6 @@ const { OrganizationsController } = require('../controllers');
 
 router.get('/', OrganizationsController.index)
 
-// router.get('/:id/users', OrganizationsController.showOrgUsers)
-
 router.get('/:id', OrganizationsController.show)
 
 router.post('/', OrganizationsController.isValidOrgCreate, OrganizationsController.create)

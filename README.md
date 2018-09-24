@@ -1,3 +1,5 @@
+_This project is currently under construction._
+
 # OfficeHours-server
 
 ## Database Structure
@@ -6,6 +8,7 @@
 
 ## Setup
 1. Fork and clone this repository
+1. `cd officeHours-server/`
 1. `createdb officehours`
 1. `npm run setup`
 
@@ -21,51 +24,93 @@
 
 **POST /api/users/register**
 - Create a new user
-    - required fields in req.body:
+    - fields in req.body:
 ```
 {
-    user_type,              // STRING
-    first_name,             // STRING
-    last_name,              // STRING
-    user_name,              // STRING
-    email,                  // STRING    
-    profile_img_url,        // STRING
-    title,                  // STRING
-    short_description,      // STRING
-    long_description,       // STRING
-    linkedin_url,           // STRING
-    website_url,            // STRING
-    can_create_session      // BOOLEAN
+                    // REQUIRED 
+    first_name,                             // STRING
+    last_name,                              // STRING
+    email,                                  // STRING
+    password,                               // STRING
+
+                    // NOT REQUIRED
+    profile_img_url,                        // STRING
+    short_description,                      // STRING
+    long_description,                       // STRING
+    linkedin_url,                           // STRING
+    website_url                             // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        first_name,                         // STRING
+        last_name,                          // STRING
+        email,                              // STRING
+        profile_img_url,                    // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        linkedin_url,                       // STRING
+        website_url                         // STRING
+    }
 }
 ```
 
 **POST /api/users/login**
 - Login existing user
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
-    user_name,              // STRING
-    password,               // STRING
+    email,                                  // STRING
+    password,                               // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data:                                   // INTEGER
+}
+```
+- Returning in headers:
+```
+{
+    Auth Bearer:                            // STRING
 }
 ```
 
 **PATCH /api/users/:id**
 - Update user info via ID
-    - at least one(1) of the following fields in body is required:
+    - Valid TOKEN required in req.headers.Authorization
+    - At least one(1) of the following fields in body is required:
 ```
 {
-    first_name,             // STRING
-    last_name,              // STRING
-    user_name,              // STRING
-    email,                  // STRING    
-    password,               // STRING
-    profile_img_url,        // STRING
-    title,                  // STRING
-    short_description,      // STRING
-    long_description,       // STRING
-    linkedin_url,           // STRING
-    website_url,            // STRING
-    can_create_session      // BOOLEAN
+    first_name,                             // STRING
+    last_name,                              // STRING
+    email,                                  // STRING
+    password,                               // STRING
+    profile_img_url,                        // STRING
+    short_description,                      // STRING
+    long_description,                       // STRING
+    linkedin_url,                           // STRING
+    website_url,                            // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        first_name,                         // STRING
+        last_name,                          // STRING
+        email,                              // STRING
+        profile_img_url,                    // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        linkedin_url,                       // STRING
+        website_url                         // STRING
+    }
 }
 ```
 
@@ -77,111 +122,496 @@
 
 **GET /api/organizations**
 - Get all organizations
+- Returning data structure:
+```
+{
+    data: [
+        {
+            id,                             // INTEGER
+            organizer_id,                   // INTEGER
+            name,                           // STRING
+            short_description,              // STRING
+            long_description,               // STRING
+            logo_img_url,                   // STRING
+            website_url,                    // STRING
+            hosts_can_create_sessions       // BOOLEAN
+        }
+    ]
+}
+```
 
 **GET /api/organizations/:id**
 - Get an organization via ID
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organizer_id,                       // INTEGER
+        name,                               // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        logo_img_url,                       // STRING
+        website_url,                        // STRING
+        hosts_can_create_sessions           // BOOLEAN
+        users: [
+            {
+                id:,                        // INTEGER
+                user_id,                    // INTEGER
+                organization_id,            // INTEGER
+                user_type,                  // STRING
+                user_title,                 // STRING
+                can_create_sessions         // BOOLEAN
+            }
+        ]
+    }
+}
+```
 
 **POST /api/organizations**
 - Create an organization
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
-    user_id,                    // INTEGER
-    name,                       // STRING
-    short_description,          // STRING
-    long_description,           // STRING
-    logo_img_url,               // STRING
-    website_url,                // STRING
-    hosts_can_create_sessions   // BOOLEAN
+    organizer_id,                           // INTEGER
+    name,                                   // STRING
+    short_description,                      // STRING
+    long_description,                       // STRING
+    logo_img_url,                           // STRING
+    website_url,                            // STRING
+    hosts_can_create_sessions               // BOOLEAN
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organizer_id,                       // INTEGER
+        name,                               // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        website_url,                        // STRING
+        logo_img_url,                       // STRING
+        hosts_can_create_sessions           // BOOLEAN   
+    }
 }
 ```
 
 **PATCH /api/organizations/:id**
 - Update an organization's info via ID
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
-    user_id,                    // INTEGER
-    name,                       // STRING
-    short_description,          // STRING
-    long_description,           // STRING
-    logo_img_url,               // STRING
-    website_url,                // STRING
-    hosts_can_create_sessions   // BOOLEAN
+    organizer_id,                           // INTEGER
+    name,                                   // STRING
+    short_description,                      // STRING
+    long_description,                       // STRING
+    logo_img_url,                           // STRING
+    website_url,                            // STRING
+    hosts_can_create_sessions               // BOOLEAN
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organizer_id,                       // INTEGER
+        name,                               // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        website_url,                        // STRING
+        logo_img_url,                       // STRING
+        hosts_can_create_sessions           // BOOLEAN   
+    }
 }
 ```
 
 **DELETE /api/organizations/:id**
 - Delete an organization via ID
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organizer_id,                       // INTEGER
+        name,                               // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        website_url,                        // STRING
+        logo_img_url,                       // STRING
+        hosts_can_create_sessions           // BOOLEAN   
+    }
+}
+```
+
+
+### ----- OrganizationsUsersRoutes ---------------------------------------------------------------------
+
+**GET /api/organizations/:id/users**
+- Get all organization's users
+
+**GET /api/organizations/:id/users**
+- Get an organization's user via ID
+
+**POST /api/organizations/:id/users**
+- Create a user for an organization
+    - Required 
+```
+{
+    user_id,                                // INTEGER
+    organization_id,                        // INTEGER
+    user_type,                              // STRING
+    user_title,                             // STRING
+    can_create_sessions                     // BOOLEAN
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+
+    }
+}
+```
+
+**PATCH /api/organizations/:id/users/:uid**
+- Update a user for an organization
+    - At least one(1) of the following fields in body is required:
+```
+{
+    user_id,                                // INTEGER
+    organization_id,                        // INTEGER
+    user_type,                              // STRING
+    user_title,                             // STRING
+    can_create_sessions                     // BOOLEAN
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+
+    }
+}
+```
+
+**DELETE /api/organizations/:id/users/:uid**
+- Delete an organization's user via ID
+- Returning data structure:
+```
+{
+    data: {
+
+    }
+}
+```
 
 
 ### ----- SessionsRoutes --------------------------------------------------------------------------
 
-**GET /api/organizations/:id/sessions**
-- Get all sessions
+**GET api/sessions/?org_id=##**
+- Get all sessions with attached meetings
+- Returning data structure:
+```
+{
+    data: [
+        {
+            id,                             // INTEGER
+            organization_id,                // INTEGER
+            organizer_id,                   // INTEGER
+            host_id,                        // INTEGER
+            date,                           // STRING
+            location,                       // STRING
+            start_time,                     // STRING
+            duration,                       // STRING
+            delay,                          // STRING
+            meetings: [  
+                {
+                    id,                     // INTEGER
+                    organization_id,        // INTEGER
+                    session_id,             // INTEGER
+                    host_id,                // INTEGER
+                    member_id,              // INTEGER
+                    location,               // STRING
+                    duration,               // STRING
+                    delay,                  // STRING
+                    topic_1,                // STRING
+                    topic_2,                // STRING
+                    topic_3,                // STRING
+                }
+            ]
+        }
+    ]
+}
+```
 
-**GET /api/organizations/:id/sessions/:sid**
-- Get a session via ID
+**GET /api/sessions/:id?org_id=##**
+- Get a session via ID with attached meetings
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay,                              // STRING
+        meetings: [  
+            {
+                id,                         // INTEGER
+                organization_id,            // INTEGER
+                session_id,                 // INTEGER
+                host_id,                    // INTEGER
+                member_id,                  // INTEGER
+                location,                   // STRING
+                duration,                   // STRING
+                delay,                      // STRING
+                topic_1,                    // STRING
+                topic_2,                    // STRING
+                topic_3,                    // STRING
+            }
+        ]
+    }
+}
+```
 
-**POST /api/organizations/:id/sessions**
+**POST /api/sessions/?org_id=##**
 - Create a session
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
-    user_id,            // INTEGER
-    organization_id,    // INTEGER
-    date,               // STRING
-    start_time,         // STRING
-    location,           // STRING
-    duration,           // STRING
-    delay               // STRING
+    user_id,                                // INTEGER
+    organization_id,                        // INTEGER
+    date,                                   // STRING
+    start_time,                             // STRING
+    location,                               // STRING
+    duration,                               // STRING
+    delay                                   // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
+    }
 }
 ```
 
-**PATCH /api/organizations/:id/sessions/:sid**
+**PATCH /api/sessions/:id?org_id=##**
 - Update a session's info
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
-    user_id,            // INTEGER
-    organization_id,    // INTEGER
-    date,               // STRING
-    start_time,         // STRING
-    location,           // STRING
-    duration,           // STRING
-    delay               // STRING
+    user_id,                                // INTEGER
+    organization_id,                        // INTEGER
+    date,                                   // STRING
+    start_time,                             // STRING
+    location,                               // STRING
+    duration,                               // STRING
+    delay                                   // STRING
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
+    }
 }
 ```
 
-**DELETE /api/organizations/:id/sessions/:sid**
+**DELETE /api/sessions/:id?org_id=##**
 - Delete a session via ID 
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
+    }
+}
+```
+
+
+### ----- SessionsHostsRoutes ---------------------------------------------------------------------
+
+**GET /api/organizations/:id/sessions/:sid/host**
+- Get a session's host
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+**POST /api/organizations/:id/sessions/:sid/host**
+- Assign a host to a session
+    - Required fields in req.body:
+```
+{
+    host_id,        // INTEGER
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+**DELETE /api/organizations/:id/sessions/:sid/hosts/:hid**
+- Remove host from a session via ID 
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
 
 
 ### ----- MeetingsRoutes --------------------------------------------------------------------------
 
 **GET /api/organizations/:id/sessions/:sid/meetings**
 - Get all meetings
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
 
 **GET /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Get an meetings via ID
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
 
 **POST /api/organizations/:id/sessions/:sid/meetings**
 - Create a meeting
-    - required fields in req.body:
+    - Required fields in req.body:
 ```
 {
 
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
 }
 ```
 
 **PATCH /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Update a meeting's info
-    - at least one(1) of the following fields in body is required:
+    - At least one(1) of the following fields in body is required:
 ```
 {
-
+    
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
 }
 ```
 
 **DELETE /api/organizations/:id/sessions/:sid/meetings/:mid**
 - Delete a meeting via ID
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+
+### ----- MeetingsMemberRoutes --------------------------------------------------------------------
+
+**GET /api/organizations/:id/sessions/:sid/meetings/:mid/members**
+- Get a meeting's members
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+**POST /api/organizations/:id/sessions/:sid/meetings/:mid/members**
+- Assign a meetings/:mid/members to a session
+    - Required fields in req.body:
+```
+{
+    member_id,                              // INTEGER
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+**DELETE /api/organizations/:id/sessions/:sid/meetings/:mid/members/:memid**
+- Remove member from a meeting via ID 
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```

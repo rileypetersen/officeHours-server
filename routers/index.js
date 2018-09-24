@@ -1,8 +1,10 @@
 module.exports = {
     UsersRouter: require('./users.router'),
     OrganizationsRouter: require('./organizations.router'),
-    MeetingsRouter: require('./meetings.router'),
+    OrganizationUsersRouter: require('./organizations_users.router'),
     SessionsRouter: require('./sessions.router'),
+    HostsRouter: require('./sessions_hosts.router'),
+    MeetingsRouter: require('./meetings.router'),
+    MembersRouter: require('./meetings_members.router'),
     TagsRouter: require('./tags.router')
-}
-    
+};

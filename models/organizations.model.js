@@ -7,15 +7,20 @@ class OrganizationsModel extends Model {
 		super()
 	};
 
-	// static showOrgUsers(org_id) {
-	// 	return knex('organizations_users')
-	// 		.where({ org_id })
-	// 		.join('users', 'id', 'user_id')
-	// 		.then(data => {
-	// 			console.log('wow: ', data);
-	// 			return data;
-	// 		})
-	// };
+	static indexOrgUsers(organization_id) {
+		return knex('users_organizations')
+			.where({ organization_id })
+	};
+
+	static showOrgUser(user_id, organization_id) {
+		return knex('users_organizations')
+			.where({ user_id, organization_id })
+			.first()
+			.then(user => {
+				if (!user) throw new Error('userUnauthorized')
+				return user
+			})
+	};
 
 	static getOrgByName(name) {
 		return knex('organizations')

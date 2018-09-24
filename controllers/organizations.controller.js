@@ -10,15 +10,29 @@ class OrganizationsController extends Controller {
 		super()
 	};
 
-	// static showOrgUsers(req, res, next) {
-	// 	OrganizationsModel.showOrgUsers(req.params.id)
-	// 		.then(data => res.status(201).json({ data }))
-	// 		.catch(err => next(err));
-	// }
+	static showOrgUser(req, res, next) {
+		OrganizationsModel.showOrgUser(req.params.id)
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	}
+
+	static show(req, res, next) {
+		let organization;
+		OrganizationsModel.show(req.params.id)
+			.then(org => {
+				organization = org
+				return OrganizationsModel.indexOrgUsers(org.id)
+			})
+			.then((users) => {
+				organization.users = users
+				res.status(201).json({ data: organization })
+			})
+			.catch(err => next(err));
+	};
 
 	static isValidOrgCreate(req, res, next) {
 		validate.organizationCreate(req.body)
-			.then(() =>  UsersModel.show(req.body.user_id))
+			.then(() =>  UsersModel.show(req.body.organizer_id))
 			.then(() => OrganizationsModel.getOrgByName(req.body.name))
 			.then(org => {
 				if (org !== undefined) throw new Error('alreadyOrg')
@@ -34,6 +48,8 @@ class OrganizationsController extends Controller {
 			.then(data => res.status(201).json({ data }))
 			.catch(err => next(err));
 	};
+
+	
 
 };
 

@@ -17,9 +17,9 @@ class UsersModel extends Model {
 			.then(([res]) => res)
 	};
 
-	static getUserByUsername(user_name) {
+	static getUserByUserEmail(email) {
 		return knex('users')
-			.where({ user_name })
+			.where({ email })
 			.first()
 	};
 
