@@ -15,7 +15,7 @@ router.post('/:id/member', MeetingsController.addMember)
 
 // router.patch('/:id', MeetingsController.update)
 
-// router.delete('/:id', MeetingsController.destroy)
+router.delete('/:id', MeetingsController.destroy)
 
 // router.delete('/:id/member/:memid', MeetingsController.removeMember)
 
