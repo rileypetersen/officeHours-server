@@ -30,6 +30,22 @@ class OrganizationsModel extends Model {
 			})
 	};
 
+	static getOrgUser(user_id, organization_id ) {
+		return knex('users_organizations')
+			.where({ user_id, organization_id })
+			.first()
+	}
+
+	static addOrgUser(body) {
+		return knex('users_organizations')
+			.insert(body)
+			.returning('*')
+			.then(([res]) => {
+				if (!res) throw new Error('nonOrgUser');
+				return res;
+			})
+	};
+
 	static getOrgByName(name) {
 		return knex('organizations')
 			.where({ name })
