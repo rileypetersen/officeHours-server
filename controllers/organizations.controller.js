@@ -18,7 +18,9 @@ class OrganizationsController extends Controller {
 	};
 
 	static showOrgUser(req, res, next) {
-		OrganizationsModel.showOrgUser(req.params.id)
+		OrganizationsModel.show(req.params.id)
+			.then(() => UsersModel.show(req.params.uid))		
+			.then(() => OrganizationsModel.showOrgUser(req.params.uid, req.params.id))
 			.then(data => res.status(201).json({ data }))
 			.catch(err => next(err));
 	};
