@@ -40,6 +40,7 @@ function processErrorMessage(err) {
 		case 'badOrgId' : return { status: 400, message: 'Entered "organization_id" must: be an Integer and is required' }
 		case 'badUserType' : return { status: 400, message: 'Entered "user_type" must: be a String and is required' }
 		case 'badParamsBodyMatch' : return { status: 400, message: 'Requested Organization in params must match Requested Organization in body' }
+		case 'unrecognizedUserType' : return { status: 400, message: 'Entered "user_type" must be one of the following: "organizer", "host", "member" ' }
 		
 		// SESSION ERRORS
 		case 'sessionsNotFound' : return { status: 404, message: 'Session not found' };

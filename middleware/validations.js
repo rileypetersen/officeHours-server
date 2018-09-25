@@ -70,6 +70,7 @@ async function createOrgUser(paramsId, { user_id, organization_id, user_type, us
     if (!user_title || typeof user_title !== 'string') throw new Error('badTitle');
     if (can_create_sessions === undefined || typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
     if (parseInt(paramsId) !== parseInt(organization_id)) throw new Error('badParamsBodyMatch');
+    if (user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
     return true;
 };
 
@@ -77,6 +78,7 @@ async function updateOrgUser(body) {
     const { user_type, user_title, can_create_sessions } = body;
     if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrgUser');
     if (!user_type && !user_title && can_create_sessions === undefined) throw new Error('aFieldRequiredOrgUser')
+    if (user_type !== undefinded && user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
     return true
 };
 
