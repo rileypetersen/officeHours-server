@@ -16,9 +16,10 @@ class OrganizationsModel extends Model {
 	static showOrgUser(user_id, organization_id) {
 		return knex('users_organizations')
 			.where({ user_id, organization_id })
+			.join('users', 'user_id', 'users.id')
 			.first()
 			.then(user => {
-				if (!user) throw new Error('userUnauthorized')
+				if (!user) throw new Error('nonOrgUser')
 				return user
 			})
 	};
@@ -27,6 +28,13 @@ class OrganizationsModel extends Model {
 		return knex('organizations')
 			.where({ name })
 			.first()
+	};
+
+	static getOrgOwnerID(id) {
+		return knex('organizations')
+			.where({ id })
+			.first()
+			.returning('organizer_id')
 	};
 
 };
