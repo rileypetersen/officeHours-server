@@ -10,7 +10,12 @@ class OrganizationsModel extends Model {
 	static indexOrgUsers(organization_id) {
 		return knex('users_organizations')
 			.where({ organization_id })
+			.returning('website_url')
 			.join('users', 'user_id', 'users.id')
+			.then(users => {
+				users.forEach(users => delete users.hashed_password)
+				return users
+			})
 	};
 
 	static showOrgUser(user_id, organization_id) {
@@ -20,6 +25,7 @@ class OrganizationsModel extends Model {
 			.first()
 			.then(user => {
 				if (!user) throw new Error('nonOrgUser')
+				delete user.hashed_password
 				return user
 			})
 	};
