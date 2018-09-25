@@ -3,7 +3,9 @@ const router = express.Router({ mergeParams: true });
 const { OrganizationsController } = require('../controllers');
 
 
-// router.get('/', OrganizationsController.showOrgUser)
+router.get('/', OrganizationsController.indexOrgUsers)
+
+// router.get('/:uid', OrganizationsController.showOrgUser)
 
 // router.post('/', OrganizationsController.addOrgUser)
 
