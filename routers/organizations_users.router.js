@@ -5,7 +5,7 @@ const { OrganizationsController } = require('../controllers');
 
 router.get('/', OrganizationsController.indexOrgUsers)
 
-// router.get('/:uid', OrganizationsController.showOrgUser)
+router.get('/:uid', OrganizationsController.showOrgUser)
 
 // router.post('/', OrganizationsController.addOrgUser)
 
