@@ -42,6 +42,14 @@ class MeetingsController extends Controller {
 			.catch(err => next(err));
 	};
 
+	static removeMember(req, res, next) {
+		OrganizationsModel.show(req.query.org_id)
+			.then(() => MeetingsModel.show(req.query.org_id, req.params.id))
+			.then(() => MeetingsModel.removeMember(req.params.id, req.params.memid))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	}
+
 };
 
 

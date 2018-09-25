@@ -17,7 +17,7 @@ router.post('/:id/member', MeetingsController.addMember)
 
 router.delete('/:id', MeetingsController.destroy)
 
-// router.delete('/:id/member/:memid', MeetingsController.removeMember)
+router.delete('/:id/member/:memid', MeetingsController.removeMember)
 
 
 module.exports = router;
