@@ -70,6 +70,17 @@ class OrganizationsModel extends Model {
 			.returning('organizer_id')
 	};
 
+	static removeOrgUser(user_id, organization_id) {
+		return knex('users_organizations')
+			.where({ user_id, organization_id })
+			.del()
+			.returning('*')
+			.then(([res]) => {
+				if (!res) throw new Error('nonOrgUser');
+				return res;
+			});
+	};
+
 };
 
 

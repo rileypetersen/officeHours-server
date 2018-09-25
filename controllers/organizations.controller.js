@@ -79,6 +79,12 @@ class OrganizationsController extends Controller {
 			.catch(err => next(err));
 	};
 
+	static removeOrgUser(req, res, next) {
+		OrganizationsModel.showOrgUser(req.params.uid, req.params.id)
+			.then(() => OrganizationsModel.removeOrgUser(req.params.uid, req.params.id))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	};
 	
 
 };

@@ -11,7 +11,7 @@ router.post('/', OrganizationsController.addOrgUser)
 
 router.patch('/:uid', OrganizationsController.updateOrgUser)
 
-// router.post('/:uid', OrganizationsController.removeOrgUser)
+router.delete('/:uid', OrganizationsController.removeOrgUser)
 
 
 module.exports = router;
