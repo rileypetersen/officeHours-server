@@ -256,7 +256,7 @@ _This project is currently under construction._
 {
     data: [
         {
-        id,                                 // INTEGER
+            id,                             // INTEGER
             user_id,                        // INTEGER
             organization_id,                // INTEGER
             user_type,                      // STRING
