@@ -251,9 +251,47 @@ _This project is currently under construction._
 
 **GET /api/organizations/:id/users**
 - Get all organization's users
+- Returning data structure:
+```
+{
+    data: [
+        {
+        id,                                 // INTEGER
+            user_id,                        // INTEGER
+            organization_id,                // INTEGER
+            user_type,                      // STRING
+            user_title,                     // STRING
+            can_create_sessions,            // BOOLEAN
+            first_name,                     // STRING
+            last_name,                      // STRING
+            email,                          // STRING
+            profile_img_url,                // STRING
+            short_description,              // STRING
+            long_description,               // STRING
+            linkedin_url,                   // STRING
+            website_url                     // STRING
+        }
+    ]
+}
+```
 
-**GET /api/organizations/:id/users**
+**GET /api/organizations/:id/users/:uid**
 - Get an organization's user via ID
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organizer_id,                       // INTEGER
+        name,                               // STRING
+        short_description,                  // STRING
+        long_description,                   // STRING
+        website_url,                        // STRING
+        logo_img_url,                       // STRING
+        hosts_can_create_sessions           // BOOLEAN   
+    }
+}
+```
 
 **POST /api/organizations/:id/users**
 - Create a user for an organization
@@ -271,7 +309,12 @@ _This project is currently under construction._
 ```
 {
     data: {
-
+        id,                                 // INTEGER        
+        user_id,                            // INTEGER
+        organization_id,                    // INTEGER
+        user_type,                          // STRING
+        user_title,                         // STRING
+        can_create_sessions                 // BOOLEAN
     }
 }
 ```
@@ -292,7 +335,12 @@ _This project is currently under construction._
 ```
 {
     data: {
-
+        id,                                 // INTEGER        
+        user_id,                            // INTEGER
+        organization_id,                    // INTEGER
+        user_type,                          // STRING
+        user_title,                         // STRING
+        can_create_sessions                 // BOOLEAN
     }
 }
 ```
@@ -303,7 +351,12 @@ _This project is currently under construction._
 ```
 {
     data: {
-
+        id,                                 // INTEGER        
+        user_id,                            // INTEGER
+        organization_id,                    // INTEGER
+        user_type,                          // STRING
+        user_title,                         // STRING
+        can_create_sessions                 // BOOLEAN
     }
 }
 ```
