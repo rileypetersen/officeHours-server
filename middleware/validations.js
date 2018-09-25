@@ -57,7 +57,7 @@ async function organizationCreate({ organizer_id, name, short_description, long_
 async function orgUpdate(body) {
     const { organizer_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
     if (hosts_can_create_sessions !== undefined && typeof hosts_can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrg');
-    if (!organizer_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg');
+    if (!organizer_id && !name && !short_description && !long_description && !logo_img_url && !website_url && hosts_can_create_sessions !== undefined) throw new Error('aFieldRequiredOrg');
     return true;
 };
 
@@ -88,5 +88,12 @@ async function createOrgUser(paramsId, { user_id, organization_id, user_type, us
     return true;
 };
 
+async function updateOrgUser(body) {
+    const { user_type, user_title, can_create_sessions } = body;
+    if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrgUser');
+    if (!user_type && !user_title && can_create_sessions === undefined) throw new Error('aFieldRequiredOrgUser')
+    return true
+};
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser };
+
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser };
