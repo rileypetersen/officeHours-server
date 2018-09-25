@@ -70,13 +70,23 @@ async function sessionCreate({ user_id, organization_id, date, start_time, locat
     if (!duration || typeof duration !== 'string') throw new Error('badSessionDuration');
     if (!delay || typeof delay !== 'string') throw new Error('badSessionDelay');
     return true;
-}
+};
 
 async function sessionUpdate(body) {
     const { user_id, organization_id, date, start_time, location, duration, delay } = body
     if ( !user_id && !organization_id && !date && !start_time && !location && !duration && !delay) throw new Error('aFieldRequiredSession');
     return true;
-}
+};
+
+async function createOrgUser(paramsId, { user_id, organization_id, user_type, user_title, can_create_sessions }) {
+    if (!user_id || typeof user_id !== 'number') throw new Error('badUserId');
+    if (!organization_id || typeof organization_id !== 'number') throw new Error('badOrgId');
+    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
+    if (!user_title || typeof user_title !== 'string') throw new Error('badTitle');
+    if (can_create_sessions === undefined || typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
+    if (parseInt(paramsId) !== parseInt(organization_id)) throw new Error('badParamsBodyMatch');
+    return true;
+};
 
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser };
