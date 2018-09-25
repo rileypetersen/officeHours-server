@@ -9,7 +9,7 @@ router.get('/:uid', OrganizationsController.showOrgUser)
 
 router.post('/', OrganizationsController.addOrgUser)
 
-// router.patch('/:uid', OrganizationsController.updateOrgUser)
+router.patch('/:uid', OrganizationsController.updateOrgUser)
 
 // router.post('/:uid', OrganizationsController.removeOrgUser)
 
