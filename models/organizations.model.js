@@ -10,6 +10,7 @@ class OrganizationsModel extends Model {
 	static indexOrgUsers(organization_id) {
 		return knex('users_organizations')
 			.where({ organization_id })
+			.join('users', 'user_id', 'users.id')
 	};
 
 	static showOrgUser(user_id, organization_id) {
