@@ -13,7 +13,7 @@ router.post('/:id/member', MeetingsController.addMember)
 
 router.post('/', MeetingsController.isValidMeetingCreate, MeetingsController.create)
 
-// router.patch('/:id', MeetingsController.update)
+router.patch('/:id', MeetingsController.isValidMeetingPatch, MeetingsController.update)
 
 router.delete('/:id', MeetingsController.destroy)
 
