@@ -102,4 +102,4 @@ async function meetingUpdate(body) {
 };
 
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser, meetingUpdate };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser, meetingCreate, meetingUpdate };
