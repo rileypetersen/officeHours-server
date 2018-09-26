@@ -467,6 +467,31 @@ _This project is currently under construction._
 }
 ```
 
+**POST /api/sessions/:sid/host?org_id=##**
+- Assign a host to a session
+    - Required fields in req.body:
+```
+{
+    host_id                                 // INTEGER
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
+    }
+}
+```
+
 **PATCH /api/sessions/:id?org_id=##**
 - Update a session's info
     - At least one(1) of the following fields in body is required:
@@ -517,44 +542,21 @@ _This project is currently under construction._
 }
 ```
 
-
-### ----- SessionsHostsRoutes ---------------------------------------------------------------------
-
-**GET /api/sessions/:sid/host?org_id=##**
-- Get a session's host
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-**POST /api/sessions/:sid/host?org_id=##**
-- Assign a host to a session
-    - Required fields in req.body:
-```
-{
-    host_id,        // INTEGER
-}
-```
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
 **DELETE /api/sessions/:sid/host/:hid?org_id=##**
 - Remove host from a session via ID 
 - Returning data structure:
 ```
 {
     data: {
-        
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
     }
 }
 ```
