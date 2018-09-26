@@ -31,9 +31,11 @@ class MeetingsController extends Controller {
 	};
 
 	static isValidMeetingPatch(req, res, next) {
-		// validate.meetingUpdate(req.body)
-
-		//   .catch(err => next(err));
+		validate.meetingUpdate(req.body)
+			.then(() => OrganizationsModel.show(req.query.org_id))
+			.then(() => MeetingsModel.show(req.query.org_id, req.params.id))
+			.then(() => next())
+		  .catch(err => next(err));
 	};
 
 	static addMember(req, res, next) {
