@@ -24,7 +24,7 @@ _This project is currently under construction._
 
 **POST /api/users/register**
 - Create a new user
-    - fields in req.body:
+    - Fields in req.body:
 ```
 {
                     // REQUIRED 
@@ -295,7 +295,8 @@ _This project is currently under construction._
 
 **POST /api/organizations/:id/users**
 - Create a user for an organization
-    - Required 
+    - Required: 
+    - "user_type" must be an all lowercase String of: "organizer", "host", or "member"
 ```
 {
     user_id,                                // INTEGER
@@ -322,6 +323,7 @@ _This project is currently under construction._
 **PATCH /api/organizations/:id/users/:uid**
 - Update a user for an organization
     - At least one(1) of the following fields in body is required:
+    - "user_type" must be an all lowercase String of: "organizer", "host", or "member"
 ```
 {
     user_id,                                // INTEGER
@@ -364,7 +366,7 @@ _This project is currently under construction._
 
 ### ----- SessionsRoutes --------------------------------------------------------------------------
 
-**GET api/sessions/?org_id=##**
+**GET /api/sessions/?org_id=##**
 - Get all sessions with attached meetings
 - Returning data structure:
 ```
@@ -465,6 +467,31 @@ _This project is currently under construction._
 }
 ```
 
+**POST /api/sessions/:sid/host?org_id=##**
+- Assign a host to a session
+    - Required fields in req.body:
+```
+{
+    host_id                                 // INTEGER
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
+    }
+}
+```
+
 **PATCH /api/sessions/:id?org_id=##**
 - Update a session's info
     - At least one(1) of the following fields in body is required:
@@ -515,44 +542,21 @@ _This project is currently under construction._
 }
 ```
 
-
-### ----- SessionsHostsRoutes ---------------------------------------------------------------------
-
-**GET /api/organizations/:id/sessions/:sid/host**
-- Get a session's host
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-**POST /api/organizations/:id/sessions/:sid/host**
-- Assign a host to a session
-    - Required fields in req.body:
-```
-{
-    host_id,        // INTEGER
-}
-```
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-**DELETE /api/organizations/:id/sessions/:sid/hosts/:hid**
+**DELETE /api/sessions/:sid/host/:hid?org_id=##**
 - Remove host from a session via ID 
 - Returning data structure:
 ```
 {
     data: {
-        
+        id,                                 // INTEGER
+        organization_id,                    // INTEGER
+        organizer_id,                       // INTEGER
+        host_id,                            // INTEGER
+        date,                               // STRING
+        location,                           // STRING
+        start_time,                         // STRING
+        duration,                           // STRING
+        delay                               // STRING
     }
 }
 ```
@@ -560,7 +564,7 @@ _This project is currently under construction._
 
 ### ----- MeetingsRoutes --------------------------------------------------------------------------
 
-**GET /api/organizations/:id/sessions/:sid/meetings**
+**GET /api/meetings?org_id=##**
 - Get all meetings
 - Returning data structure:
 ```
@@ -571,7 +575,7 @@ _This project is currently under construction._
 }
 ```
 
-**GET /api/organizations/:id/sessions/:sid/meetings/:mid**
+**GET /api/meetings/:id?org_id=##**
 - Get an meetings via ID
 - Returning data structure:
 ```
@@ -582,7 +586,7 @@ _This project is currently under construction._
 }
 ```
 
-**POST /api/organizations/:id/sessions/:sid/meetings**
+**POST /api/meetings?org_id=##**
 - Create a meeting
     - Required fields in req.body:
 ```
@@ -599,49 +603,7 @@ _This project is currently under construction._
 }
 ```
 
-**PATCH /api/organizations/:id/sessions/:sid/meetings/:mid**
-- Update a meeting's info
-    - At least one(1) of the following fields in body is required:
-```
-{
-    
-}
-```
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-**DELETE /api/organizations/:id/sessions/:sid/meetings/:mid**
-- Delete a meeting via ID
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-
-### ----- MeetingsMemberRoutes --------------------------------------------------------------------
-
-**GET /api/organizations/:id/sessions/:sid/meetings/:mid/members**
-- Get a meeting's members
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-**POST /api/organizations/:id/sessions/:sid/meetings/:mid/members**
+**POST /api/meetings/:id/member?org_id=##**
 - Assign a meetings/:mid/members to a session
     - Required fields in req.body:
 ```
@@ -658,7 +620,35 @@ _This project is currently under construction._
 }
 ```
 
-**DELETE /api/organizations/:id/sessions/:sid/meetings/:mid/members/:memid**
+**PATCH /api/meetings/:id?org_id=##**
+- Update a meeting's info
+    - At least one(1) of the following fields in body is required:
+```
+{
+    
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+**DELETE /api/meetings/:id?org_id=##**
+- Delete a meeting via ID
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
+**DELETE /api/meetings/:id/members/:memid?org_id=##**
 - Remove member from a meeting via ID 
 - Returning data structure:
 ```

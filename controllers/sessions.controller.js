@@ -52,6 +52,24 @@ class SessionsController extends Controller {
             .catch(err => next(err));
     };
 
+    static addHost(req, res, next) {
+        OrganizationsModel.show(req.query.org_id)
+			.then(() => OrganizationsModel.showOrgUser(req.body.host_id, req.query.org_id))
+			.then(() => SessionsModel.show(req.query.org_id, req.params.id))
+			.then(() => SessionsModel.update(req.params.id, req.body))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+    };
+
+    static removeHost(req, res, next) {
+        OrganizationsModel.show(req.query.org_id)
+			.then(() => OrganizationsModel.showOrgUser(req.params.hid, req.query.org_id))
+			.then(() => SessionsModel.show(req.query.org_id, req.params.id))
+			.then(() => SessionsModel.removeHost(req.params.id, req.params.hid))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+    };
+
     static isValidSessionPatch(req, res, next) {
         validate.sessionUpdate(req.body)
             .then(() => OrganizationsModel.show(req.query.org_id))
