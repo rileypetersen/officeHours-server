@@ -11,7 +11,7 @@ router.get('/:id', MeetingsController.show)
 
 router.post('/:id/member', MeetingsController.addMember)
 
-// router.post('/', MeetingsController.create)
+router.post('/', MeetingsController.isValidMeetingCreate, MeetingsController.create)
 
 // router.patch('/:id', MeetingsController.update)
 
