@@ -52,11 +52,11 @@ function processErrorMessage(err) {
 		// MEETING ERRORS
 		// PLEASE WRITE ERROR MESSAGES BELOW!!!
 		case 'meetingsNotFound' : return { status: 404, message: 'Meeting not found' };
-		case 'badOrganizationId' : return { status: 400, message: 'Correct error needed still in errors.js' };
-		case 'badSessionId' : return { status: 400, message: 'Correct error needed still in errors.js' };
-		case 'badMeetingLocation' : return { status: 400, message: 'Correct error needed still in errors.js' };
-		case 'badMeetingDuration' : return { status: 400, message: 'Correct error needed still in errors.js' };
-		case 'badMeetingDelay' : return { status: 400, message: 'Correct error needed still in errors.js' };
+		case 'badOrganizationId' : return { status: 400, message: 'body.organization_id must: be an Integer, match query.org_id and is required' };
+		case 'badSessionId' : return { status: 400, message: 'Session "id" must: be an Integer and is required' };
+		case 'badMeetingLocation' : return { status: 400, message: 'Meeting "location" must: be a String and is required' };
+		case 'badMeetingDuration' : return { status: 400, message: 'Meeting "duration" must: be a String and is required' };
+		case 'badMeetingDelay' : return { status: 400, message: 'Meeting "delay" must: be a String and is required' };
 
 		// TAG ERRORS
 
