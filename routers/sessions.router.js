@@ -9,13 +9,13 @@ router.get('/:id', SessionsController.show)
 
 router.post('/', SessionsController.isValidSessionCreate, SessionsController.create)
 
-// router.post('/:id/host', SessionsController.addHost)
+router.post('/:id/host', SessionsController.addHost)
 
 router.patch('/:id', SessionsController.isValidSessionPatch)
 
 router.delete('/:id', SessionsController.destroy)
 
-// router.delete('/:id/host/:hid', SessionsController.removeHost)
+router.delete('/:id/host/:hid', SessionsController.removeHost)
 
 
 module.exports = router;
