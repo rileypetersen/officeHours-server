@@ -7,8 +7,6 @@ router.get('/', MeetingsController.index)
 
 router.get('/:id', MeetingsController.show)
 
-// router.get('/:id/member', MeetingsController.getMember)
-
 router.post('/:id/member', MeetingsController.addMember)
 
 router.post('/', MeetingsController.isValidMeetingCreate, MeetingsController.create)

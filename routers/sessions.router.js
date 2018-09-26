@@ -9,13 +9,11 @@ router.get('/:id', SessionsController.show)
 
 router.post('/', SessionsController.isValidSessionCreate, SessionsController.create)
 
+// router.post('/:id/host', SessionsController.addHost)
+
 router.patch('/:id', SessionsController.isValidSessionPatch)
 
 router.delete('/:id', SessionsController.destroy)
-
-// router.get('/:id/host', SessionsController.getHost)
-
-// router.post('/:id/host', SessionsController.addHost)
 
 // router.delete('/:id/host/:hid', SessionsController.removeHost)
 
