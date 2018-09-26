@@ -78,5 +78,15 @@ async function sessionUpdate(body) {
     return true;
 }
 
+async function meetingCreate({ organization_id, session_id, location, duration, delay }, queryOrgId) {
+  if (!organization_id || typeof organization_id !== 'number' || organization_id !== queryOrgId) throw new Error('badOrganizationId');
+  if (!session_id || typeof session_id !== 'number') throw new Error('badSessionId');
+  if (!location || typeof location !== 'string') throw new Error('badMeetingLocation');
+  if (!duration || typeof duration !== 'string') throw new Error('badMeetingDuration');
+  if (!delay || typeof delay !== 'string') throw new Error('badMeetingDelay');
+  console.log('hello');
+  return true;
+}
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate };
+
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, meetingCreate };
