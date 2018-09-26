@@ -603,6 +603,23 @@ _This project is currently under construction._
 }
 ```
 
+**POST /api/meetings/:mid/members?org_id=##**
+- Assign a meetings/:mid/members to a session
+    - Required fields in req.body:
+```
+{
+    member_id,                              // INTEGER
+}
+```
+- Returning data structure:
+```
+{
+    data: {
+        
+    }
+}
+```
+
 **PATCH /api/meetings/:mid?org_id=##**
 - Update a meeting's info
     - At least one(1) of the following fields in body is required:
@@ -622,37 +639,6 @@ _This project is currently under construction._
 
 **DELETE /api/meetings/:mid?org_id=##**
 - Delete a meeting via ID
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-
-### ----- MeetingsMemberRoutes --------------------------------------------------------------------
-
-**GET /api/meetings/:mid/members?org_id=##**
-- Get a meeting's members
-- Returning data structure:
-```
-{
-    data: {
-        
-    }
-}
-```
-
-**POST /api/meetings/:mid/members?org_id=##**
-- Assign a meetings/:mid/members to a session
-    - Required fields in req.body:
-```
-{
-    member_id,                              // INTEGER
-}
-```
 - Returning data structure:
 ```
 {
