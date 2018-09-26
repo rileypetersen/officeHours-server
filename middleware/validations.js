@@ -88,9 +88,8 @@ async function meetingCreate({ organization_id, session_id, location, duration, 
   if (!location || typeof location !== 'string') throw new Error('badMeetingLocation');
   if (!duration || typeof duration !== 'string') throw new Error('badMeetingDuration');
   if (!delay || typeof delay !== 'string') throw new Error('badMeetingDelay');
-  console.log('hello');
   return true;
 }
 
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser, meetingCreate };
