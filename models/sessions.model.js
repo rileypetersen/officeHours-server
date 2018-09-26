@@ -22,6 +22,17 @@ class SessionsModel extends Model {
 			})
 	};
 
+	static removeHost(id, host_id) {
+		return knex('sessions')
+			.where({ id, host_id })
+			.update({ host_id: null })
+			.returning('*')
+			.then(([res]) => {
+				if (!res) throw new Error('sessionsNotFound')
+				return res
+			})
+	};
+
 };
 
 
