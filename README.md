@@ -24,7 +24,7 @@ _This project is currently under construction._
 
 **POST /api/users/register**
 - Create a new user
-    - fields in req.body:
+    - Fields in req.body:
 ```
 {
                     // REQUIRED 
@@ -295,7 +295,8 @@ _This project is currently under construction._
 
 **POST /api/organizations/:id/users**
 - Create a user for an organization
-    - Required 
+    - Required: 
+    - "user_type" must be an all lowercase String of: "organizer", "host", or "member"
 ```
 {
     user_id,                                // INTEGER
@@ -322,6 +323,7 @@ _This project is currently under construction._
 **PATCH /api/organizations/:id/users/:uid**
 - Update a user for an organization
     - At least one(1) of the following fields in body is required:
+    - "user_type" must be an all lowercase String of: "organizer", "host", or "member"
 ```
 {
     user_id,                                // INTEGER
