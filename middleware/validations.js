@@ -89,7 +89,7 @@ async function meetingCreate({ organization_id, session_id, location, duration, 
     if (!duration || typeof duration !== 'string') throw new Error('badMeetingDuration');
     if (!delay || typeof delay !== 'string') throw new Error('badMeetingDelay');
     return true;
-}
+};
 
 async function meetingUpdate(body) {
     const { location, duration, delay } = body;
