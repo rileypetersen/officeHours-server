@@ -14,7 +14,10 @@ class UsersModel extends Model {
 		return knex('users')
 			.insert(body)
 			.returning('*')
-			.then(([res]) => res)
+			.then(([res]) => {
+				delete res.hashed_password
+				return res
+			})
 	};
 
 	static getUserByUserEmail(email) {
@@ -29,6 +32,7 @@ class UsersModel extends Model {
 			.first()
 			.then(user => {
 				if (!user) throw new Error('userUnauthorized');
+				delete user.hashed_password
 				return user;
 			})
 	};

@@ -39,6 +39,27 @@ class OrganizationsController extends Controller {
 			.catch(err => next(err));
 	};
 
+	static addOrgUser(req, res, next) {
+		validate.createOrgUser(req.params.id, req.body)
+			.then(() => OrganizationsModel.show(req.params.id))
+			.then(() => UsersModel.show(req.body.user_id))		
+			.then(() => OrganizationsModel.getOrgUser(req.body.user_id, req.params.id))
+			.then(user => {
+				if (user !== undefined) throw new Error('userOrgRelationExists')
+				return OrganizationsModel.addOrgUser(req.body)
+			})
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	};
+
+	static updateOrgUser(req, res, next) {
+		validate.updateOrgUser(req.body)
+			.then(() => OrganizationsModel.showOrgUser(req.params.uid, req.params.id))
+			.then(() => OrganizationsModel.updateOrgUser(req.params.uid, req.params.id, req.body))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	};
+
 	static isValidOrgCreate(req, res, next) {
 		validate.organizationCreate(req.body)
 			.then(() =>  UsersModel.show(req.body.organizer_id))
@@ -58,7 +79,12 @@ class OrganizationsController extends Controller {
 			.catch(err => next(err));
 	};
 
-	
+	static removeOrgUser(req, res, next) {
+		OrganizationsModel.showOrgUser(req.params.uid, req.params.id)
+			.then(() => OrganizationsModel.removeOrgUser(req.params.uid, req.params.id))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	};
 
 };
 

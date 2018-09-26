@@ -22,21 +22,6 @@ async function userUpdate(body) {
     return true;
 };
 
-async function userOrgAdd({ organization_id, user_type, user_title, can_create_sessions }) {
-    if (!organization_id || typeof organization_id !== 'number') throw new Error('anOrgRequiredUserOrg')
-    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
-    if (!title || typeof title !== 'string') throw new Error('badTitle');
-    if (typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
-    return true;
-};
-
-async function userOrgUpdate(body) {
-    const { user_type, user_title, can_create_sessions } = body
-    if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequiredUserOrg');
-    if (!user_type && !user_title) throw new Error('aFieldRequiredUserOrg')
-    return true;
-};
-
 async function userLogin({ email, password }) {
     if (!email) throw new Error('invalidUserEmail');
     if (!password) throw new Error('invalidPassword');
@@ -57,7 +42,7 @@ async function organizationCreate({ organizer_id, name, short_description, long_
 async function orgUpdate(body) {
     const { organizer_id, name, short_description, long_description, logo_img_url, website_url, hosts_can_create_sessions } = body
     if (hosts_can_create_sessions !== undefined && typeof hosts_can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrg');
-    if (!organizer_id && !name && !short_description && !long_description && !logo_img_url && !website_url) throw new Error('aFieldRequiredOrg');
+    if (!organizer_id && !name && !short_description && !long_description && !logo_img_url && !website_url && hosts_can_create_sessions !== undefined) throw new Error('aFieldRequiredOrg');
     return true;
 };
 
@@ -70,13 +55,32 @@ async function sessionCreate({ user_id, organization_id, date, start_time, locat
     if (!duration || typeof duration !== 'string') throw new Error('badSessionDuration');
     if (!delay || typeof delay !== 'string') throw new Error('badSessionDelay');
     return true;
-}
+};
 
 async function sessionUpdate(body) {
     const { user_id, organization_id, date, start_time, location, duration, delay } = body
     if ( !user_id && !organization_id && !date && !start_time && !location && !duration && !delay) throw new Error('aFieldRequiredSession');
     return true;
-}
+};
+
+async function createOrgUser(paramsId, { user_id, organization_id, user_type, user_title, can_create_sessions }) {
+    if (!user_id || typeof user_id !== 'number') throw new Error('badUserId');
+    if (!organization_id || typeof organization_id !== 'number') throw new Error('badOrgId');
+    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
+    if (!user_title || typeof user_title !== 'string') throw new Error('badTitle');
+    if (can_create_sessions === undefined || typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
+    if (parseInt(paramsId) !== parseInt(organization_id)) throw new Error('badParamsBodyMatch');
+    if (user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
+    return true;
+};
+
+async function updateOrgUser(body) {
+    const { user_type, user_title, can_create_sessions } = body;
+    if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrgUser');
+    if (!user_type && !user_title && can_create_sessions === undefined) throw new Error('aFieldRequiredOrgUser')
+    if (user_type !== undefinded && user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
+    return true
+};
 
 async function meetingCreate({ organization_id, session_id, location, duration, delay }, queryOrgId) {
   if (!organization_id || typeof organization_id !== 'number' || organization_id !== queryOrgId) throw new Error('badOrganizationId');
@@ -89,4 +93,4 @@ async function meetingCreate({ organization_id, session_id, location, duration, 
 }
 
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, meetingCreate };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser };
