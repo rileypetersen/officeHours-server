@@ -63,7 +63,7 @@ class SessionsController extends Controller {
 
     static removeHost(req, res, next) {
         OrganizationsModel.show(req.query.org_id)
-			.then(() => OrganizationsModel.showOrgUser(req.body.host_id, req.query.org_id))
+			.then(() => OrganizationsModel.showOrgUser(req.params.hid, req.query.org_id))
 			.then(() => SessionsModel.show(req.query.org_id, req.params.id))
 			.then(() => SessionsModel.removeHost(req.params.id, req.params.hid))
 			.then(data => res.status(201).json({ data }))
