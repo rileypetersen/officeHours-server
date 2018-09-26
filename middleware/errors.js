@@ -15,7 +15,7 @@ function processErrorMessage(err) {
 		case 'badLinkedinURL' : return { status: 400, message: 'User "linkedin_url" must: be a String and is required' };
 		case 'badWebsiteURL' : return { status: 400, message: 'User "website_url" must: be a String and is required' };
 		case 'badCanCreateSession' : return { status: 400, message: 'User "can_create_sessions" must: be a Boolean and is required' };
-		case 'aFieldRequired' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_type", "first_name", "last_name", "email", "profile_img_url", "title", "short_description", "long_description", "linkedin_url", "website_url", "can_create_session" ' };
+		case 'aFieldRequired' : return { status: 400, message: 'At least one(1) of the following fields is required: "user_type", "first_name", "last_name", "email", "profile_img_url", "title", "short_description", "long_description", "linkedin_url", "website_url", "can_create_session" ' };
 		case 'userEmailTaken' : return { status: 400, message: 'Entered "email" is already in use' };
 		case 'usersNotFound' : return { status: 404, message: 'User not found' };
 		case 'invalidUserEmail' : return { status: 400, message: 'A valid "email" is required to login' };
@@ -33,7 +33,7 @@ function processErrorMessage(err) {
 		case 'badOrgHostsCanCreateSessions' : return { status: 400, message: 'Organization "hosts_can_create_sessions" must: be a Boolean and is required' };
 		case 'organizationsNotFound' : return { status: 404, message: 'Organization not found' };
 		case 'alreadyOrg' : return { status: 400, message: 'Entered Organization name is already in use' };
-		case 'aFieldRequiredOrg' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "name", "short_description", "long_description", "logo_img_url", "website_url", "hosts_can_create_sessions" ' };
+		case 'aFieldRequiredOrg' : return { status: 400, message: 'At least one(1) of the following fields is required: "user_id", "name", "short_description", "long_description", "logo_img_url", "website_url", "hosts_can_create_sessions" ' };
 		case 'nonOrgUser' : return { status: 404, message: 'Requested User not affiliated with Organization' }
 		case 'userOrgRelationExists' : return { status: 400, message: 'User affiliation with Organization already exists' }
 		case 'badUserId' : return { status: 400, message: 'Entered "user_id" must: be an Integer and is required' }
@@ -41,7 +41,7 @@ function processErrorMessage(err) {
 		case 'badUserType' : return { status: 400, message: 'Entered "user_type" must: be a String and is required' }
 		case 'badParamsBodyMatch' : return { status: 400, message: 'Requested Organization in params must match Requested Organization in body' }
 		case 'unrecognizedUserType' : return { status: 400, message: 'Entered "user_type" must be one of the following: "organizer", "host", "member" ' }
-		
+
 		// SESSION ERRORS
 		case 'sessionsNotFound' : return { status: 404, message: 'Session not found' };
 		case 'badSessionUserId' : return { status: 400, message: 'Session "user_id" must: be an Integer and is required' };
@@ -52,7 +52,7 @@ function processErrorMessage(err) {
 		case 'badSessionDuration' : return { status: 400, message: 'Session "duration" must: be a String and is required' };
 		case 'badSessionDelay' : return { status: 400, message: 'Session "delay" must: be a String and is required' };
 		case 'userCanNotCreateSession' : return { status: 400, message: 'User not allowed to create sessions' };
-		case 'aFieldRequiredSession' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "organization_id", "date", "start_time", "location", "duration", "delay" ' };
+		case 'aFieldRequiredSession' : return { status: 400, message: 'At least one(1) of the following fields is required: "user_id", "organization_id", "date", "start_time", "location", "duration", "delay" ' };
 
 		// MEETING ERRORS
 		// PLEASE WRITE ERROR MESSAGES BELOW!!!
@@ -62,6 +62,10 @@ function processErrorMessage(err) {
 		case 'badMeetingLocation' : return { status: 400, message: 'Meeting "location" must: be a String and is required' };
 		case 'badMeetingDuration' : return { status: 400, message: 'Meeting "duration" must: be a String and is required' };
 		case 'badMeetingDelay' : return { status: 400, message: 'Meeting "delay" must: be a String and is required' };
+		case 'aFieldRequiredMeeting' : return { status: 400, message: 'At least one(1) of the following fields is required: "location", "duration", "delay" ' };
+		case 'badLocation' : return { status: 400, message: 'Meeting "location" must: be a String' };
+		case 'badDuration' : return { status: 400, message: 'Meeting "duration" must: be a String' };
+		case 'badDelay' : return { status: 400, message: 'Meeting "delay" must: be a String' };
 
 		// TAG ERRORS
 

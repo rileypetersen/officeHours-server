@@ -79,7 +79,7 @@ async function updateOrgUser(body) {
     if (can_create_sessions !== undefined && typeof can_create_sessions !== 'boolean') throw new Error('aFieldRequiredOrgUser');
     if (!user_type && !user_title && can_create_sessions === undefined) throw new Error('aFieldRequiredOrgUser')
     if (user_type !== undefinded && user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
-    return true
+    return true;
 };
 
 async function meetingCreate({ organization_id, session_id, location, duration, delay }, queryOrgId) {
@@ -88,9 +88,18 @@ async function meetingCreate({ organization_id, session_id, location, duration, 
   if (!location || typeof location !== 'string') throw new Error('badMeetingLocation');
   if (!duration || typeof duration !== 'string') throw new Error('badMeetingDuration');
   if (!delay || typeof delay !== 'string') throw new Error('badMeetingDelay');
-  console.log('hello');
   return true;
-}
+};
+
+async function meetingUpdate(body) {
+  const { location, duration, delay } = body;
+  if (!location && !duration && !delay) throw new Error('aFieldRequiredMeeting')
+  if (location && typeof location !== 'string') throw new Error('badLocation')
+  if (duration && typeof duration !== 'string') throw new Error('badDuration')
+  if (delay && typeof delay !== 'string') throw new Error('badDelay')
+  console.log(body);
+  return true;
+};
 
 
-module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser };
+module.exports = { userCreate, userUpdate, userLogin, organizationCreate, orgUpdate, sessionCreate, sessionUpdate, createOrgUser, updateOrgUser, meetingUpdate };
