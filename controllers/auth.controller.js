@@ -51,7 +51,12 @@ class Auth {
 		// signup/remove self from sessions
 		// get/post/patch/delete meetings
 	static isHostOfOrg(req, res, next) {
-
+		
+		// .then(user => {
+		// 	if (user.id != userId) throw new Error('userUnauthorized');
+		// 	next();
+		// })
+		// .catch(err => next(err));
 	};
 
 	// authorize member of org for:
@@ -59,6 +64,31 @@ class Auth {
 		// get/post/patch/delete meetings topics
 	static isMemberOfOrg(req, res, next) {
 
+		// .then(user => {
+		// 	if (user.id != userId) throw new Error('userUnauthorized');
+		// 	next();
+		// })
+		// .catch(err => next(err));
+	};
+
+	// ensure requesting party is a user of Office Hours (the app)
+	static isMember(req, res, next) {
+
+		// .then(user => {
+		// 	if (user.id != userId) throw new Error('userUnauthorized');
+		// 	next();
+		// })
+		// .catch(err => next(err));
+	};
+
+	// ensures user is organizer of Office Hours (the org) 
+	static isAdmin(req, res, next) {
+
+		// .then(user => {
+		// 	if (user.id != userId) throw new Error('userUnauthorized');
+		// 	next();
+		// })
+		// .catch(err => next(err));
 	};
 
 };
