@@ -575,7 +575,7 @@ _This project is currently under construction._
 }
 ```
 
-**GET /api/meetings/:mid?org_id=##**
+**GET /api/meetings/:id?org_id=##**
 - Get an meetings via ID
 - Returning data structure:
 ```
@@ -603,7 +603,7 @@ _This project is currently under construction._
 }
 ```
 
-**POST /api/meetings/:mid/members?org_id=##**
+**POST /api/meetings/:id/member?org_id=##**
 - Assign a meetings/:mid/members to a session
     - Required fields in req.body:
 ```
@@ -620,7 +620,7 @@ _This project is currently under construction._
 }
 ```
 
-**PATCH /api/meetings/:mid?org_id=##**
+**PATCH /api/meetings/:id?org_id=##**
 - Update a meeting's info
     - At least one(1) of the following fields in body is required:
 ```
@@ -637,7 +637,7 @@ _This project is currently under construction._
 }
 ```
 
-**DELETE /api/meetings/:mid?org_id=##**
+**DELETE /api/meetings/:id?org_id=##**
 - Delete a meeting via ID
 - Returning data structure:
 ```
@@ -648,7 +648,7 @@ _This project is currently under construction._
 }
 ```
 
-**DELETE /api/meetings/:mid/members/:memid?org_id=##**
+**DELETE /api/meetings/:id/members/:memid?org_id=##**
 - Remove member from a meeting via ID 
 - Returning data structure:
 ```
