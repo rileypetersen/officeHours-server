@@ -23,9 +23,11 @@ class MeetingsController extends Controller {
 	};
 
 	static isValidMeetingCreate(req, res, next) {
-		// validate.MeetingCreate(req.body)
-
-		//   .catch(err => next(err));
+		validate.meetingCreate(req.body, parseInt(req.query.org_id))
+			.then(() => OrganizationsModel.show(req.body.organization_id))
+			.then(() => SessionsModel.show(req.query.org_id, req.body.session_id))
+			.then(() => next())
+			.catch(err => next(err));
 	};
 
 	static isValidMeetingPatch(req, res, next) {
@@ -41,6 +43,14 @@ class MeetingsController extends Controller {
 			.then(data => res.status(201).json({ data }))
 			.catch(err => next(err));
 	};
+
+	static removeMember(req, res, next) {
+		OrganizationsModel.show(req.query.org_id)
+			.then(() => MeetingsModel.show(req.query.org_id, req.params.id))
+			.then(() => MeetingsModel.removeMember(req.params.id, req.params.memid))
+			.then(data => res.status(201).json({ data }))
+			.catch(err => next(err));
+	}
 
 };
 

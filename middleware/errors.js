@@ -55,7 +55,13 @@ function processErrorMessage(err) {
 		case 'aFieldRequiredSession' : return { status: 400, message: 'At lease one(1) of the following fields is required: "user_id", "organization_id", "date", "start_time", "location", "duration", "delay" ' };
 
 		// MEETING ERRORS
+		// PLEASE WRITE ERROR MESSAGES BELOW!!!
 		case 'meetingsNotFound' : return { status: 404, message: 'Meeting not found' };
+		case 'badOrganizationId' : return { status: 400, message: 'Correct error needed still in errors.js' };
+		case 'badSessionId' : return { status: 400, message: 'Correct error needed still in errors.js' };
+		case 'badMeetingLocation' : return { status: 400, message: 'Correct error needed still in errors.js' };
+		case 'badMeetingDuration' : return { status: 400, message: 'Correct error needed still in errors.js' };
+		case 'badMeetingDelay' : return { status: 400, message: 'Correct error needed still in errors.js' };
 
 		// TAG ERRORS
 
