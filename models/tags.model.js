@@ -26,6 +26,7 @@ class TagsModel extends Model {
 	static showUserTags(user_id) {
 		return knex('users_tags')
 			.where({ user_id })
+			.join('tags', 'tag_id', 'tags.id')
 	};
 
 };
