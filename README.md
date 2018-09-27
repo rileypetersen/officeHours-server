@@ -269,7 +269,15 @@ _This project is currently under construction._
             short_description,              // STRING
             long_description,               // STRING
             linkedin_url,                   // STRING
-            website_url                     // STRING
+            website_url,                    // STRING
+            tags: [
+                {
+                    id,                     // INTEGER
+                    user_id,                // INTEGER
+                    tag_id,                 // INTEGER
+                    tag_name:               // STRING
+                }
+            ]
         }
     ]
 }
@@ -282,13 +290,27 @@ _This project is currently under construction._
 {
     data: {
         id,                                 // INTEGER
-        organizer_id,                       // INTEGER
-        name,                               // STRING
+        user_id,                            // INTEGER
+        organization_id,                    // INTEGER
+        user_type,                          // STRING
+        user_title,                         // STRING
+        can_create_sessions,                // BOOLEAN
+        first_name,                         // STRING
+        last_name,                          // STRING
+        email,                              // STRING
+        profile_img_url,                    // STRING
         short_description,                  // STRING
         long_description,                   // STRING
+        linkedin_url,                       // STRING
         website_url,                        // STRING
-        logo_img_url,                       // STRING
-        hosts_can_create_sessions           // BOOLEAN   
+        tags: [
+            {
+                id,                         // INTEGER
+                user_id,                    // INTEGER
+                tag_id,                     // INTEGER
+                tag_name:                   // STRING
+            }
+        ]
     }
 }
 ```
