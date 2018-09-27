@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true });
 const { TagsController } = require('../controllers');
 
 
-// router.get('/', TagsController.index)
+router.get('/', TagsController.index)
 
 // router.get('/:tid', TagsController.show)
 
