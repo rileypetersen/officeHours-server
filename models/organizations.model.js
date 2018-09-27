@@ -35,7 +35,11 @@ class OrganizationsModel extends Model {
 			.then(user => {
 				if (!user) throw new Error('nonOrgUser');
 				delete user.hashed_password;
-				return user;
+				return TagsModel.showUserTags(user.user_id)
+					.then(tags => {
+						user.tags = tags;
+						return user;
+					})
 			})
 	};
 
