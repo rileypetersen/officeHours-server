@@ -10,6 +10,10 @@ class UsersController extends Controller {
 		super()
 	};
 
+	static getAllUserInfo(req, res, next) {
+		getAllUserOrgs()
+	};
+
 	// controller must alter 2 tables: "users" && "users_organizations" now (potentially)
 	// all info still passed via req.body
 	static isValidUserCreate(req, res, next) {
@@ -36,6 +40,7 @@ class UsersController extends Controller {
 
 	static login(req, res, next) {
 		let id;
+		let user;
 		validate.userLogin(req.body)
 			.then(() => UsersModel.getUserByUserEmail(req.body.email))
 			.then(user => {
