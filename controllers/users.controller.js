@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Users`);
-const { UsersModel } = require('../models');
+const { UsersModel, OrganizationsModel, SessionsModel, MeetingsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
 const bcrypt = require('bcryptjs');
@@ -10,9 +10,36 @@ class UsersController extends Controller {
 		super()
 	};
 
-	static getAllUserInfo(req, res, next) {
-		getAllUserOrgs()
-	};
+	static show(req, res, next) {
+		let user;
+		UsersModel.show(req.params.id)
+			.then(userData => user = userData)
+			.then(() => OrganizationsModel.getAllUserOrgs(req.params.id))
+			.then(orgs => user.orgs = orgs)
+			.then(() => {
+				return user.orgs.map(org => {
+						return SessionsModel.index(org.id)
+						.then(sessions => {
+								return sessions.map((session) => {
+									session.meetings = SessionsModel.getSessionWithMeetings(session.id)
+									// return MeetingsModel.index(org.id, session.id)
+									// 	.then((meetings) => {
+									// 		session.meetings = meetings
+									// 		return session
+									// 	})
+								})
+						})
+
+
+				})
+			})
+			.then(promises => Promise.all(promises))
+			.then(()=> {
+				console.log('mer!!!!',user)
+				res.status(200).json({ user })
+			})
+			.catch(err => next(err));
+	}
 
 	// controller must alter 2 tables: "users" && "users_organizations" now (potentially)
 	// all info still passed via req.body
@@ -35,7 +62,7 @@ class UsersController extends Controller {
 				if (!user) throw new Error('usersNotFound');
 				next();
 			})
-			.catch(err => next(err));      
+			.catch(err => next(err));
 	};
 
 	static login(req, res, next) {
