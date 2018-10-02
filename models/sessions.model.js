@@ -33,6 +33,20 @@ class SessionsModel extends Model {
 			})
 	};
 
+	static getSessionWithMeetings(id) {
+		return knex('sessions')
+			.where({ id })
+			.first()
+			.then((session) => {
+				return knex('meetings')
+					.where({ session_id: id })
+					.then(meetings => {
+						session.meetings = meetings
+						return session
+					})
+			})
+	}
+
 };
 
 

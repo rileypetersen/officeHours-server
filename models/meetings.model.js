@@ -7,6 +7,11 @@ class MeetingsModel extends Model {
 		super()
 	};
 
+	static getMeetingsBySessionId(session_id) {
+		return knex('meetings')
+			.where({ session_id })
+	};
+
 	static show(organization_id, id) {
 		return knex('meetings')
 			.where({ organization_id, id })

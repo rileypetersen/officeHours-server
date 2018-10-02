@@ -8,6 +8,12 @@ class OrganizationsModel extends Model {
 		super()
 	};
 
+	static getAllUserOrgs(user_id) {
+		return knex('users_organizations')
+		.where({ user_id })
+		.join('organizations', 'organization_id', 'organizations.id')
+	};
+
 	static indexOrgUsers(organization_id) {
 		return knex('users_organizations')
 			.where({ organization_id })
@@ -20,7 +26,7 @@ class OrganizationsModel extends Model {
 						.then(tags => {
 							user.tags = tags;
 							return user;
-						})	
+						})
 
 				});
 				return Promise.all(promises);
