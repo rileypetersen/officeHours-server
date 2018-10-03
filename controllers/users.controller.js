@@ -17,25 +17,31 @@ class UsersController extends Controller {
 			.then(() => OrganizationsModel.getAllUserOrgs(req.params.id))
 			.then(orgs => user.orgs = orgs)
 			.then(() => {
-				return user.orgs.map(org => {
-						return SessionsModel.index(org.id)
-						.then(sessions => {
-								return sessions.map((session) => {
-									session.meetings = SessionsModel.getSessionWithMeetings(session.id)
-									// return MeetingsModel.index(org.id, session.id)
-									// 	.then((meetings) => {
-									// 		session.meetings = meetings
-									// 		return session
-									// 	})
-								})
+				return Promise.all(user.orgs.map((org, i) => {
+					return SessionsModel.index(org.id)
+					.then(sessions => {
+						user.orgs[i].sessions = sessions
+						return user.orgs[i].sessions.map((session, j) => {
+							return SessionsModel.getSessionWithMeetings(session.id)
+							.then((nested) => {
+								console.log('start',user.orgs[i].sessions[j],'end')
+								console.log('---- we the same?!  ---- ')
+								console.log('start',nested,'end')
+								user.orgs[i].sessions[j] = nested
+
+								return user
+							})
 						})
-
-
-				})
+					})
+				}))
 			})
-			.then(promises => Promise.all(promises))
+			.then(orgSessions => {
+				// console.log('dis?',orgSessions)
+				return orgSessions
+			})
+			// .then(promises => user.orgs = promises)
 			.then(()=> {
-				console.log('mer!!!!',user)
+				// console.log('mer!!!!',user)
 				res.status(200).json({ user })
 			})
 			.catch(err => next(err));
