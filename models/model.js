@@ -14,8 +14,8 @@ module.exports = (tableName) => {
                 .where({ id })
                 .first()
                 .then(res => {
-                        if (!res) throw new Error(`${tableName}NotFound`);
-                        return res;
+                    if (!res) throw new Error(`${tableName}NotFound`);
+                    return res;
                 });
         };
 
