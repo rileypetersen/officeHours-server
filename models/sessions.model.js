@@ -45,10 +45,6 @@ class SessionsModel extends Model {
 						return session
 					})
 			})
-			.then(res => {
-				// console.log('well? ',res)
-				return res
-			})
 	}
 
 };

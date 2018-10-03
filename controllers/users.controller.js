@@ -15,26 +15,18 @@ class UsersController extends Controller {
 		UsersModel.show(req.params.id)
 			.then(userData => user = userData)
 			.then(() => OrganizationsModel.getAllUserOrgs(req.params.id))
-			.then(orgs => user.orgs = orgs)
-			.then(() => {
-				return Promise.all(user.orgs.map((org, i) => {
-					return SessionsModel.index(org.id)
-					.then(sessions => {
-						user.orgs[i].sessions = sessions
-						return user.orgs[i].sessions.map((session, j) => {
-							return SessionsModel.getSessionWithMeetings(session.id)
-							.then((nested) => {
-								console.log('start',user.orgs[i].sessions[j],'end')
-								console.log('---- we the same?!  ---- ')
-								console.log('start',nested,'end')
-								user.orgs[i].sessions[j] = nested
-
-								return user
-							})
-						})
-					})
-				}))
-			})
+			.then(orgs => user.organizations = orgs)
+			.then(() => Promise.all(user.organizations.map((org, i) => {
+				return SessionsModel.index(org.id)
+				.then(sessions => {
+					return Promise.all(sessions.map(session => {
+						return SessionsModel.getSessionWithMeetings(session.id)
+					}))
+				})
+				.then(sessions => {
+					org.sessions = sessions
+				})
+			})))
 			.then(()=> {
 				res.status(200).json({ user })
 			})
