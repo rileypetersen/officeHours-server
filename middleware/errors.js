@@ -67,7 +67,7 @@ function processErrorMessage(err) {
 		case 'badDelay' : return { status: 400, message: 'Meeting "delay" must: be a String and is required' };
 
 		// TAG ERRORS
-		case 'tagsNotFound' : return { status: 404, message: 'Tags not found' };
+		case 'tagsNotFound' : return { status: 404, message: 'Tag not found' };
 
 		default:
 			return { status: 500, message: 'An internal server error has occurred.' };
