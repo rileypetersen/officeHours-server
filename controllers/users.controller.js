@@ -14,8 +14,8 @@ class UsersController extends Controller {
 		let user;
 		UsersModel.show(req.params.id)
 			.then(userData => {
-				delete userData.hashed_password
-				user = userData
+				delete userData.hashed_password;
+				user = userData;
 			})
 			.then(() => TagsModel.showUserTags(user.id))
 			.then(tags => user.tags = tags)
