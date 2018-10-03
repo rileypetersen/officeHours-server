@@ -13,6 +13,7 @@ _This project is currently under construction._
 1. `npm run setup`
 
 ## Routes
+*[PostMan Collection Link](https://www.getpostman.com/collections/efc0f91f028e29340458)*
 
 ### ----- UserRoutes --------------------------------------------------------------------------
 
@@ -741,5 +742,22 @@ _This project is currently under construction._
     data: {
         
     }
+}
+```
+
+
+### ----- TagsRoutes ------------------------------------------------------------------------------
+
+**GET /api/tags**
+- Get all tags
+- Returning data structure:
+```
+{
+    data: [
+        {
+            id,                                     // INTEGER
+            tag_name                                // STRING
+        }
+    ]
 }
 ```
