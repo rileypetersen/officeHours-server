@@ -36,14 +36,16 @@ _This project is currently under construction._
         website_url                                 // STRING
         organizations: [
             {
-                id,                                 // INTEGER
+                        // USER INFORMATION
                 user_id,                            // INTEGER
-                organization_id,                    // INTEGER
                 user_type,                          // STRING
                 user_title,                         // STRING
                 can_create_sessions,                // BOOLEAN
-                can_create_sessions                 // BOOLEAN
+                        // ORGANIZATION INFORMATION
+                id,                                 // INTEGER
+                organization_id,                    // INTEGER
                 organizer_id,                       // INTEGER
+                hosts_can_create_sessions,          // BOOLEAN
                 name,                               // STRING
                 short_description,                  // STRING
                 long_description,                   // STRING
@@ -88,13 +90,13 @@ _This project is currently under construction._
     - Fields in req.body:
 ```
 {
-                    // REQUIRED 
+                        // REQUIRED 
     first_name,                                     // STRING
     last_name,                                      // STRING
     email,                                          // STRING
     password,                                       // STRING
 
-                    // NOT REQUIRED
+                        // NOT REQUIRED
     profile_img_url,                                // STRING
     short_description,                              // STRING
     long_description,                               // STRING
