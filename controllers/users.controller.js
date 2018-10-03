@@ -13,22 +13,21 @@ class UsersController extends Controller {
 	static show(req, res, next) {
 		let user;
 		UsersModel.show(req.params.id)
-			.then(userData => user = userData)
+			.then(userData => {
+				delete userData.hashed_password
+				user = userData
+			})
 			.then(() => OrganizationsModel.getAllUserOrgs(req.params.id))
 			.then(orgs => user.organizations = orgs)
-			.then(() => Promise.all(user.organizations.map((org, i) => {
+			.then(() => Promise.all(user.organizations.map(org => {
 				return SessionsModel.index(org.id)
-				.then(sessions => {
-					return Promise.all(sessions.map(session => {
+				.then(sessions => Promise.all(sessions.map(session => {
 						return SessionsModel.getSessionWithMeetings(session.id)
-					}))
-				})
-				.then(sessions => {
-					org.sessions = sessions
-				})
+					})))
+				.then(sessions => org.sessions = sessions)
 			})))
 			.then(()=> {
-				res.status(200).json({ user })
+				res.status(200).json({ data: user })
 			})
 			.catch(err => next(err));
 	}
