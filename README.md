@@ -655,9 +655,21 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        
-    }
+    data: [  
+        {
+            id,                                     // INTEGER
+            organization_id,                        // INTEGER
+            session_id,                             // INTEGER
+            host_id,                                // INTEGER
+            member_id,                              // INTEGER
+            location,                               // STRING
+            duration,                               // STRING
+            delay,                                  // STRING
+            topic_1,                                // STRING
+            topic_2,                                // STRING
+            topic_3,                                // STRING
+        }
+    ]
 }
 ```
 
@@ -667,7 +679,17 @@ _This project is currently under construction._
 ```
 {
     data: {
-        
+        id,                                         // INTEGER
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        host_id,                                    // INTEGER
+        member_id,                                  // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay,                                      // STRING
+        topic_1,                                    // STRING
+        topic_2,                                    // STRING
+        topic_3,                                    // STRING
     }
 }
 ```
@@ -677,14 +699,30 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-
+    data: {
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay                                       // STRING
+    }
 }
 ```
 - Returning data structure:
 ```
 {
     data: {
-        
+        id,                                         // INTEGER
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        host_id,                                    // INTEGER
+        member_id,                                  // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay,                                      // STRING
+        topic_1,                                    // STRING
+        topic_2,                                    // STRING
+        topic_3,                                    // STRING
     }
 }
 ```
@@ -694,14 +732,25 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    member_id,                                      // INTEGER
+    organization_id,                                // INTEGER
+    member_id                                       // INTEGER
 }
 ```
 - Returning data structure:
 ```
 {
     data: {
-        
+        id,                                         // INTEGER
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        host_id,                                    // INTEGER
+        member_id,                                  // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay,                                      // STRING
+        topic_1,                                    // STRING
+        topic_2,                                    // STRING
+        topic_3,                                    // STRING
     }
 }
 ```
@@ -711,14 +760,30 @@ _This project is currently under construction._
     - At least one(1) of the following fields in body is required:
 ```
 {
-    
+    data: {
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay                                       // STRING
+    }
 }
 ```
 - Returning data structure:
 ```
 {
     data: {
-        
+        id,                                         // INTEGER
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        host_id,                                    // INTEGER
+        member_id,                                  // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay,                                      // STRING
+        topic_1,                                    // STRING
+        topic_2,                                    // STRING
+        topic_3,                                    // STRING
     }
 }
 ```
@@ -729,7 +794,17 @@ _This project is currently under construction._
 ```
 {
     data: {
-        
+        id,                                         // INTEGER
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        host_id,                                    // INTEGER
+        member_id,                                  // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay,                                      // STRING
+        topic_1,                                    // STRING
+        topic_2,                                    // STRING
+        topic_3,                                    // STRING
     }
 }
 ```
@@ -740,7 +815,17 @@ _This project is currently under construction._
 ```
 {
     data: {
-        
+        id,                                         // INTEGER
+        organization_id,                            // INTEGER
+        session_id,                                 // INTEGER
+        host_id,                                    // INTEGER
+        member_id,                                  // INTEGER
+        location,                                   // STRING
+        duration,                                   // STRING
+        delay,                                      // STRING
+        topic_1,                                    // STRING
+        topic_2,                                    // STRING
+        topic_3,                                    // STRING
     }
 }
 ```
