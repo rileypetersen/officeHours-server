@@ -35,13 +35,7 @@ class UsersController extends Controller {
 					})
 				}))
 			})
-			.then(orgSessions => {
-				// console.log('dis?',orgSessions)
-				return orgSessions
-			})
-			// .then(promises => user.orgs = promises)
 			.then(()=> {
-				// console.log('mer!!!!',user)
 				res.status(200).json({ user })
 			})
 			.catch(err => next(err));
