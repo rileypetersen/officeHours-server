@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Users`);
-const { UsersModel, OrganizationsModel, SessionsModel, MeetingsModel } = require('../models');
+const { UsersModel, OrganizationsModel, SessionsModel, TagsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
 const bcrypt = require('bcryptjs');
@@ -17,6 +17,8 @@ class UsersController extends Controller {
 				delete userData.hashed_password
 				user = userData
 			})
+			.then(() => TagsModel.showUserTags(user.id))
+			.then(tags => user.tags = tags)
 			.then(() => OrganizationsModel.getAllUserOrgs(req.params.id))
 			.then(orgs => user.organizations = orgs)
 			.then(() => Promise.all(user.organizations.map(org => {
