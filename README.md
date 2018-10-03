@@ -75,7 +75,7 @@ _This project is currently under construction._
                                 delay,              // STRING
                                 topic_1,            // STRING
                                 topic_2,            // STRING
-                                topic_3,            // STRING
+                                topic_3             // STRING
                             }
                         ]
                     }
@@ -480,7 +480,7 @@ _This project is currently under construction._
                     delay,                          // STRING
                     topic_1,                        // STRING
                     topic_2,                        // STRING
-                    topic_3,                        // STRING
+                    topic_3                         // STRING
                 }
             ]
         }
@@ -515,7 +515,7 @@ _This project is currently under construction._
                 delay,                              // STRING
                 topic_1,                            // STRING
                 topic_2,                            // STRING
-                topic_3,                            // STRING
+                topic_3                             // STRING
             }
         ]
     }
@@ -667,7 +667,7 @@ _This project is currently under construction._
             delay,                                  // STRING
             topic_1,                                // STRING
             topic_2,                                // STRING
-            topic_3,                                // STRING
+            topic_3                                 // STRING
         }
     ]
 }
@@ -689,7 +689,7 @@ _This project is currently under construction._
         delay,                                      // STRING
         topic_1,                                    // STRING
         topic_2,                                    // STRING
-        topic_3,                                    // STRING
+        topic_3                                     // STRING
     }
 }
 ```
@@ -722,7 +722,7 @@ _This project is currently under construction._
         delay,                                      // STRING
         topic_1,                                    // STRING
         topic_2,                                    // STRING
-        topic_3,                                    // STRING
+        topic_3                                     // STRING
     }
 }
 ```
@@ -750,7 +750,7 @@ _This project is currently under construction._
         delay,                                      // STRING
         topic_1,                                    // STRING
         topic_2,                                    // STRING
-        topic_3,                                    // STRING
+        topic_3                                     // STRING
     }
 }
 ```
@@ -783,7 +783,7 @@ _This project is currently under construction._
         delay,                                      // STRING
         topic_1,                                    // STRING
         topic_2,                                    // STRING
-        topic_3,                                    // STRING
+        topic_3                                     // STRING
     }
 }
 ```
@@ -804,7 +804,7 @@ _This project is currently under construction._
         delay,                                      // STRING
         topic_1,                                    // STRING
         topic_2,                                    // STRING
-        topic_3,                                    // STRING
+        topic_3                                     // STRING
     }
 }
 ```
@@ -825,7 +825,7 @@ _This project is currently under construction._
         delay,                                      // STRING
         topic_1,                                    // STRING
         topic_2,                                    // STRING
-        topic_3,                                    // STRING
+        topic_3                                     // STRING
     }
 }
 ```
