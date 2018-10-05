@@ -8,10 +8,10 @@ exports.up = function(knex, Promise) {
     table.integer('host_id').unsigned();
     table.foreign('host_id').references('users.id').onDelete('CASCADE');
     table.string('date').notNullable();
-    table.text('location').notNullable();
+    table.text('location').defaultTo('...');
     table.string('start_time').notNullable();
-    table.string('duration').notNullable();
-    table.string('delay').notNullable();
+    table.string('duration').defaultTo('');
+    table.string('delay').defaultTo('');
   });
 };
 

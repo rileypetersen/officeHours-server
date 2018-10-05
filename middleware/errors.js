@@ -55,7 +55,6 @@ function processErrorMessage(err) {
 		case 'aFieldRequiredSession' : return { status: 400, message: 'At least one(1) of the following fields is required: "user_id", "organization_id", "date", "start_time", "location", "duration", "delay" ' };
 
 		// MEETING ERRORS
-		// PLEASE WRITE ERROR MESSAGES BELOW!!!
 		case 'meetingsNotFound' : return { status: 404, message: 'Meeting not found' };
 		case 'badOrganizationId' : return { status: 400, message: 'body.organization_id must: be an Integer, match query.org_id and is required' };
 		case 'badSessionId' : return { status: 400, message: 'Session "id" must: be an Integer and is required' };
@@ -63,11 +62,12 @@ function processErrorMessage(err) {
 		case 'badMeetingDuration' : return { status: 400, message: 'Meeting "duration" must: be a String and is required' };
 		case 'badMeetingDelay' : return { status: 400, message: 'Meeting "delay" must: be a String and is required' };
 		case 'aFieldRequiredMeeting' : return { status: 400, message: 'At least one(1) of the following fields is required: "location", "duration", "delay" ' };
-		case 'badLocation' : return { status: 400, message: 'Meeting "location" must: be a String' };
-		case 'badDuration' : return { status: 400, message: 'Meeting "duration" must: be a String' };
-		case 'badDelay' : return { status: 400, message: 'Meeting "delay" must: be a String' };
+		case 'badLocation' : return { status: 400, message: 'Meeting "location" must: be a String and is required' };
+		case 'badDuration' : return { status: 400, message: 'Meeting "duration" must: be a String and is required' };
+		case 'badDelay' : return { status: 400, message: 'Meeting "delay" must: be a String and is required' };
 
 		// TAG ERRORS
+		case 'tagsNotFound' : return { status: 404, message: 'Tag not found' };
 
 		default:
 			return { status: 500, message: 'An internal server error has occurred.' };
