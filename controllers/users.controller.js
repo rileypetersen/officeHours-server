@@ -60,7 +60,6 @@ class UsersController extends Controller {
 
 	static login(req, res, next) {
 		let id;
-		let user;
 		validate.userLogin(req.body)
 			.then(() => UsersModel.getUserByUserEmail(req.body.email))
 			.then(user => {
