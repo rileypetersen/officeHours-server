@@ -5,7 +5,7 @@ const { AuthController, TagsController, UsersController } = require('../controll
 
 router.get('/', UsersController.index) 
 
-router.get('/:id', AuthController.isOwnerOfUser, UsersController.show)
+router.get('/:id', UsersController.show)
 
 router.get('/token', AuthController.isAuthenticated, AuthController.getAuthStatus)
 
