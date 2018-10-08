@@ -10,6 +10,14 @@ class OrganizationsController extends Controller {
 		super()
 	};
 
+	static index(req, res, next) {
+		OrganizationsModel.index()
+			.then((orgs)=> {
+				res.status(200).json(orgs)
+			})
+			.catch(err => next(err));
+	};
+
 	static indexOrgUsers(req, res, next) {
 		OrganizationsModel.show(req.params.id)
 			.then(() => OrganizationsModel.indexOrgUsers(req.params.id))
