@@ -29,7 +29,7 @@ class UsersController extends Controller {
 				.then(sessions => org.sessions = sessions)
 			})))
 			.then(()=> {
-				res.status(200).json({ data: user })
+				res.status(200).json(user)
 			})
 			.catch(err => next(err));
 	}
@@ -69,7 +69,7 @@ class UsersController extends Controller {
 				return id;
 			})
 			.then(id => Token.sign(id))
-			.then(token => res.status(201).set('Auth', `Bearer: ${token}`).json({ data: id }))
+			.then(token => res.status(201).set('Auth', `Bearer: ${token}`).json(id))
 			.catch(err => next(err))
 	};
 
