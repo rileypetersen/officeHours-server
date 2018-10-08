@@ -1,4 +1,5 @@
 const Model = require('./model.js')(`organizations`);
+const SessionsModel = require('./sessions.model')
 const knex = require('../db/knex');
 const TagsModel = require('./tags.model')
 
@@ -6,6 +7,20 @@ const TagsModel = require('./tags.model')
 class OrganizationsModel extends Model {
 	constructor(){
 		super()
+	};
+
+	static index() {
+		return knex('organizations')
+			.then(orgs => Promise.all(orgs.map(org => {
+				return SessionsModel.index(org.id)
+				.then(sessions => Promise.all(sessions.map(session => {
+						return SessionsModel.getSessionWithMeetings(session.id)
+					})))
+				.then(sessions => {
+					org.sessions = sessions
+					return org
+				})
+			})))
 	};
 
 	static getAllUserOrgs(user_id) {
