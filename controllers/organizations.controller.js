@@ -10,10 +10,16 @@ class OrganizationsController extends Controller {
 		super()
 	};
 
+	static index(req, res, next) {
+		OrganizationsModel.index()
+			.then(orgs => res.status(200).json(orgs))
+			.catch(err => next(err));
+	};
+
 	static indexOrgUsers(req, res, next) {
 		OrganizationsModel.show(req.params.id)
 			.then(() => OrganizationsModel.indexOrgUsers(req.params.id))
-			.then(data => res.status(200).json({ data }))
+			.then(data => res.status(200).json(data))
 			.catch(err => next(err));
 	};
 
@@ -21,7 +27,7 @@ class OrganizationsController extends Controller {
 		OrganizationsModel.show(req.params.id)
 			.then(() => UsersModel.show(req.params.uid))		
 			.then(() => OrganizationsModel.showOrgUser(req.params.uid, req.params.id))
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
 	};
 
@@ -34,7 +40,7 @@ class OrganizationsController extends Controller {
 			})
 			.then((users) => {
 				organization.users = users
-				res.status(201).json({ data: organization })
+				res.status(201).json(organization)
 			})
 			.catch(err => next(err));
 	};
@@ -48,7 +54,7 @@ class OrganizationsController extends Controller {
 				if (user !== undefined) throw new Error('userOrgRelationExists')
 				return OrganizationsModel.addOrgUser(req.body)
 			})
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
 	};
 
@@ -56,7 +62,7 @@ class OrganizationsController extends Controller {
 		validate.updateOrgUser(req.body)
 			.then(() => OrganizationsModel.showOrgUser(req.params.uid, req.params.id))
 			.then(() => OrganizationsModel.updateOrgUser(req.params.uid, req.params.id, req.body))
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
 	};
 
@@ -75,14 +81,14 @@ class OrganizationsController extends Controller {
 		validate.orgUpdate(req.body)
 			.then(() => OrganizationsModel.show(req.params.id))
 			.then(() => OrganizationsModel.update(req.params.id, req.body))
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
 	};
 
 	static removeOrgUser(req, res, next) {
 		OrganizationsModel.showOrgUser(req.params.uid, req.params.id)
 			.then(() => OrganizationsModel.removeOrgUser(req.params.uid, req.params.id))
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
 	};
 

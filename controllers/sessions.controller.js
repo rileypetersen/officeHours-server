@@ -25,14 +25,14 @@ class SessionsController extends Controller {
                 })
                 return Promise.all(promises)
             })
-            .then(data => res.status(201).json({ data }))
+            .then(data => res.status(201).json(data))
             .catch(err => next(err));
     };
 
     static show(req, res, next) {
         OrganizationsModel.show(req.query.org_id)
             .then(() => SessionsModel.show(req.query.org_id, req.params.id))
-            .then(data => res.status(201).json({ data }))
+            .then(data => res.status(201).json(data))
             .catch(err => next(err))
     };
 
@@ -57,7 +57,7 @@ class SessionsController extends Controller {
 			.then(() => OrganizationsModel.showOrgUser(req.body.host_id, req.query.org_id))
 			.then(() => SessionsModel.show(req.query.org_id, req.params.id))
 			.then(() => SessionsModel.update(req.params.id, req.body))
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
     };
 
@@ -66,7 +66,7 @@ class SessionsController extends Controller {
 			.then(() => OrganizationsModel.showOrgUser(req.params.hid, req.query.org_id))
 			.then(() => SessionsModel.show(req.query.org_id, req.params.id))
 			.then(() => SessionsModel.removeHost(req.params.id, req.params.hid))
-			.then(data => res.status(201).json({ data }))
+			.then(data => res.status(201).json(data))
 			.catch(err => next(err));
     };
 
@@ -75,14 +75,14 @@ class SessionsController extends Controller {
             .then(() => OrganizationsModel.show(req.query.org_id))
             .then(() => SessionsModel.show(req.query.org_id, req.params.id))
             .then(() => SessionsModel.update(req.params.id, req.body))
-            .then(data => res.status(201).json({ data }))
+            .then(data => res.status(201).json(data))
             .catch(err => next(err));
     };
 
     static destroy(req, res, next) {
         SessionsModel.show(req.query.org_id, req.params.id)
             .then(() => SessionsModel.destroy(req.params.id))
-            .then(data => res.status(201).json({ data }))
+            .then(data => res.status(201).json(data))
             .catch(err => next(err));
     };
 

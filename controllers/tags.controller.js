@@ -23,7 +23,7 @@ class TagsController extends Controller {
 	static showUserTags(req, res, next) {
 		UsersModel.show(req.params.id)
 			.then(() => TagsModel.showUserTags(req.params.id))
-			.then(data => res.status(200).json({ data }))
+			.then(data => res.status(200).json(data))
 			.catch(err => next(err));
 	};
 
@@ -31,7 +31,7 @@ class TagsController extends Controller {
 		UsersModel.show(req.params.id)		
 			.then(() => TagsModel.addOrRemoveTag(req.params.id, req.body.tag_id))
 			.then(() => TagsModel.showUserTags(req.params.id))
-			.then(data => res.status(200).json({ data }))
+			.then(data => res.status(200).json(data))
 		  	.catch(err => next(err));
 	};
 
