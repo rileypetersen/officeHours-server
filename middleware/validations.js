@@ -42,11 +42,14 @@ async function organizationCreate({ organizer_id, name, short_description, long_
 async function createOrgUser(paramsId, { user_id, organization_id, user_type, user_title, can_create_sessions }) {
     if (!user_id || typeof user_id !== 'number') throw new Error('badUserId');
     if (!organization_id || typeof organization_id !== 'number') throw new Error('badOrgId');
-    if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
-    if (!user_title || typeof user_title !== 'string') throw new Error('badTitle');
-    if (can_create_sessions === undefined || typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
-    if (parseInt(paramsId) !== parseInt(organization_id)) throw new Error('badParamsBodyMatch');
-    if (user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
+
+// Possibly use the below code in case where an admin will be granting org host power to a user...
+
+    // if (!user_type || typeof user_type !== 'string') throw new Error('badUserType');
+    // if (!user_title || typeof user_title !== 'string') throw new Error('badTitle');
+    // if (can_create_sessions === undefined || typeof can_create_sessions !== 'boolean') throw new Error('badCanCreateSession');
+    // if (parseInt(paramsId) !== parseInt(organization_id)) throw new Error('badParamsBodyMatch');
+    // if (user_type !== 'organizer' && user_type !== 'host' && user_type !== 'member') throw new Error('unrecognizedUserType');
     return true;
 };
 
