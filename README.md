@@ -90,17 +90,17 @@ _This project is currently under construction._
 ```
 {
                         // REQUIRED 
-    first_name,                                     // STRING
-    last_name,                                      // STRING
-    email,                                          // STRING
-    password,                                       // STRING
+    first_name,                                 // STRING
+    last_name,                                  // STRING
+    email,                                      // STRING
+    password,                                   // STRING
 
                         // NOT REQUIRED
-    profile_img_url,                                // STRING
-    short_description,                              // STRING
-    long_description,                               // STRING
-    linkedin_url,                                   // STRING
-    website_url                                     // STRING
+    profile_img_url,                            // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    linkedin_url,                               // STRING
+    website_url                                 // STRING
 }
 ```
 - Returning data structure:
@@ -123,20 +123,20 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    email,                                          // STRING
-    password,                                       // STRING
+    email,                                      // STRING
+    password,                                   // STRING
 }
 ```
 - Returning data structure:
 ```
 {
-    data                                           // INTEGER
+    data                                       // INTEGER
 }
 ```
 - Returning in headers:
 ```
 {
-    Auth Bearer:                                    // STRING
+    Auth Bearer:                                // STRING
 }
 ```
 
@@ -146,15 +146,15 @@ _This project is currently under construction._
     - At least one(1) of the following fields in body is required:
 ```
 {
-    first_name,                                     // STRING
-    last_name,                                      // STRING
-    email,                                          // STRING
-    password,                                       // STRING
-    profile_img_url,                                // STRING
-    short_description,                              // STRING
-    long_description,                               // STRING
-    linkedin_url,                                   // STRING
-    website_url,                                    // STRING
+    first_name,                                 // STRING
+    last_name,                                  // STRING
+    email,                                      // STRING
+    password,                                   // STRING
+    profile_img_url,                            // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    linkedin_url,                               // STRING
+    website_url,                                // STRING
 }
 ```
 - Returning data structure:
@@ -227,13 +227,13 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    organizer_id,                                   // INTEGER
-    name,                                           // STRING
-    short_description,                              // STRING
-    long_description,                               // STRING
-    logo_img_url,                                   // STRING
-    website_url,                                    // STRING
-    hosts_can_create_sessions                       // BOOLEAN
+    organizer_id,                               // INTEGER
+    name,                                       // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    logo_img_url,                               // STRING
+    website_url,                                // STRING
+    hosts_can_create_sessions                   // BOOLEAN
 }
 ```
 - Returning data structure:
@@ -255,13 +255,13 @@ _This project is currently under construction._
     - At least one(1) of the following fields in body is required:
 ```
 {
-    organizer_id,                                   // INTEGER
-    name,                                           // STRING
-    short_description,                              // STRING
-    long_description,                               // STRING
-    logo_img_url,                                   // STRING
-    website_url,                                    // STRING
-    hosts_can_create_sessions                       // BOOLEAN
+    organizer_id,                               // INTEGER
+    name,                                       // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    logo_img_url,                               // STRING
+    website_url,                                // STRING
+    hosts_can_create_sessions                   // BOOLEAN
 }
 ```
 - Returning data structure:
@@ -283,14 +283,14 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-        id,                                         // INTEGER
-        organizer_id,                               // INTEGER
-        name,                                       // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        website_url,                                // STRING
-        logo_img_url,                               // STRING
-        hosts_can_create_sessions                   // BOOLEAN   
+        id,                                     // INTEGER
+        organizer_id,                           // INTEGER
+        name,                                   // STRING
+        short_description,                      // STRING
+        long_description,                       // STRING
+        website_url,                            // STRING
+        logo_img_url,                           // STRING
+        hosts_can_create_sessions               // BOOLEAN   
     }
 }
 ```
@@ -366,11 +366,11 @@ _This project is currently under construction._
     - "user_type" must be an all lowercase String of: "organizer", "host", or "member"
 ```
 {
-    user_id,                                        // INTEGER
-    organization_id,                                // INTEGER
-    user_type,                                      // STRING
-    user_title,                                     // STRING
-    can_create_sessions                             // BOOLEAN
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    user_type,                                  // STRING
+    user_title,                                 // STRING
+    can_create_sessions                         // BOOLEAN
 }
 ```
 - Returning data structure:
@@ -391,11 +391,11 @@ _This project is currently under construction._
     - "user_type" must be an all lowercase String of: "organizer", "host", or "member"
 ```
 {
-    user_id,                                        // INTEGER
-    organization_id,                                // INTEGER
-    user_type,                                      // STRING
-    user_title,                                     // STRING
-    can_create_sessions                             // BOOLEAN
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    user_type,                                  // STRING
+    user_title,                                 // STRING
+    can_create_sessions                         // BOOLEAN
 }
 ```
 - Returning data structure:
@@ -498,13 +498,13 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    user_id,                                        // INTEGER
-    organization_id,                                // INTEGER
-    date,                                           // STRING
-    start_time,                                     // STRING
-    location,                                       // STRING
-    duration,                                       // STRING
-    delay                                           // STRING
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    date,                                       // STRING
+    start_time,                                 // STRING
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 - Returning data structure:
@@ -527,7 +527,7 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    host_id                                         // INTEGER
+    host_id                                     // INTEGER
 }
 ```
 - Returning data structure:
@@ -550,13 +550,13 @@ _This project is currently under construction._
     - At least one(1) of the following fields in body is required:
 ```
 {
-    user_id,                                        // INTEGER
-    organization_id,                                // INTEGER
-    date,                                           // STRING
-    start_time,                                     // STRING
-    location,                                       // STRING
-    duration,                                       // STRING
-    delay                                           // STRING
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    date,                                       // STRING
+    start_time,                                 // STRING
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 - Returning data structure:
@@ -685,8 +685,8 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    organization_id,                                // INTEGER
-    member_id                                       // INTEGER
+    organization_id,                            // INTEGER
+    member_id                                   // INTEGER
 }
 ```
 - Returning data structure:
