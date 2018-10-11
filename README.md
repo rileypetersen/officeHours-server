@@ -25,64 +25,62 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        first_name,                                 // STRING
-        last_name,                                  // STRING
-        email,                                      // STRING
-        profile_img_url,                            // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        linkedin_url,                               // STRING
-        website_url                                 // STRING
-        organizations: [
-            {
-                        // USER INFORMATION
-                user_id,                            // INTEGER
-                user_type,                          // STRING
-                user_title,                         // STRING
-                can_create_sessions,                // BOOLEAN
-                        // ORGANIZATION INFORMATION
-                id,                                 // INTEGER
-                organization_id,                    // INTEGER
-                organizer_id,                       // INTEGER
-                hosts_can_create_sessions,          // BOOLEAN
-                name,                               // STRING
-                short_description,                  // STRING
-                long_description,                   // STRING
-                logo_img_url,                       // STRING
-                website_url,                        // STRING
-                sessions: [
-                    {
-                        id,                         // INTEGER
-                        organization_id,            // INTEGER
-                        organizer_id,               // INTEGER
-                        host_id,                    // INTEGER
-                        date,                       // STRING
-                        location,                   // STRING
-                        start_time,                 // STRING
-                        duration,                   // STRING
-                        delay,                      // STRING
-                        meetings: [
-                            {
-                                id,                 // INTEGER
-                                organization_id,    // INTEGER
-                                session_id,         // INTEGER
-                                host_id,            // INTEGER
-                                member_id,          // INTEGER
-                                location,           // STRING
-                                duration,           // STRING
-                                delay,              // STRING
-                                topic_1,            // STRING
-                                topic_2,            // STRING
-                                topic_3             // STRING
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
+    id,                                         // INTEGER
+    first_name,                                 // STRING
+    last_name,                                  // STRING
+    email,                                      // STRING
+    profile_img_url,                            // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    linkedin_url,                               // STRING
+    website_url                                 // STRING
+    organizations: [
+        {
+                    // USER INFORMATION
+            user_id,                            // INTEGER
+            user_type,                          // STRING
+            user_title,                         // STRING
+            can_create_sessions,                // BOOLEAN
+                    // ORGANIZATION INFORMATION
+            id,                                 // INTEGER
+            organization_id,                    // INTEGER
+            organizer_id,                       // INTEGER
+            hosts_can_create_sessions,          // BOOLEAN
+            name,                               // STRING
+            short_description,                  // STRING
+            long_description,                   // STRING
+            logo_img_url,                       // STRING
+            website_url,                        // STRING
+            sessions: [
+                {
+                    id,                         // INTEGER
+                    organization_id,            // INTEGER
+                    organizer_id,               // INTEGER
+                    host_id,                    // INTEGER
+                    date,                       // STRING
+                    location,                   // STRING
+                    start_time,                 // STRING
+                    duration,                   // STRING
+                    delay,                      // STRING
+                    meetings: [
+                        {
+                            id,                 // INTEGER
+                            organization_id,    // INTEGER
+                            session_id,         // INTEGER
+                            host_id,            // INTEGER
+                            member_id,          // INTEGER
+                            location,           // STRING
+                            duration,           // STRING
+                            delay,              // STRING
+                            topic_1,            // STRING
+                            topic_2,            // STRING
+                            topic_3             // STRING
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -108,17 +106,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        first_name,                                 // STRING
-        last_name,                                  // STRING
-        email,                                      // STRING
-        profile_img_url,                            // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        linkedin_url,                               // STRING
-        website_url                                 // STRING
-    }
+    id,                                         // INTEGER
+    first_name,                                 // STRING
+    last_name,                                  // STRING
+    email,                                      // STRING
+    profile_img_url,                            // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    linkedin_url,                               // STRING
+    website_url                                 // STRING
 }
 ```
 
@@ -134,7 +130,7 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data:                                           // INTEGER
+    data                                           // INTEGER
 }
 ```
 - Returning in headers:
@@ -164,17 +160,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        first_name,                                 // STRING
-        last_name,                                  // STRING
-        email,                                      // STRING
-        profile_img_url,                            // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        linkedin_url,                               // STRING
-        website_url                                 // STRING
-    }
+    id,                                         // INTEGER
+    first_name,                                 // STRING
+    last_name,                                  // STRING
+    email,                                      // STRING
+    profile_img_url,                            // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    linkedin_url,                               // STRING
+    website_url                                 // STRING
 }
 ```
 
@@ -188,20 +182,18 @@ _This project is currently under construction._
 - Get all organizations
 - Returning data structure:
 ```
-{
-    data: [
-        {
-            id,                                     // INTEGER
-            organizer_id,                           // INTEGER
-            name,                                   // STRING
-            short_description,                      // STRING
-            long_description,                       // STRING
-            logo_img_url,                           // STRING
-            website_url,                            // STRING
-            hosts_can_create_sessions               // BOOLEAN
-        }
-    ]
-}
+[
+    {
+        id,                                     // INTEGER
+        organizer_id,                           // INTEGER
+        name,                                   // STRING
+        short_description,                      // STRING
+        long_description,                       // STRING
+        logo_img_url,                           // STRING
+        website_url,                            // STRING
+        hosts_can_create_sessions               // BOOLEAN
+    }
+]
 ```
 
 **GET /api/organizations/:id**
@@ -209,26 +201,24 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organizer_id,                               // INTEGER
-        name,                                       // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        logo_img_url,                               // STRING
-        website_url,                                // STRING
-        hosts_can_create_sessions                   // BOOLEAN
-        users: [
-            {
-                id:,                                // INTEGER
-                user_id,                            // INTEGER
-                organization_id,                    // INTEGER
-                user_type,                          // STRING
-                user_title,                         // STRING
-                can_create_sessions                 // BOOLEAN
-            }
-        ]
-    }
+    id,                                         // INTEGER
+    organizer_id,                               // INTEGER
+    name,                                       // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    logo_img_url,                               // STRING
+    website_url,                                // STRING
+    hosts_can_create_sessions                   // BOOLEAN
+    users: [
+        {
+            id:,                                // INTEGER
+            user_id,                            // INTEGER
+            organization_id,                    // INTEGER
+            user_type,                          // STRING
+            user_title,                         // STRING
+            can_create_sessions                 // BOOLEAN
+        }
+    ]
 }
 ```
 
@@ -249,16 +239,14 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organizer_id,                               // INTEGER
-        name,                                       // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        website_url,                                // STRING
-        logo_img_url,                               // STRING
-        hosts_can_create_sessions                   // BOOLEAN   
-    }
+    id,                                         // INTEGER
+    organizer_id,                               // INTEGER
+    name,                                       // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    website_url,                                // STRING
+    logo_img_url,                               // STRING
+    hosts_can_create_sessions                   // BOOLEAN   
 }
 ```
 
@@ -279,16 +267,14 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organizer_id,                               // INTEGER
-        name,                                       // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        website_url,                                // STRING
-        logo_img_url,                               // STRING
-        hosts_can_create_sessions                   // BOOLEAN   
-    }
+    id,                                         // INTEGER
+    organizer_id,                               // INTEGER
+    name,                                       // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    website_url,                                // STRING
+    logo_img_url,                               // STRING
+    hosts_can_create_sessions                   // BOOLEAN   
 }
 ```
 
@@ -297,7 +283,6 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
         id,                                         // INTEGER
         organizer_id,                               // INTEGER
         name,                                       // STRING
@@ -317,34 +302,32 @@ _This project is currently under construction._
 - Get all organization's users
 - Returning data structure:
 ```
-{
-    data: [
-        {
-            id,                                     // INTEGER
-            user_id,                                // INTEGER
-            organization_id,                        // INTEGER
-            user_type,                              // STRING
-            user_title,                             // STRING
-            can_create_sessions,                    // BOOLEAN
-            first_name,                             // STRING
-            last_name,                              // STRING
-            email,                                  // STRING
-            profile_img_url,                        // STRING
-            short_description,                      // STRING
-            long_description,                       // STRING
-            linkedin_url,                           // STRING
-            website_url,                            // STRING
-            tags: [
-                {
-                    id,                             // INTEGER
-                    user_id,                        // INTEGER
-                    tag_id,                         // INTEGER
-                    tag_name:                       // STRING
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        id,                                     // INTEGER
+        user_id,                                // INTEGER
+        organization_id,                        // INTEGER
+        user_type,                              // STRING
+        user_title,                             // STRING
+        can_create_sessions,                    // BOOLEAN
+        first_name,                             // STRING
+        last_name,                              // STRING
+        email,                                  // STRING
+        profile_img_url,                        // STRING
+        short_description,                      // STRING
+        long_description,                       // STRING
+        linkedin_url,                           // STRING
+        website_url,                            // STRING
+        tags: [
+            {
+                id,                             // INTEGER
+                user_id,                        // INTEGER
+                tag_id,                         // INTEGER
+                tag_name:                       // STRING
+            }
+        ]
+    }
+]
 ```
 
 **GET /api/organizations/:id/users/:uid**
@@ -352,30 +335,28 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        user_id,                                    // INTEGER
-        organization_id,                            // INTEGER
-        user_type,                                  // STRING
-        user_title,                                 // STRING
-        can_create_sessions,                        // BOOLEAN
-        first_name,                                 // STRING
-        last_name,                                  // STRING
-        email,                                      // STRING
-        profile_img_url,                            // STRING
-        short_description,                          // STRING
-        long_description,                           // STRING
-        linkedin_url,                               // STRING
-        website_url,                                // STRING
-        tags: [
-            {
-                id,                                 // INTEGER
-                user_id,                            // INTEGER
-                tag_id,                             // INTEGER
-                tag_name:                           // STRING
-            }
-        ]
-    }
+    id,                                         // INTEGER
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    user_type,                                  // STRING
+    user_title,                                 // STRING
+    can_create_sessions,                        // BOOLEAN
+    first_name,                                 // STRING
+    last_name,                                  // STRING
+    email,                                      // STRING
+    profile_img_url,                            // STRING
+    short_description,                          // STRING
+    long_description,                           // STRING
+    linkedin_url,                               // STRING
+    website_url,                                // STRING
+    tags: [
+        {
+            id,                                 // INTEGER
+            user_id,                            // INTEGER
+            tag_id,                             // INTEGER
+            tag_name:                           // STRING
+        }
+    ]
 }
 ```
 
@@ -395,14 +376,12 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER        
-        user_id,                                    // INTEGER
-        organization_id,                            // INTEGER
-        user_type,                                  // STRING
-        user_title,                                 // STRING
-        can_create_sessions                         // BOOLEAN
-    }
+    id,                                         // INTEGER        
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    user_type,                                  // STRING
+    user_title,                                 // STRING
+    can_create_sessions                         // BOOLEAN
 }
 ```
 
@@ -422,14 +401,12 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER        
-        user_id,                                    // INTEGER
-        organization_id,                            // INTEGER
-        user_type,                                  // STRING
-        user_title,                                 // STRING
-        can_create_sessions                         // BOOLEAN
-    }
+    id,                                         // INTEGER        
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    user_type,                                  // STRING
+    user_title,                                 // STRING
+    can_create_sessions                         // BOOLEAN
 }
 ```
 
@@ -438,14 +415,12 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER        
-        user_id,                                    // INTEGER
-        organization_id,                            // INTEGER
-        user_type,                                  // STRING
-        user_title,                                 // STRING
-        can_create_sessions                         // BOOLEAN
-    }
+    id,                                         // INTEGER        
+    user_id,                                    // INTEGER
+    organization_id,                            // INTEGER
+    user_type,                                  // STRING
+    user_title,                                 // STRING
+    can_create_sessions                         // BOOLEAN
 }
 ```
 
@@ -456,36 +431,34 @@ _This project is currently under construction._
 - Get all sessions with attached meetings
 - Returning data structure:
 ```
-{
-    data: [
-        {
-            id,                                     // INTEGER
-            organization_id,                        // INTEGER
-            organizer_id,                           // INTEGER
-            host_id,                                // INTEGER
-            date,                                   // STRING
-            location,                               // STRING
-            start_time,                             // STRING
-            duration,                               // STRING
-            delay,                                  // STRING
-            meetings: [  
-                {
-                    id,                             // INTEGER
-                    organization_id,                // INTEGER
-                    session_id,                     // INTEGER
-                    host_id,                        // INTEGER
-                    member_id,                      // INTEGER
-                    location,                       // STRING
-                    duration,                       // STRING
-                    delay,                          // STRING
-                    topic_1,                        // STRING
-                    topic_2,                        // STRING
-                    topic_3                         // STRING
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        id,                                     // INTEGER
+        organization_id,                        // INTEGER
+        organizer_id,                           // INTEGER
+        host_id,                                // INTEGER
+        date,                                   // STRING
+        location,                               // STRING
+        start_time,                             // STRING
+        duration,                               // STRING
+        delay,                                  // STRING
+        meetings: [  
+            {
+                id,                             // INTEGER
+                organization_id,                // INTEGER
+                session_id,                     // INTEGER
+                host_id,                        // INTEGER
+                member_id,                      // INTEGER
+                location,                       // STRING
+                duration,                       // STRING
+                delay,                          // STRING
+                topic_1,                        // STRING
+                topic_2,                        // STRING
+                topic_3                         // STRING
+            }
+        ]
+    }
+]
 ```
 
 **GET /api/sessions/:id?org_id=##**
@@ -493,32 +466,30 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        organizer_id,                               // INTEGER
-        host_id,                                    // INTEGER
-        date,                                       // STRING
-        location,                                   // STRING
-        start_time,                                 // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        meetings: [  
-            {
-                id,                                 // INTEGER
-                organization_id,                    // INTEGER
-                session_id,                         // INTEGER
-                host_id,                            // INTEGER
-                member_id,                          // INTEGER
-                location,                           // STRING
-                duration,                           // STRING
-                delay,                              // STRING
-                topic_1,                            // STRING
-                topic_2,                            // STRING
-                topic_3                             // STRING
-            }
-        ]
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    organizer_id,                               // INTEGER
+    host_id,                                    // INTEGER
+    date,                                       // STRING
+    location,                                   // STRING
+    start_time,                                 // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    meetings: [  
+        {
+            id,                                 // INTEGER
+            organization_id,                    // INTEGER
+            session_id,                         // INTEGER
+            host_id,                            // INTEGER
+            member_id,                          // INTEGER
+            location,                           // STRING
+            duration,                           // STRING
+            delay,                              // STRING
+            topic_1,                            // STRING
+            topic_2,                            // STRING
+            topic_3                             // STRING
+        }
+    ]
 }
 ```
 
@@ -539,17 +510,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        organizer_id,                               // INTEGER
-        host_id,                                    // INTEGER
-        date,                                       // STRING
-        location,                                   // STRING
-        start_time,                                 // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    organizer_id,                               // INTEGER
+    host_id,                                    // INTEGER
+    date,                                       // STRING
+    location,                                   // STRING
+    start_time,                                 // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 
@@ -564,17 +533,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        organizer_id,                               // INTEGER
-        host_id,                                    // INTEGER
-        date,                                       // STRING
-        location,                                   // STRING
-        start_time,                                 // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    organizer_id,                               // INTEGER
+    host_id,                                    // INTEGER
+    date,                                       // STRING
+    location,                                   // STRING
+    start_time,                                 // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 
@@ -595,17 +562,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        organizer_id,                               // INTEGER
-        host_id,                                    // INTEGER
-        date,                                       // STRING
-        location,                                   // STRING
-        start_time,                                 // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    organizer_id,                               // INTEGER
+    host_id,                                    // INTEGER
+    date,                                       // STRING
+    location,                                   // STRING
+    start_time,                                 // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 
@@ -614,17 +579,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        organizer_id,                               // INTEGER
-        host_id,                                    // INTEGER
-        date,                                       // STRING
-        location,                                   // STRING
-        start_time,                                 // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    organizer_id,                               // INTEGER
+    host_id,                                    // INTEGER
+    date,                                       // STRING
+    location,                                   // STRING
+    start_time,                                 // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 
@@ -633,17 +596,15 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        organizer_id,                               // INTEGER
-        host_id,                                    // INTEGER
-        date,                                       // STRING
-        location,                                   // STRING
-        start_time,                                 // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    organizer_id,                               // INTEGER
+    host_id,                                    // INTEGER
+    date,                                       // STRING
+    location,                                   // STRING
+    start_time,                                 // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 
@@ -654,23 +615,21 @@ _This project is currently under construction._
 - Get all meetings
 - Returning data structure:
 ```
-{
-    data: [  
-        {
-            id,                                     // INTEGER
-            organization_id,                        // INTEGER
-            session_id,                             // INTEGER
-            host_id,                                // INTEGER
-            member_id,                              // INTEGER
-            location,                               // STRING
-            duration,                               // STRING
-            delay,                                  // STRING
-            topic_1,                                // STRING
-            topic_2,                                // STRING
-            topic_3                                 // STRING
-        }
-    ]
-}
+[  
+    {
+        id,                                     // INTEGER
+        organization_id,                        // INTEGER
+        session_id,                             // INTEGER
+        host_id,                                // INTEGER
+        member_id,                              // INTEGER
+        location,                               // STRING
+        duration,                               // STRING
+        delay,                                  // STRING
+        topic_1,                                // STRING
+        topic_2,                                // STRING
+        topic_3                                 // STRING
+    }
+]
 ```
 
 **GET /api/meetings/:id?org_id=##**
@@ -678,19 +637,17 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        host_id,                                    // INTEGER
-        member_id,                                  // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        topic_1,                                    // STRING
-        topic_2,                                    // STRING
-        topic_3                                     // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    host_id,                                    // INTEGER
+    member_id,                                  // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    topic_1,                                    // STRING
+    topic_2,                                    // STRING
+    topic_3                                     // STRING
 }
 ```
 
@@ -699,31 +656,27 @@ _This project is currently under construction._
     - Required fields in req.body:
 ```
 {
-    data: {
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        host_id,                                    // INTEGER
-        member_id,                                  // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        topic_1,                                    // STRING
-        topic_2,                                    // STRING
-        topic_3                                     // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    host_id,                                    // INTEGER
+    member_id,                                  // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    topic_1,                                    // STRING
+    topic_2,                                    // STRING
+    topic_3                                     // STRING
 }
 ```
 
@@ -739,19 +692,17 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        host_id,                                    // INTEGER
-        member_id,                                  // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        topic_1,                                    // STRING
-        topic_2,                                    // STRING
-        topic_3                                     // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    host_id,                                    // INTEGER
+    member_id,                                  // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    topic_1,                                    // STRING
+    topic_2,                                    // STRING
+    topic_3                                     // STRING
 }
 ```
 
@@ -760,31 +711,27 @@ _This project is currently under construction._
     - At least one(1) of the following fields in body is required:
 ```
 {
-    data: {
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay                                       // STRING
-    }
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay                                       // STRING
 }
 ```
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        host_id,                                    // INTEGER
-        member_id,                                  // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        topic_1,                                    // STRING
-        topic_2,                                    // STRING
-        topic_3                                     // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    host_id,                                    // INTEGER
+    member_id,                                  // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    topic_1,                                    // STRING
+    topic_2,                                    // STRING
+    topic_3                                     // STRING
 }
 ```
 
@@ -793,19 +740,17 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        host_id,                                    // INTEGER
-        member_id,                                  // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        topic_1,                                    // STRING
-        topic_2,                                    // STRING
-        topic_3                                     // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    host_id,                                    // INTEGER
+    member_id,                                  // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    topic_1,                                    // STRING
+    topic_2,                                    // STRING
+    topic_3                                     // STRING
 }
 ```
 
@@ -814,19 +759,17 @@ _This project is currently under construction._
 - Returning data structure:
 ```
 {
-    data: {
-        id,                                         // INTEGER
-        organization_id,                            // INTEGER
-        session_id,                                 // INTEGER
-        host_id,                                    // INTEGER
-        member_id,                                  // INTEGER
-        location,                                   // STRING
-        duration,                                   // STRING
-        delay,                                      // STRING
-        topic_1,                                    // STRING
-        topic_2,                                    // STRING
-        topic_3                                     // STRING
-    }
+    id,                                         // INTEGER
+    organization_id,                            // INTEGER
+    session_id,                                 // INTEGER
+    host_id,                                    // INTEGER
+    member_id,                                  // INTEGER
+    location,                                   // STRING
+    duration,                                   // STRING
+    delay,                                      // STRING
+    topic_1,                                    // STRING
+    topic_2,                                    // STRING
+    topic_3                                     // STRING
 }
 ```
 
@@ -837,12 +780,10 @@ _This project is currently under construction._
 - Get all tags
 - Returning data structure:
 ```
-{
-    data: [
-        {
-            id,                                     // INTEGER
-            tag_name                                // STRING
-        }
-    ]
-}
+[
+    {
+        id,                                     // INTEGER
+        tag_name                                // STRING
+    }
+]
 ```
