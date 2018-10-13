@@ -43,7 +43,19 @@ class OrganizationsController extends Controller {
 					return MeetingsModel.index(organization.id, session.id)
 						.then((meetings) => {
 							session.meetings = meetings
-							return session
+							let meetingPromises = session.meetings.map((meeting) => {
+								if (meeting.host_id !== null) {
+									return UsersModel.show(meeting.host_id)
+									.then((host) => {
+										meeting.host = host
+										return meeting
+									})
+								} else {
+									meeting.host = {}
+									return meeting
+								}
+							})
+							return Promise.all(meetingPromises)
 						})
 				})
 				return Promise.all(sessionPromises)
