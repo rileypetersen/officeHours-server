@@ -1,5 +1,5 @@
 const Controller = require('./Controller.js')(`Organizations`);
-const { UsersModel, OrganizationsModel } = require('../models');
+const { UsersModel, OrganizationsModel, MeetingsModel, SessionsModel } = require('../models');
 const validate = require('../middleware/validations');
 const Token = require('../middleware/token');
 const bcrypt = require('bcryptjs');
@@ -36,7 +36,21 @@ class OrganizationsController extends Controller {
 		OrganizationsModel.show(req.params.id)
 			.then(org => {
 				organization = org
-				return OrganizationsModel.indexOrgUsers(org.id)
+				return SessionsModel.index(organization.id)
+			})
+			.then(sessions => {
+				let sessionPromises = sessions.map((session) => {
+					return MeetingsModel.index(organization.id, session.id)
+						.then((meetings) => {
+							session.meetings = meetings
+							return session
+						})
+				})
+				return Promise.all(sessionPromises)
+			})
+			.then(sessions => {
+				organization.sessions = sessions
+				return OrganizationsModel.indexOrgUsers(organization.id)
 			})
 			.then((users) => {
 				organization.users = users
