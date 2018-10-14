@@ -10,7 +10,7 @@ exports.seed = (knex, Promise) => {
           last_name: 'Ellingson',
           email: 'nick.ellingson@email.email',
           hashed_password: `${bcrypt.hashSync('test')}`,
-          profile_img_url: 'https://media.licdn.com/dms/image/C4D03AQEIVGkLqZ627A/profile-displayphoto-shrink_800_800/0?e=1539216000&v=beta&t=cVYJrsy9OeOWLFyEf0qT3e3MEyj8g3MoQmG9xs8Aj40',
+          profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Sunglasses&facialHairType=BeardMedium&facialHairColor=Red&clotheType=BlazerSweater&eyeType=Dizzy&eyebrowType=Default&mouthType=Default&skinColor=Brown',
           short_description: 'Sed molestias ea. Perspiciatis dicta velit quidem ut ad qui eveniet voluptatem hic. Est repellendus sunt et magni.',
           long_description: 'Unde non dolorum quae eum molestias eos reiciendis et. Quis blanditiis necessitatibus ut doloremque eius. Ex necessitatibus cum nemo veniam omnis tempore voluptatem. Velit consequatur quia ducimus eum voluptatem voluptas dolor. Et voluptas quos excepturi ut eos.',
           linkedin_url: 'www.linkedin.com/in/nickellingson',
