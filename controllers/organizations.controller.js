@@ -40,11 +40,11 @@ class OrganizationsController extends Controller {
 			})
 			.then(sessions => {
 				organization.sessions = sessions
-				let sessionPromises = organization.sessions.map((session) => {
+				return Promise.all(organization.sessions.map((session) => {
 					return MeetingsModel.index(organization.id, session.id)
 						.then((meetings) => {
 							session.meetings = meetings
-							let meetingPromises = session.meetings.map((meeting) => {
+							return Promise.all(session.meetings.map((meeting) => {
 								if (meeting.host_id !== null) {
 									return UsersModel.verifyUserId(meeting.host_id)
 									.then((host) => {
@@ -55,11 +55,9 @@ class OrganizationsController extends Controller {
 									meeting.host = {}
 									return meeting
 								}
-							})
-							return Promise.all(meetingPromises)
+							}))
 						})
-				})
-				return Promise.all(sessionPromises)
+				}))
 			})
 			.then(() => OrganizationsModel.indexOrgUsers(organization.id))
 			.then((users) => {
