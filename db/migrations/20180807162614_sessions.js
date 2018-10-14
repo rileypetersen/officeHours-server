@@ -11,7 +11,6 @@ exports.up = function(knex, Promise) {
     table.text('location').defaultTo('...');
     table.string('start_time').notNullable();
     table.string('duration').defaultTo('');
-    table.string('delay').defaultTo('');
   });
 };
 
