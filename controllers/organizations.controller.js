@@ -39,13 +39,14 @@ class OrganizationsController extends Controller {
 				return SessionsModel.index(organization.id)
 			})
 			.then(sessions => {
-				let sessionPromises = sessions.map((session) => {
+				organization.sessions = sessions
+				let sessionPromises = organization.sessions.map((session) => {
 					return MeetingsModel.index(organization.id, session.id)
 						.then((meetings) => {
 							session.meetings = meetings
 							let meetingPromises = session.meetings.map((meeting) => {
 								if (meeting.host_id !== null) {
-									return UsersModel.show(meeting.host_id)
+									return UsersModel.verifyUserId(meeting.host_id)
 									.then((host) => {
 										meeting.host = host
 										return meeting
@@ -60,10 +61,7 @@ class OrganizationsController extends Controller {
 				})
 				return Promise.all(sessionPromises)
 			})
-			.then(sessions => {
-				organization.sessions = sessions
-				return OrganizationsModel.indexOrgUsers(organization.id)
-			})
+			.then(() => OrganizationsModel.indexOrgUsers(organization.id))
 			.then((users) => {
 				organization.users = users
 				res.status(201).json(organization)
