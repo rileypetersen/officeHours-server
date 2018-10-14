@@ -26,7 +26,10 @@ class MeetingsController extends Controller {
 		validate.meetingCreate(req.body, parseInt(req.query.org_id))
 			.then(() => OrganizationsModel.show(req.body.organization_id))
 			.then(() => SessionsModel.show(req.query.org_id, req.body.session_id))
-			.then(() => next())
+			.then(session => {
+				if (!session.host_id) throw new Error('noHost')
+				next()
+			})
 			.catch(err => next(err));
 	};
 
