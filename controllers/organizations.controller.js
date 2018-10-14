@@ -1,8 +1,6 @@
 const Controller = require('./Controller.js')(`Organizations`);
 const { UsersModel, OrganizationsModel, MeetingsModel, SessionsModel } = require('../models');
 const validate = require('../middleware/validations');
-const Token = require('../middleware/token');
-const bcrypt = require('bcryptjs');
 
 
 class OrganizationsController extends Controller {
@@ -42,19 +40,15 @@ class OrganizationsController extends Controller {
 				organization.sessions = sessions
 				return Promise.all(organization.sessions.map((session) => {
 					return MeetingsModel.index(organization.id, session.id)
-						.then((meetings) => {
+						.then(meetings => {
 							session.meetings = meetings
 							return Promise.all(session.meetings.map((meeting) => {
-								if (meeting.host_id !== null) {
-									return UsersModel.verifyUserId(meeting.host_id)
-									.then((host) => {
-										meeting.host = host
+								return UsersModel.getUserById(meeting.member_id)
+									.then(member => {
+										meeting.member = member || {}
+										if (meeting.member.hashed_password !== undefined) delete meeting.member.hashed_password
 										return meeting
 									})
-								} else {
-									meeting.host = {}
-									return meeting
-								}
 							}))
 						})
 				}))
