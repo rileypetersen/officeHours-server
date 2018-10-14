@@ -20,6 +20,12 @@ class UsersModel extends Model {
 			})
 	};
 
+	static getUserById(id) {
+		return knex('users')
+			.where({ id })
+			.first()
+	};
+
 	static getUserByUserEmail(email) {
 		return knex('users')
 			.where({ email })

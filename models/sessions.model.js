@@ -10,6 +10,19 @@ class SessionsModel extends Model {
 	static index(organization_id) {
 		return knex('sessions')
 			.where({ organization_id })
+			.then(sessions => {
+				let promises = sessions.map(session => {
+					return knex('users')
+						.where({ id: session.host_id })
+						.first()
+						.then(host => {
+							session.host = host || {}
+							if (session.host.hashed_password !== undefined) delete session.host.hashed_password
+							return session
+						})
+				})
+				return Promise.all(promises)
+			})
 	};
 
 	static show(organization_id, id) {
