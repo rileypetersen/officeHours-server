@@ -68,20 +68,19 @@ async function orgUpdate(body) {
     return true;
 };
 
-async function sessionCreate({ user_id, organization_id, date, start_time, location, duration, delay }, queryOrgId) {
+async function sessionCreate({ user_id, organization_id, date, start_time, location, duration }, queryOrgId) {
     if (!user_id || typeof user_id !== 'number') throw new Error('badSessionUserId');
     if (!organization_id || typeof organization_id !== 'number' || organization_id !== queryOrgId) throw new Error('badSessionOrganizationId');
     if (!date || typeof date !== 'string' || !moment(date).isValid()) throw new Error('badSessionDate');
     if (!start_time || typeof start_time !== 'string' || !moment(start_time).isValid()) throw new Error('badSessionStartTime');
     if (!location || typeof location !== 'string') throw new Error('badSessionLocation');
     if (!duration || typeof duration !== 'string') throw new Error('badSessionDuration');
-    if (!delay || typeof delay !== 'string') throw new Error('badSessionDelay');
     return true;
 };
 
 async function sessionUpdate(body) {
-    const { user_id, organization_id, date, start_time, location, duration, delay } = body
-    if ( !user_id && !organization_id && !date && !start_time && !location && !duration && !delay) throw new Error('aFieldRequiredSession');
+    const { user_id, organization_id, date, start_time, location, duration } = body
+    if (!user_id && !organization_id && !date && !start_time && !location && !duration) throw new Error('aFieldRequiredSession');
     return true;
 };
 
