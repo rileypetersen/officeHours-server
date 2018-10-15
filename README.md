@@ -61,13 +61,11 @@ _This project is currently under construction._
                     location,                   // STRING
                     start_time,                 // STRING
                     duration,                   // STRING
-                    delay,                      // STRING
                     meetings: [
                         {
                             id,                 // INTEGER
                             organization_id,    // INTEGER
                             session_id,         // INTEGER
-                            host_id,            // INTEGER
                             member_id,          // INTEGER
                             location,           // STRING
                             duration,           // STRING
@@ -441,13 +439,11 @@ _This project is currently under construction._
         location,                               // STRING
         start_time,                             // STRING
         duration,                               // STRING
-        delay,                                  // STRING
         meetings: [  
             {
                 id,                             // INTEGER
                 organization_id,                // INTEGER
                 session_id,                     // INTEGER
-                host_id,                        // INTEGER
                 member_id,                      // INTEGER
                 location,                       // STRING
                 duration,                       // STRING
@@ -474,13 +470,11 @@ _This project is currently under construction._
     location,                                   // STRING
     start_time,                                 // STRING
     duration,                                   // STRING
-    delay,                                      // STRING
     meetings: [  
         {
             id,                                 // INTEGER
             organization_id,                    // INTEGER
             session_id,                         // INTEGER
-            host_id,                            // INTEGER
             member_id,                          // INTEGER
             location,                           // STRING
             duration,                           // STRING
@@ -517,8 +511,7 @@ _This project is currently under construction._
     date,                                       // STRING
     location,                                   // STRING
     start_time,                                 // STRING
-    duration,                                   // STRING
-    delay                                       // STRING
+    duration                                    // STRING
 }
 ```
 
@@ -540,8 +533,7 @@ _This project is currently under construction._
     date,                                       // STRING
     location,                                   // STRING
     start_time,                                 // STRING
-    duration,                                   // STRING
-    delay                                       // STRING
+    duration                                    // STRING
 }
 ```
 
@@ -555,8 +547,7 @@ _This project is currently under construction._
     date,                                       // STRING
     start_time,                                 // STRING
     location,                                   // STRING
-    duration,                                   // STRING
-    delay                                       // STRING
+    duration                                    // STRING
 }
 ```
 - Returning data structure:
@@ -569,8 +560,7 @@ _This project is currently under construction._
     date,                                       // STRING
     location,                                   // STRING
     start_time,                                 // STRING
-    duration,                                   // STRING
-    delay                                       // STRING
+    duration                                    // STRING
 }
 ```
 
@@ -586,8 +576,7 @@ _This project is currently under construction._
     date,                                       // STRING
     location,                                   // STRING
     start_time,                                 // STRING
-    duration,                                   // STRING
-    delay                                       // STRING
+    duration                                    // STRING
 }
 ```
 
@@ -603,8 +592,7 @@ _This project is currently under construction._
     date,                                       // STRING
     location,                                   // STRING
     start_time,                                 // STRING
-    duration,                                   // STRING
-    delay                                       // STRING
+    duration                                    // STRING
 }
 ```
 
@@ -620,7 +608,6 @@ _This project is currently under construction._
         id,                                     // INTEGER
         organization_id,                        // INTEGER
         session_id,                             // INTEGER
-        host_id,                                // INTEGER
         member_id,                              // INTEGER
         location,                               // STRING
         duration,                               // STRING
@@ -640,7 +627,6 @@ _This project is currently under construction._
     id,                                         // INTEGER
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
-    host_id,                                    // INTEGER
     member_id,                                  // INTEGER
     location,                                   // STRING
     duration,                                   // STRING
@@ -659,7 +645,7 @@ _This project is currently under construction._
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
     location,                                   // STRING
-    duration,                                   // STRING
+    duration,                                   // STRIN
     delay                                       // STRING
 }
 ```
@@ -669,7 +655,6 @@ _This project is currently under construction._
     id,                                         // INTEGER
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
-    host_id,                                    // INTEGER
     member_id,                                  // INTEGER
     location,                                   // STRING
     duration,                                   // STRING
@@ -695,7 +680,6 @@ _This project is currently under construction._
     id,                                         // INTEGER
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
-    host_id,                                    // INTEGER
     member_id,                                  // INTEGER
     location,                                   // STRING
     duration,                                   // STRING
@@ -724,7 +708,6 @@ _This project is currently under construction._
     id,                                         // INTEGER
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
-    host_id,                                    // INTEGER
     member_id,                                  // INTEGER
     location,                                   // STRING
     duration,                                   // STRING
@@ -743,7 +726,6 @@ _This project is currently under construction._
     id,                                         // INTEGER
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
-    host_id,                                    // INTEGER
     member_id,                                  // INTEGER
     location,                                   // STRING
     duration,                                   // STRING
@@ -762,7 +744,6 @@ _This project is currently under construction._
     id,                                         // INTEGER
     organization_id,                            // INTEGER
     session_id,                                 // INTEGER
-    host_id,                                    // INTEGER
     member_id,                                  // INTEGER
     location,                                   // STRING
     duration,                                   // STRING
